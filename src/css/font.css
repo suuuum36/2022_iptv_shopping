@@ -1,0 +1,11 @@
+@charset "utf-8";
+
+@font-face {
+    font-family: 'Yoon Gothic 750';
+    src: url('../font/OTE_YOONGOTHICPRO750.OTF');
+}
+
+@font-face {
+    font-family: 'Yoon Gothic 770';
+    src: url('../font/OTE_YOONGOTHICPRO770.OTF');
+}

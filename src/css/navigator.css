@@ -1,0 +1,45 @@
+.menu_navigator {
+    width: 100%;
+    height: 152px;
+    background: #080D19;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.left_gnb {
+    display: flex;
+    gap: 40px;
+}
+
+.navigator_left_btn {
+    width: 104px;
+    height: 104px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.navigator_btn > img {
+    width: 100%;
+    height: 100%;
+}
+
+.section_line {
+    width: 2px;
+    background: #777777;
+    border-radius: 3px;
+}
+
+.right_gnb {
+    display: flex;
+}
+
+.navigator_right_btn {
+    font-family: 'Yoon Gothic 750';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 32px;
+    color: #777777;
+    padding: 24px 32px;
+}
