@@ -1,6 +1,7 @@
 import './css/navigator.css';
 import ImgMenu from './img/nav/ic_menu.svg';
 import ImgSearch from './img/nav/ic_search.svg';
+import ImgNavBtn1 from './img/nav/ic_nav_btn_1.svg';
 
 function FunctionButton (props) {
     return (
@@ -10,10 +11,11 @@ function FunctionButton (props) {
     );
 }
 
-function LabelButton (props) {
+function LabelButton ({label, imgUrl, focus}) {
   return (
-    <div className='navigator_right_btn'>
-      {props.label}
+    <div className={`navigator_right_btn ${focus ? `${focus}` : ''}`}>
+      {imgUrl ? <img src={imgUrl} alt={label}/> : null}
+      <p>{label}</p>
     </div>
   );
 }
@@ -24,6 +26,14 @@ function SectionLine (props) {
   )
 }
 
+const labelArray = [
+  {id:1, name: '지금하는 방송', img:ImgNavBtn1},
+  {id:2, name: '베스트'},
+  {id:3, name: 'U+ 추천'},
+  {id:4, name: '홈쇼핑 편성표', focus:'active'},
+  {id:5, name: '편성메뉴'}
+];
+
 function Navigator (props) {
   return (
     <section className='menu_navigator'>
@@ -33,11 +43,7 @@ function Navigator (props) {
       </div>
       <SectionLine height='60px'/>
       <div className='right_gnb'>
-        <LabelButton label='지금하는 방송' />
-        <LabelButton label='베스트' />
-        <LabelButton label='U+ 추천' />
-        <LabelButton label='홈쇼핑 편성표' />
-        <LabelButton label='편성메뉴' />
+        {labelArray.map(label=>(<LabelButton key={label.id} label={label.name} imgUrl={label.img} focus={label.focus}/>))}
       </div>  
     </section>
   );

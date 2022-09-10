@@ -3,13 +3,15 @@
     height: 152px;
     background: #080D19;
     display: flex;
-    justify-content: space-around;
     align-items: center;
 }
 
 .left_gnb {
     display: flex;
     gap: 40px;
+    width: 390px;
+    padding: 0px 40px;
+    justify-content: center;
 }
 
 .navigator_left_btn {
@@ -32,7 +34,11 @@
 }
 
 .right_gnb {
+    flex: 1;
     display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 0px 40px;
 }
 
 .navigator_right_btn {
@@ -42,4 +48,15 @@
     font-size: 32px;
     color: #777777;
     padding: 24px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+}
+
+.navigator_right_btn.active {
+    background: #EEEEEE;
+    border-radius: 45.5px;
+    color: #111424;
+    height: 43px;
 }
