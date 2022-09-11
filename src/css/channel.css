@@ -2,6 +2,20 @@
     --date-height : 928px;
     --date-width : 178px; 
 }
+
+.red {
+    color : #FA2828;
+}
+
+.number {
+    font-size: 32px;
+    font-family: 'Roboto Medium' !important;
+}
+
+.yoon_bold {
+    font-family: 'Yoon Gothic 770';
+}
+
 .channel_wrapper {
     display: flex;
 }
@@ -44,16 +58,8 @@
     border-radius: 8px;
 }
 
-.date_focus_wrapper.active p {
-    font-weight: 500;
-}
-
 .date_focus_wrapper.focus {
     color: #EEEEEE;
-}
-
-.date_focus_wrapper.foucs p {
-    font-weight: 500;
 }
 
 .focus_line {
@@ -70,8 +76,17 @@
     font-size: 34px;
 }
 
-.date_text + span {
-    font-size: 28px;
+.date_text span {
+    font-family: 'Roboto Regular';
+    font-size: 38px;
+}
+
+.date_text.focus,.date_text.active {
+    font-family: 'Yoon Gothic 770';
+}
+
+.date_text.focus span,.date_text.active span{
+    font-family: 'Roboto Medium';
 }
 
 .date_line {
@@ -100,6 +115,9 @@
     height: max-content;
     box-sizing: border-box;
     overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+    gap: 46px;
 }
 
 .logo_wrapper {
@@ -115,15 +133,9 @@
 }
 
 /*상품 정보 카드*/
-.red {
-    color : #FA2828;
-}
-
-.number {
-    font-size: 36px;
-}
-
 .product_wrapper {
+    width: 598px;
+    height: 220px;
     display: flex;
     gap: 30px;
 }
@@ -132,7 +144,6 @@
     position: relative;
     height: 220px;
     width: 220px;
-    border-radius: 8px;
     align-items: center;
     justify-content: center;
 }
@@ -140,6 +151,7 @@
 .product_img > img {
     width: 100%;
     height: 100%;
+    border-radius: 8px;
 }
 
 .product_info {
@@ -148,12 +160,27 @@
     gap: 10px;
 }
 
+.product_time {
+    font-family: 'Yoon Gothic 770';
+    font-size: 26px;
+    color: #EEEEEE;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.product_time span {
+    display: flex;
+    align-items: self-start;
+}
+
 .product_name {
+    max-width: 318px;
+    word-break: keep-all;
     font-weight: 400;
     font-size: 26px;
     color: #777777;
-    max-width: 318px;
-    word-break: keep-all;
+    line-height: 38px;
 }
 
 /*라이브 방송 타이틀*/
@@ -169,7 +196,7 @@
     border-radius: 18px;
     background: #FA2828;
     border-radius: 18px;
-    font-weight: 500;
+    font-family: 'Yoon Gothic 770';
     font-size: 20px;
     color: #EEEEEE;
     display: flex;
@@ -178,11 +205,16 @@
 }
 
 .live_text {
-    font-weight: 500;
     font-size: 26px;
     color: #D6D6D6;
     display: flex;
     align-items: center;
+    gap: 6px;
+}
+
+.live_text span {
+    display: flex;
+    align-items: self-start;
 }
 
 /*관심상품 버튼*/
@@ -200,7 +232,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    font-weight: 500;
+    font-family: 'Yoon Gothic 770';
     font-size: 22px;
     color: #EEEEEE;
     gap: 10px;

@@ -5,14 +5,15 @@ import channel_logo_2 from './img/channel/logo_2.png';
 import channel_logo_3 from './img/channel/logo_3.png';
 import favorite_btn from './img/channel/favorite.svg';
 import bell_btn from './img/channel/bell.svg';
-import product_1 from './img/channel/product_1.png';
 
 function DateNavigator ({day, date, line, focus}) {
   return (
     <div className='date_wrapper'>
       <div className={`date_focus_wrapper ${focus ? `${focus}`: ''}`}>
         <p>{day}</p>
-        <p className='date_text'><span>{date}</span> 일</p>
+        <p className={`date_text ${focus ? `${focus}`: ''}`}>
+          <span>{date}</span>일
+        </p>
         {focus=='focus' ? <div className='focus_line'></div> : null}
       </div>
       {line ? <div className='date_line'></div> : null}
@@ -37,7 +38,7 @@ const ReserveButton = (
 function CompanyLogo ({url}) {
   return (
     <div className='logo_wrapper'>
-      <img src={url} />
+      <img src={url}/>
     </div>
   );
 }
@@ -45,12 +46,16 @@ function CompanyLogo ({url}) {
 function LiveTitle ({time}) {
   return (
     <div className='live_title'>
-      <div className='live_label'>방송중</div>
-      <div className='live_text'>
-        방송종료
-        <span className='number red'>{time}</span>
-        <span className='red'>분 전</span>
-        </div>
+      <div className='live_label'>
+        <span className='yoon_bold'>방송중</span>
+      </div>
+      <div className='live_text yoon_bold'>
+        <span>방송 종료</span>
+        <span className='red'>
+          <span className='number'>{time}</span>
+          <span>분 전</span>
+        </span>
+      </div>
     </div>
   );
 }
@@ -64,10 +69,14 @@ function ProductCard({url, live, live_time, time_1, time_2, name, favorite, rese
       </div>
       <div className='product_info'>
         {live ? <LiveTitle time={live_time}/> : (
-        <p>
-          오전 
-          <span className='number'>{time_1}</span>시
-          <span className='number'>{time_2}</span>분
+        <p className='product_time'>
+          <span>오전</span>
+          <span>
+            <span className='number'>{time_1}</span>시
+          </span>
+          <span>
+            <span className='number'>{time_2}</span>분
+          </span>
         </p>
         )}
         <p className='product_name'>{name}</p>
@@ -92,12 +101,9 @@ const logoArray = [
 ]
 
 const prodcutArray = [
-  {url: product_1, live: true, live_time : 20, name : '네이더스 베이직 스트라이프 S/S 티셔츠 네이비 시…', favorite: true},
-  {url: product_1, name : '네이더스 베이직 스트라이프 S/S 티셔츠 네이비 시…'},
-  {url: product_1, live: true, live_time : 20, name : '네이더스 베이직 스트라이프 S/S 티셔츠 네이비 시…', favorite: true},
-  {url: product_1, live: true, live_time : 20, name : '네이더스 베이직 스트라이프 S/S 티셔츠 네이비 시…', favorite: true},
-  {url: product_1, live: true, live_time : 20, name : '네이더스 베이직 스트라이프 S/S 티셔츠 네이비 시…', favorite: true},
-  {url: product_1, live: true, live_time : 20, name : '네이더스 베이직 스트라이프 S/S 티셔츠 네이비 시…', favorite: true}
+  {url: require('./img/channel/product_1.png'), live: true, live_time : 20, name : '네이더스 베이직 스트라이프 S/S 티셔츠 네이비 시…', favorite: true},
+  {url: require('./img/channel/product_2.png'), time_1: 10, time_2: 30, name : '블랭코브 나일론 백팩 DAYPACK 26 올리브 그…'},
+  {url: require('./img/channel/product_3.png'), time_1: 11, time_2: 45, name : '소니 All New Design 노이즈캔슬링 헤드폰(WH…'},
 ]
 
 function Channel() {
