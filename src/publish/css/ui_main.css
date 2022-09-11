@@ -5,14 +5,21 @@ body {
 
 article {
     display: none;
+    width: 100%;
+    height: 100%;
 }
 
 section {
     width: 100%;
     height: 100%;
 }
+
+
 body[data-page="now_play"]>article.now_play {display: block;}
-body[data-page="detail"]>article.detail {display: flex;}
+
+body[data-page="popup"]>article.popup,
+body[data-page="detail"]>article.detail 
+{display: flex;}
 
 /* now_play */
 
@@ -505,7 +512,6 @@ article.detail {
     flex-shrink: 0;
 }
 
-
 .module_info_etc>span:nth-of-type(1) {
     font-family: 'Yoon Gothic 700';
     font-style: normal;
@@ -523,12 +529,17 @@ article.detail {
     font-size: 22px;
     line-height: 28px;
     letter-spacing: -0.0916667px;
-    color: #A9A9A9;    
+    color: #A9A9A9;   
+    padding-left: 10px; 
 }
 
 .detail .content {
     display: flex;
     align-items: center;
+}
+
+.detail .module_info {
+    width: 940px;
 }
 
 .module_info .product{
@@ -546,10 +557,63 @@ article.detail {
 .detail .set_info {
     height: auto;
     padding: 0;
+    padding-left: 32px;
+}
+
+.detail .set_info>.top>.badge_left {
+    width: 83px;
+    height: 36px;
+    border-radius: 18px;
+}
+
+.detail .set_info>.top>.badge_left>span {
+    font-family: 'Yoon Gothic 700';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 27px;
+    letter-spacing: -0.0909091px;
+    color: #EEEEEE;    
+}
+
+.detail .set_info>.top>.text_1 {
+    padding-left: 8px;
+    gap: 5px;
+}
+
+.detail .set_info>.top>.text_1>span {
+    font-family: 'Yoon Gothic 700';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 36px;
+    letter-spacing: -0.3px;
+    color: #D6D6D6;
+}
+
+.detail .set_info>.top>.text_1>span:nth-of-type(2) {
+    color: #D6D6D6;
+}
+
+.detail .set_info>.top>.text_1>span:nth-of-type(2)>.num {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 27px;
+    line-height: 32px;
+    /* identical to box height, or 119% */
+
+    letter-spacing: -0.3px;
+
+    color: #D6D6D6;
 }
 
 .detail .set_info>.middle {
     padding-top: 12px;
+}
+
+.detail .set_info>.middle>.logo {
+    height: 32px;
 }
 
 .detail .set_info>.middle>.text_item {
@@ -599,3 +663,362 @@ article.detail {
     letter-spacing: -0.22px;
     color: #EEEEEE;    
 }
+
+.detail .set_info>.middle>.module_text_price>span:nth-of-type(3) {
+    font-family: 'Yoon Gothic 700';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 26px;
+    line-height: 36px;
+    text-decoration-line: line-through;
+    color: #777777;    
+    padding-left: 12px;
+}
+
+.detail .set_info>.bottom {
+    padding-top: 9px;
+}
+
+.detail .set_info>.bottom>.tag {
+    border: 2px solid #EF3484;
+    border-radius: 4px;
+    padding: 6px 10px;
+}
+
+.detail .set_info>.bottom>.tag>span {
+    font-family: 'Yoon Gothic 700';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 27px;
+    letter-spacing: 1px;
+    color: #EF3484;    
+}
+
+.detail .etc {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    padding-top: 22px;
+}
+
+.module_info_etc:nth-of-type(4) {
+    grid-column: 1/3;
+}
+
+.detail .module_info .terms_img {
+    padding-top: 40px;
+}
+
+.detail .module_info .terms_img>img,
+.detail .module_info .terms_img {
+    width: 100%;
+}
+
+.detail .module_detail_buttons {
+    padding-top: 55px;
+}
+
+.detail .module_detail_buttons .set_info {
+    padding: 0;
+    width: 100%;
+}
+
+.detail .module_detail_buttons .set_info>.bottom {
+    padding: 0;
+}
+
+.detail .set_info>.bottom>div.button {
+    position: relative;
+    gap: 10px;
+    width: 280px;
+}
+
+.detail .set_info>.bottom>div.button:nth-of-type(3) {
+    width: 360px;
+}
+
+.detail .set_info>.bottom>div.button>.icon {
+    width: 34px;
+    height: 34px;
+}
+
+.detail .set_info>.bottom>div.button.active {
+    height: 98px;
+}
+
+.detail .set_info>.bottom>div.button.active>span {
+    font-family: 'Yoon Gothic 700';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 34px;
+    line-height: 45px;
+    color: #080D19;
+}
+
+.detail .set_info>.bottom>div.button>p {
+    position: absolute;
+    bottom: 0;
+    transform: translateY(100%);
+    font-family: 'Yoon Gothic 700';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 28px;
+    color: #EEEEEE;
+    width: 500px;
+    padding-top: 10px;
+    opacity: 0;
+}
+
+.detail .set_info>.bottom>div.button.active>p {
+    opacity: 1;
+}
+
+.detail .set_info>.bottom>div.button:nth-of-type(1)>p {
+    left: 0;
+    width: 500px;
+    text-align: left;
+}
+
+.detail .set_info>.bottom>div.button:nth-of-type(2)>p {
+    left: 50%;
+    width: 500px;
+    text-align: center;
+    transform: translate(-50%, 100%);
+}
+
+.detail .set_info>.bottom>div.button>p>span {
+    color:rgba(239, 52, 132, 1);
+}
+
+.detail .set_info>.bottom>div.button:nth-of-type(3)>p {
+    right: 0;
+    width: 600px;
+    text-align: right;
+}
+
+.detail .content__right {
+    padding-left: 48px;
+    display: flex;
+    flex-direction: column;
+}
+
+.detail .content__right>.top {
+    display: flex;
+    align-items: flex-end;
+    gap: 12px;
+}
+
+.detail .content__right .banner {
+    width: 400px;
+}
+
+.detail .content__right .banner>img {
+    width: 100%;
+}
+
+.detail .content__right .btn_top {
+    width: 72px;
+}
+
+.detail .content__right .btn_top>img {
+    width: 100%;
+}
+
+.detail .content__right>.bottom {
+    position: relative;   
+}
+
+.detail .content__right>.bottom>p {
+    padding-top: 16px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    transform: translateY(100%);
+    font-family: 'Yoon Gothic 700';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 24px;
+    color: #777777;    
+}
+
+/* popup */
+article.popup {
+    background: #080D19;
+}
+
+
+article.popup>section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.wrapper_popup {
+    width: 750px;
+    background: #EEEEEE;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+}
+
+.wrapper_popup>.title {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding: 24px 40px;
+}
+
+.wrapper_popup>.title>span {
+    font-family: 'Yoon Gothic 700';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 32px;
+    line-height: 43px;
+    text-align: center;
+    color: #353539;    
+}
+
+.wrapper_popup>hr {
+    border: 0;
+    background: #B7B5BD;
+    opacity: 0.3;
+    height: 2px;
+    width: 100%;
+}
+
+.wrapper_popup>.text_1 {
+    font-family: 'Yoon Gothic 700';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 28px;
+    line-height: 35px;
+    color: #353539;    
+    padding-top: 52px;
+}
+
+.wrapper_popup>.module_input {
+    padding-top: 43px;
+    display: flex;
+    align-items: center;
+}
+
+.wrapper_popup .input_text>input {
+    width: 480px;
+    height: 84px;
+    text-align: center;
+    background: #EEEEEE;
+    border: 3px solid #D6D6D6;
+    border-radius: 8px;
+    box-sizing: border-box;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 38px;
+    line-height: 45px;
+    text-align: center;
+    color: #353539;
+    padding: 20px 0 26px;
+}
+
+.wrapper_popup .input_text.active>input {
+    background: #EEEEEE;
+    border: 6px solid #EF3484;
+    border-radius: 8px;
+}
+
+.wrapper_popup .input_text>input::placeholder {
+    font-family: 'Yoon Gothic 700';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 38px;
+    text-align: center;
+    color: #A9A9A9;
+}
+
+.wrapper_popup .input_checkbox {
+    padding-left: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.wrapper_popup .input_checkbox>input {
+    display: none;
+}
+
+.wrapper_popup .input_checkbox>label.box {
+    width: 30px;
+    height: 30px;
+    background: #EEEEEE;
+    border: 2px solid #A9A9A9;
+    border-radius: 4px;
+}
+
+.wrapper_popup .input_checkbox.active>label.box {
+    background: #EEEEEE;
+    border: 6px solid #EF3484;
+    border-radius: 4px;    
+}
+
+.wrapper_popup .input_checkbox>label.text {
+    font-family: 'Yoon Gothic 700';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 26px;
+    line-height: 56px;
+    color: #353539;    
+    margin-left: 10px;
+    text-align: center;
+    width: 126px;
+    height: 56px;
+}
+
+.wrapper_popup .input_checkbox.active>label.text {
+    background: #EF3484;
+    color: #EEEEEE;
+}
+
+.wrapper_popup .module_buttons {
+    background: #DDDDDD;
+    margin-top: 52px;
+    height: 102px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.wrapper_popup .module_buttons>button {
+    width: 50%;
+    font-family: 'Yoon Gothic 700';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 34px;
+    line-height: 45px;
+    text-align: center;
+    color: #080D19;
+    height: 100%;
+}
+
+.wrapper_popup .module_buttons>button.active {
+    background: #EF3484;
+    color: #EEEEEE; 
+}
+
+.wrapper_popup .module_buttons>hr {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 4px;
+    height: 60px;
+    background: #777777;
+    opacity: 0.2;
+    border-radius: 2px;
+    z-index: 10;
+}
+
+

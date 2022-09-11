@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="./../publish/css/ui_main.css">
     <title>Document</title>
 </head>
-<body data-page="now_play">
+<body data-page="popup">
     <article class="now_play">
         <section>
             <div class="gnb">
@@ -243,22 +243,23 @@
                                         <span>방송종료</span>
                                         <span><span class="num">30</span>분 전</span>
                                     </div>
-                                    <div class="badge_right">
-                                        <img src="./media/badge_reservation.png" alt="">
-                                    </div>
                                 </div>
                                 <div class="middle">
                                     <div class="logo">
-                                        <img src="./media/logo_gs_shop_1.png" alt="">
+                                        <img src="./media/logo_gs_shop_2.png" alt="">
                                     </div>
                                     <div class="text_item">
                                         <p>바이브랩 5분 솔루션 울트라 프로틴 리페어 헤어팩 3종 세트 1+1</p>
                                     </div>
                                     <div class="module_text_price">
-                                        <span>50%</span><span><span>29,900</span>원</span><span></span> 
+                                        <span>50%</span><span><span>29,900</span>원</span><span>60,000원</span> 
                                     </div>
                                 </div>
-                                
+                                <div class="bottom">
+                                    <div class="tag">
+                                        <span>지난방송 매진</span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <div class="etc">
@@ -284,41 +285,89 @@
                             </div>
                         </div>
                         <div class="terms_img">
-                            <!-- <img src="./media/img_terms_1.png" alt=""> -->
+                            <img src="./media/img_terms_1.png" alt="">
                         </div>
                     </div>
                     <div class="module_detail_buttons">
                         <div class="set_info">
                             <div class="bottom">
+                                <div class="button ">
+                                    <div class="icon">
+                                        <img src="./media/ic_popup_close_nor.png" alt="" class="nor">
+                                        <img src="./media/ic_popup_close_foc.png" alt="" class="foc">
+                                    </div>
+                                    <span>닫기</span>
+                                    <p>
+                                        해당 상품화면을 닫고 이전화면으로 돌아갑니다.
+                                    </p>
+                                </div>
+                                <div class="button ">
+                                    <div class="icon">
+                                        <img src="./media/ic_popup_reserve_nor.png" alt="" class="nor">
+                                        <img src="./media/ic_popup_reserve_foc.png" alt="" class="foc">
+                                    </div>
+                                    <span>시청 예약</span>
+                                    <p>
+                                        상품을 놓치지 않고 시청할 수 있도록 방송 시작 시간 <br>
+                                        <span>1분 전</span> TV화면에서 알려드립니다.
+                                    </p>
+                                </div>
                                 <div class="button active">
                                     <div class="icon">
-                                        <img src="./media/ic_mobile_withtext.png" alt="" class="nor">
-                                        <img src="./media/ic_mobile_withtext_foc.png" alt="" class="foc">
+                                        <img src="./media/ic_popup_mobile_nor.png" alt="" class="nor">
+                                        <img src="./media/ic_popup_mobile_foc.png" alt="" class="foc">
                                     </div>
-                                    <span>모바일 구매</span>
-                                </div>
-                                <div class="button">
-                                    <div class="icon">
-                                        <img src="./media/ic_search_withtext.png" alt="" class="nor">
-                                        <img src="./media/ic_search_withtext_foc.png" alt="" class="foc">
-                                    </div>
-                                    <span>상세 정보</span>
+                                    <span>모바일 주소 전송</span>
+                                    <p>
+                                        휴대폰에서 상품을 주문할 수 있도록 입력하신<br>
+                                        전화번호로 구매 주소(URL)를 <span>문자메시지</span>로 전송해 드립니다.
+                                    </p>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="content__right">
-                    <!-- <div class="top">
-                        <img src="./media/img_detail_banner_v_1.png" alt="">
-                        <img src="./media/btn_popup_top_nor.png" alt="">
-                    </div> -->
+                    <div class="top">
+                        <div class="banner">
+                            <img src="./media/img_detail_banner_v_1.png" alt="">
+                        </div>
+                        <div class="btn_top">
+                            <img src="./media/btn_popup_top_nor.png" alt="">
+                        </div>
+                    </div>
                     <div class="bottom">
                         <p>
                             위 상품 설명은 홈쇼핑 사에서 제공받은 정보이며 상품 <br>
                             정보 외 이벤트/혜택 정보는 일부 사실과 다를 수 있습니다.
                         </p>
                     </div>
+                </div>
+            </div>
+        </section>
+    </article>
+    <article class="popup">
+        <section>
+            <div class="wrapper_popup">
+                <div class="title"><span>상품 정보 전송</span></div>
+                <hr>
+                <div class="text_1">
+                    <span>상품 구매 주소를 받을 휴대폰 번호를 입력 해주세요.</span>
+                </div>
+                <div class="module_input">
+                    <div class="input_text active">
+                        <input type="text" name="" id="" placeholder="휴대폰 번호를 입력해주세요.">
+                    </div>
+                    <div class="input_checkbox active">
+                        <input type="checkbox" name="" id="popup_checkbox">
+                        <label for="popup_checkbox" class="box"></label>
+                        <label for="popup_checkbox" class="text">번호 기억</label>
+                    </div>
+                </div>
+                <div class="module_buttons">
+                    <button class="btn_popup active">취소</button>
+                    <hr>
+                    <button class="btn_popup ">입력 완료</button>
                 </div>
             </div>
         </section>
