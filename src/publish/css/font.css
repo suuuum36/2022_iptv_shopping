@@ -1,0 +1,20 @@
+@font-face {
+  font-family: 'YoonGothic750';
+  font-style: normal;
+  font-weight: 400;
+  src: url('./yoon/OTE_YOONGOTHICPRO750.OTF') format('otf'),
+}
+
+@font-face {
+  font-family: 'Yoon Gothic 700';
+  font-style: normal;
+  font-weight: 500;
+  src: url('./yoon/OTE_YOONGOTHICPRO770.OTF') format('otf'),
+}
+
+@font-face {
+  font-family: 'Roboto';
+  font-style: medium;
+  font-weight: 500;
+  src: url('./roboto/Roboto-Medium.ttf') format('ttf'),
+}
