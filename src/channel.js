@@ -36,11 +36,7 @@ const ReserveButton = (
 );
 
 function CompanyLogo ({url}) {
-  return (
-    <div className='logo_wrapper'>
-      <img src={url}/>
-    </div>
-  );
+  return (<img src={url}/>);
 }
 
 function LiveTitle ({time}) {
@@ -62,7 +58,7 @@ function LiveTitle ({time}) {
 
 function ProductCard({url, live, live_time, meridiem, time_1, time_2, name, favorite, reserve}) {
   return(
-    <div className='product_wrapper'>
+    <div className={`product_wrapper ${live? 'live':''}`}>
       <div className='product_img'>
         <img src={url}/>
         {favorite ? FavoriteButton : null}
@@ -114,12 +110,22 @@ function Channel() {
         {dateArray.map(element => (<DateNavigator day={element.day} date={element.date} line={element.line} focus={element.focus}/>))}
       </div>
       <div className='list_wrapper'>
-        <div className='list_block'>
-          <CompanyLogo url={channel_logo_1}/>
-          <div className='product_list_wrapper'>
-            {prodcutArray.map(element=>(<ProductCard url={element.url} live={element.live} live_time={element.live_time} meridiem={element.meridiem} time_1={element.time_1} time_2={element.time_2} name={element.name} favorite={element.favorite} reserve={element.reserve}/>))}          
-          </div>          
+        <div className='logo_wrapper'>
+          {logoArray.map(element=>(<CompanyLogo url={element.img}/>))} 
         </div>
+        <div className='product_list_wrapper'>
+          <div className='product_block'>
+            {prodcutArray.map(element=>(<ProductCard url={element.url} live={element.live} live_time={element.live_time} meridiem={element.meridiem} time_1={element.time_1} time_2={element.time_2} name={element.name} favorite={element.favorite} reserve={element.reserve}/>))}              
+          </div>
+          <div className='block_line'></div>
+          <div className='product_block'>
+            {prodcutArray.map(element=>(<ProductCard url={element.url} live={element.live} live_time={element.live_time} meridiem={element.meridiem} time_1={element.time_1} time_2={element.time_2} name={element.name} favorite={element.favorite} reserve={element.reserve}/>))}              
+          </div>
+          <div className='block_line'></div>
+          <div className='product_block'>
+            {prodcutArray.map(element=>(<ProductCard url={element.url} live={element.live} live_time={element.live_time} meridiem={element.meridiem} time_1={element.time_1} time_2={element.time_2} name={element.name} favorite={element.favorite} reserve={element.reserve}/>))}              
+          </div>
+        </div>          
       </div>
     </section>
   );
