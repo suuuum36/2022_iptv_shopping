@@ -9,225 +9,48 @@
     <link rel="stylesheet" href="./../publish/css/ui_main.css">
     <title>Document</title>
 </head>
-<body data-page="detail">
+<body data-page="now_play">
     <article class="now_play">
-        <div class="gnb">
-            <div class="left_set">
-                <div class="menu_icon menu_icon--my">
-                    <img src="./media/ic_mymenu.png" alt="">
-                </div>
-                <div class="menu_icon menu_icon--search">
-                    <img src="./media/ic_search.png" alt="">
-                </div>
-            </div>
-            <hr>
-            <div class="right_set">
-                <div class="menu_text menu_text--now active">
-                    <div class="indicator"></div>
-                    <span>지금하는 방송</span>
-                </div>
-                <div class="menu_text menu_text--best">
-                    <div class="indicator"></div>
-                    <span>베스트</span>
-                </div>
-                <div class="menu_text menu_text--recommend">
-                    <div class="indicator"></div>
-                    <span>U+추천</span>
-                </div>
-                <div class="menu_text menu_text--schedule">
-                    <div class="indicator"></div>
-                    <span>홈쇼핑편성표</span>
-                </div>
-                <div class="menu_text menu_text--organize">
-                    <div class="indicator"></div>
-                    <span>편성메뉴</span>
-                </div>
-            </div>
-        </div>
-        <div class="module_play">
-            <div class="set_play">
-                <video src="./media/vidoe_sample.mp4"></video>
-                <div class="set_progress">
-                    <div class="progress"></div>
-                </div>
-            </div>
-            <div class="set_info"> <!-- 재활용 가능 -->
-                <div class="top">
-                    <div class="badge_left">
-                        <span>방송중</span>
+        <section>
+            <div class="gnb">
+                <div class="left_set">
+                    <div class="menu_icon menu_icon--my">
+                        <img src="./media/ic_mymenu.png" alt="">
                     </div>
-                    <div class="text_1">
-                        <span>방송종료</span>
-                        <span><span class="num">30</span>분 전</span>
-                    </div>
-                    <div class="badge_right">
-                        <img src="./media/badge_reservation.png" alt="">
+                    <div class="menu_icon menu_icon--search">
+                        <img src="./media/ic_search.png" alt="">
                     </div>
                 </div>
-                <div class="middle">
-                    <div class="logo">
-                        <img src="./media/logo_gs_shop_1.png" alt="">
+                <hr>
+                <div class="right_set">
+                    <div class="menu_text menu_text--now active">
+                        <div class="indicator"></div>
+                        <span>지금하는 방송</span>
                     </div>
-                    <div class="text_item">
-                        <p>바이브랩 5분 솔루션 울트라 프로틴 리페어 헤어팩 3종 세트 1+1</p>
+                    <div class="menu_text menu_text--best">
+                        <div class="indicator"></div>
+                        <span>베스트</span>
                     </div>
-                    <div class="module_text_price">
-                        <span>50%</span><span><span>29,900</span>원</span><span></span> 
+                    <div class="menu_text menu_text--recommend">
+                        <div class="indicator"></div>
+                        <span>U+추천</span>
                     </div>
-                </div>
-                <div class="bottom">
-                    <div class="button active">
-                        <div class="icon">
-                            <object data="./media/ic_mobile_withtext.svg" type="" class="nor"></object>
-                            <object data="./media/ic_mobile_withtext_foc.svg" type="" class="foc"></object>
-                        </div>
-                        <span>모바일 구매</span>
+                    <div class="menu_text menu_text--schedule">
+                        <div class="indicator"></div>
+                        <span>홈쇼핑편성표</span>
                     </div>
-                    <div class="button">
-                        <div class="icon">
-                            <object data="./media/ic_search_withtext.svg" type="" class="nor"></object>
-                            <object data="./media/ic_search_withtext_foc.svg" type="" class="foc"></object>
-                        </div>
-                        <span>상세 정보</span>
+                    <div class="menu_text menu_text--organize">
+                        <div class="indicator"></div>
+                        <span>편성메뉴</span>
                     </div>
                 </div>
             </div>
-            <div class="set_carousel">
-                <div class="carousel">
-                    <div class="carousel__item">
-                        <img src="./media/img_banner_1.png" alt="">
+            <div class="module_play">
+                <div class="set_play">
+                    <video src="./media/vidoe_sample.mp4"></video>
+                    <div class="set_progress">
+                        <div class="progress"></div>
                     </div>
-                </div>
-                <div class="wrapper_indicator">
-                    <div class="indicator now"></div>
-                    <div class="indicator"></div>
-                    <div class="indicator"></div>
-                    <div class="indicator"></div>
-                </div>
-            </div>
-        </div>
-        <div class="module_item">
-            <ul class="carousel">
-                <li class="carousel__item">
-                    <div class="logo">
-                        <img src="./media/logo_gs_shop_2.png" alt="">
-                    </div>
-                    <div class="img_item">
-                        <img src="./media/img_item_164_1.png" alt="">
-                    </div>
-                    <div class="text">
-                        <p>
-                            바이브랩 5분 솔루션 울트라 프로…
-                        </p>
-                    </div>
-                </li>
-                <li class="carousel__item">
-                    <div class="logo">
-                        <img src="./media/logo_lotte.png" alt="">
-                    </div>
-                    <div class="img_item">
-                        <img src="./media/img_item_164_2.png" alt="">
-                    </div>
-                    <div class="text">
-                        <p>
-                            네이더스 베이직 스트라이프 S/S…
-                        </p>
-                    </div>
-                </li>
-                <li class="carousel__item">
-                    <div class="logo">
-                        <img src="./media/logo_hyundai.png" alt="">
-                    </div>
-                    <div class="img_item">
-                        <img src="./media/img_item_164_3.png" alt="">
-                    </div>
-                    <div class="text">
-                        <p>
-                            블랭코브 나일론 백팩DAYPACK…
-                        </p>
-                    </div>
-                </li>
-                <li class="carousel__item">
-                    <div class="logo">
-                        <img src="./media/logo_nsshop.png" alt="">
-                    </div>
-                    <div class="img_item">
-                        <img src="./media/img_item_164_4.png" alt="">
-                    </div>
-                    <div class="text">
-                        <p>
-                            오가프 노킹 로고 베이스볼 캡 네…
-                        </p>
-                    </div>
-                </li>
-                <li class="carousel__item">
-                    <div class="logo">
-                        <img src="./media/logo_lotte_onetv.png" alt="">
-                    </div>
-                    <div class="img_item">
-                        <img src="./media/img_item_164_5.png" alt="">
-                    </div>
-                    <div class="text">
-                        <p>
-                            토앤토 플립플랍 ZEROVITY BI…
-                        </p>
-                    </div>
-                </li>
-                <li class="carousel__item">
-                    <div class="logo">
-                        <img src="./media/logo_gs_myshop.png" alt="">
-                    </div>
-                    <div class="img_item">
-                        <img src="./media/img_item_164_6.png" alt="">
-                    </div>
-                    <div class="text">
-                        <p>
-                            히든 퍼퓸 스프레이 바디로션
-                        </p>
-                    </div>
-                </li>
-                <li class="carousel__item">
-                    <div class="logo">
-                        <img src="./media/logo_cj_onstyle.png" alt="">
-                    </div>
-                    <div class="img_item">
-                        <img src="./media/img_item_164_7.png" alt="">
-                    </div>
-                    <div class="text">
-                        <p>
-                            소니 All New Design 노이즈…
-                        </p>
-                    </div>
-                </li>
-                <li class="carousel__item">
-                    <div class="logo">
-                        <img src="./media/logo_cj_onstyle.png" alt="">
-                    </div>
-                    <div class="img_item">
-                        <img src="./media/img_item_164_8.png" alt="">
-                    </div>
-                    <div class="text">
-                        <p>
-                            서플프레퍼레이션 언센티드 토너
-                        </p>
-                    </div>
-                </li>
-            </ul>
-        </div>
-        <div class="display_time">
-            <img src="./media/bg_keynotice_gr.png" alt="">
-            <span class="time"><span class="num">07/26</span><span class="kor">(금) 오후</span><span class="num">18:30</span></span>
-        </div>
-    </article>
-    <article class="detail">
-        <div class="title">
-            <span>상품 정보</span>
-        </div>
-        <hr>
-        <div class="module_info">
-            <div class="product">
-                <div class="product__img">
-                    <img src="" alt="">
                 </div>
                 <div class="set_info"> <!-- 재활용 가능 -->
                     <div class="top">
@@ -256,44 +79,249 @@
                     <div class="bottom">
                         <div class="button active">
                             <div class="icon">
-                                <object data="./media/ic_mobile_withtext.svg" type="" class="nor"></object>
-                                <object data="./media/ic_mobile_withtext_foc.svg" type="" class="foc"></object>
+                                <img src="./media/ic_mobile_withtext.png" alt="" class="nor">
+                                <img src="./media/ic_mobile_withtext_foc.png" alt="" class="foc">
                             </div>
                             <span>모바일 구매</span>
                         </div>
                         <div class="button">
                             <div class="icon">
-                                <object data="./media/ic_search_withtext.svg" type="" class="nor"></object>
-                                <object data="./media/ic_search_withtext_foc.svg" type="" class="foc"></object>
+                                <img src="./media/ic_search_withtext.png" alt="" class="nor">
+                                <img src="./media/ic_search_withtext_foc.png" alt="" class="foc">
                             </div>
                             <span>상세 정보</span>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="etc">
-                <div class="module_info_etc">
-                    <span>배송 정보</span>
-                    <span>무료 배송, 무료 반품</span>
-                </div>
-                <div class="module_info_etc">
-                    <span>ARS 번호</span>
-                    <span>080-0000-0000</span>
-                </div>
-                <div class="module_info_etc">
-                    <span>상품 코드</span>
-                    <span>00000000000</span>
-                </div>
-                <div class="module_info_etc">
-                    <span>카드 할인</span>
-                    <span>신한카드 7% 청구할인 무이자 36개월 </span>
-                </div>
-                <div class="module_info_etc">
-                    <span>고객 리뷰</span>
-                    <span>4.8/5.0 (0,000건)</span>
+                <div class="set_carousel">
+                    <div class="carousel">
+                        <div class="carousel__item">
+                            <img src="./media/img_banner_1.png" alt="">
+                        </div>
+                    </div>
+                    <div class="wrapper_indicator">
+                        <div class="indicator now"></div>
+                        <div class="indicator"></div>
+                        <div class="indicator"></div>
+                        <div class="indicator"></div>
+                    </div>
                 </div>
             </div>
-        </div>
+            <div class="module_item">
+                <ul class="carousel">
+                    <li class="carousel__item">
+                        <div class="logo">
+                            <img src="./media/logo_gs_shop_2.png" alt="">
+                        </div>
+                        <div class="img_item">
+                            <img src="./media/img_item_164_1.png" alt="">
+                        </div>
+                        <div class="text">
+                            <p>
+                                바이브랩 5분 솔루션 울트라 프로…
+                            </p>
+                        </div>
+                    </li>
+                    <li class="carousel__item">
+                        <div class="logo">
+                            <img src="./media/logo_lotte.png" alt="">
+                        </div>
+                        <div class="img_item">
+                            <img src="./media/img_item_164_2.png" alt="">
+                        </div>
+                        <div class="text">
+                            <p>
+                                네이더스 베이직 스트라이프 S/S…
+                            </p>
+                        </div>
+                    </li>
+                    <li class="carousel__item">
+                        <div class="logo">
+                            <img src="./media/logo_hyundai.png" alt="">
+                        </div>
+                        <div class="img_item">
+                            <img src="./media/img_item_164_3.png" alt="">
+                        </div>
+                        <div class="text">
+                            <p>
+                                블랭코브 나일론 백팩DAYPACK…
+                            </p>
+                        </div>
+                    </li>
+                    <li class="carousel__item">
+                        <div class="logo">
+                            <img src="./media/logo_nsshop.png" alt="">
+                        </div>
+                        <div class="img_item">
+                            <img src="./media/img_item_164_4.png" alt="">
+                        </div>
+                        <div class="text">
+                            <p>
+                                오가프 노킹 로고 베이스볼 캡 네…
+                            </p>
+                        </div>
+                    </li>
+                    <li class="carousel__item">
+                        <div class="logo">
+                            <img src="./media/logo_lotte_onetv.png" alt="">
+                        </div>
+                        <div class="img_item">
+                            <img src="./media/img_item_164_5.png" alt="">
+                        </div>
+                        <div class="text">
+                            <p>
+                                토앤토 플립플랍 ZEROVITY BI…
+                            </p>
+                        </div>
+                    </li>
+                    <li class="carousel__item">
+                        <div class="logo">
+                            <img src="./media/logo_gs_myshop.png" alt="">
+                        </div>
+                        <div class="img_item">
+                            <img src="./media/img_item_164_6.png" alt="">
+                        </div>
+                        <div class="text">
+                            <p>
+                                히든 퍼퓸 스프레이 바디로션
+                            </p>
+                        </div>
+                    </li>
+                    <li class="carousel__item">
+                        <div class="logo">
+                            <img src="./media/logo_cj_onstyle.png" alt="">
+                        </div>
+                        <div class="img_item">
+                            <img src="./media/img_item_164_7.png" alt="">
+                        </div>
+                        <div class="text">
+                            <p>
+                                소니 All New Design 노이즈…
+                            </p>
+                        </div>
+                    </li>
+                    <li class="carousel__item">
+                        <div class="logo">
+                            <img src="./media/logo_cj_onstyle.png" alt="">
+                        </div>
+                        <div class="img_item">
+                            <img src="./media/img_item_164_8.png" alt="">
+                        </div>
+                        <div class="text">
+                            <p>
+                                서플프레퍼레이션 언센티드 토너
+                            </p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="display_time">
+                <img src="./media/bg_keynotice_gr.png" alt="">
+                <span class="time"><span class="num">07/26</span><span class="kor">(금) 오후</span><span class="num">18:30</span></span>
+            </div>
+        </section>
+    </article>
+    <article class="detail">
+        <section>
+            <div class="title">
+                <span>상품 정보</span>
+            </div>
+            <hr>
+            <div class="content">
+                <div class="content__left">
+                    <div class="module_info">
+                        <div class="product">
+                            <div class="product__img">
+                                <img src="./media/img_detail_product_1.png" alt="">
+                            </div>
+                            <div class="set_info"> <!-- 재활용 가능 -->
+                                <div class="top">
+                                    <div class="badge_left">
+                                        <span>방송중</span>
+                                    </div>
+                                    <div class="text_1">
+                                        <span>방송종료</span>
+                                        <span><span class="num">30</span>분 전</span>
+                                    </div>
+                                    <div class="badge_right">
+                                        <img src="./media/badge_reservation.png" alt="">
+                                    </div>
+                                </div>
+                                <div class="middle">
+                                    <div class="logo">
+                                        <img src="./media/logo_gs_shop_1.png" alt="">
+                                    </div>
+                                    <div class="text_item">
+                                        <p>바이브랩 5분 솔루션 울트라 프로틴 리페어 헤어팩 3종 세트 1+1</p>
+                                    </div>
+                                    <div class="module_text_price">
+                                        <span>50%</span><span><span>29,900</span>원</span><span></span> 
+                                    </div>
+                                </div>
+                                
+                            </div>
+                        </div>
+                        <div class="etc">
+                            <div class="module_info_etc">
+                                <span>배송 정보</span>
+                                <span>무료 배송, 무료 반품</span>
+                            </div>
+                            <div class="module_info_etc">
+                                <span>ARS 번호</span>
+                                <span>080-0000-0000</span>
+                            </div>
+                            <div class="module_info_etc">
+                                <span>상품 코드</span>
+                                <span>00000000000</span>
+                            </div>
+                            <div class="module_info_etc">
+                                <span>카드 할인</span>
+                                <span>신한카드 7% 청구할인 무이자 36개월 </span>
+                            </div>
+                            <div class="module_info_etc">
+                                <span>고객 리뷰</span>
+                                <span>4.8/5.0 (0,000건)</span>
+                            </div>
+                        </div>
+                        <div class="terms_img">
+                            <!-- <img src="./media/img_terms_1.png" alt=""> -->
+                        </div>
+                    </div>
+                    <div class="module_detail_buttons">
+                        <div class="set_info">
+                            <div class="bottom">
+                                <div class="button active">
+                                    <div class="icon">
+                                        <img src="./media/ic_mobile_withtext.png" alt="" class="nor">
+                                        <img src="./media/ic_mobile_withtext_foc.png" alt="" class="foc">
+                                    </div>
+                                    <span>모바일 구매</span>
+                                </div>
+                                <div class="button">
+                                    <div class="icon">
+                                        <img src="./media/ic_search_withtext.png" alt="" class="nor">
+                                        <img src="./media/ic_search_withtext_foc.png" alt="" class="foc">
+                                    </div>
+                                    <span>상세 정보</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="content__right">
+                    <!-- <div class="top">
+                        <img src="./media/img_detail_banner_v_1.png" alt="">
+                        <img src="./media/btn_popup_top_nor.png" alt="">
+                    </div> -->
+                    <div class="bottom">
+                        <p>
+                            위 상품 설명은 홈쇼핑 사에서 제공받은 정보이며 상품 <br>
+                            정보 외 이벤트/혜택 정보는 일부 사실과 다를 수 있습니다.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
     </article>
 </body>
 </html>

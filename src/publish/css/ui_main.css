@@ -5,12 +5,14 @@ body {
 
 article {
     display: none;
+}
+
+section {
     width: 100%;
     height: 100%;
 }
-
 body[data-page="now_play"]>article.now_play {display: block;}
-body[data-page="detail"]>article.detail {display: block;}
+body[data-page="detail"]>article.detail {display: flex;}
 
 /* now_play */
 
@@ -280,7 +282,7 @@ article.now_play {
     color: #EEEEEE;    
 }
 
-.set_info>.bottom {
+.set_info .bottom {
     margin-top: auto;
     display: flex;
     align-items: center;
@@ -308,18 +310,19 @@ article.now_play {
     position: relative;
 }
 
-.set_info>.bottom>div.button>.icon>object {
+.set_info>.bottom>div.button>.icon>img {
     position: absolute;
     top: 0;
     left: 0;
     opacity: 0;
+    width: 100%;
 }
 
-.set_info>.bottom>div.button>.icon>object.nor {
+.set_info>.bottom>div.button>.icon>img.nor {
     opacity: 1;
 }
 
-.set_info>.bottom>div.button.active>.icon>object.foc {
+.set_info>.bottom>div.button.active>.icon>img.foc {
     opacity: 1;
 }
 
@@ -477,6 +480,32 @@ article.detail {
     background: #080D19;
 }
 
+.detail>section {
+    padding: 60px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.detail .title>span {
+    font-family: 'Yoon Gothic 700';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 52px;
+    line-height: 69px;
+    color: #EEEEEE;
+}
+
+.detail hr {
+    width: 82px;
+    height: 4px !important;
+    background: rgba(238, 238, 238, 0.3);
+    margin: 42px 0;
+    border: 0;
+    flex-shrink: 0;
+}
+
+
 .module_info_etc>span:nth-of-type(1) {
     font-family: 'Yoon Gothic 700';
     font-style: normal;
@@ -495,4 +524,78 @@ article.detail {
     line-height: 28px;
     letter-spacing: -0.0916667px;
     color: #A9A9A9;    
+}
+
+.detail .content {
+    display: flex;
+    align-items: center;
+}
+
+.module_info .product{
+    display: flex;
+}
+
+.module_info .product>.product__img {
+    width: 278px;
+}
+
+.module_info .product>.product__img>img {
+    width: 100%;
+}
+
+.detail .set_info {
+    height: auto;
+    padding: 0;
+}
+
+.detail .set_info>.middle {
+    padding-top: 12px;
+}
+
+.detail .set_info>.middle>.text_item {
+    padding-top: 9px;
+}
+
+.detail .set_info>.middle>.module_text_price {
+    padding-top: 9px;
+}
+
+.detail .set_info>.middle>.text_item>p {
+    font-family: 'Yoon Gothic 700';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 28px;
+    line-height: 39px;
+    letter-spacing: -0.2px;
+    color: #A9A9A9;    
+}
+
+.detail .set_info>.middle>.module_text_price>span:nth-of-type(1) {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 44px;
+    line-height: 40px;
+    text-align: center;
+    letter-spacing: -0.22px;
+    color: #EF3484;    
+}
+
+.detail .set_info>.middle>.module_text_price>span:nth-of-type(2) {
+    font-family: 'Yoon Gothic 700';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 36px;
+    color: #D6D6D6;
+}
+
+.detail .set_info>.middle>.module_text_price>span:nth-of-type(2)>span {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 44px;
+    line-height: 40px;
+    letter-spacing: -0.22px;
+    color: #EEEEEE;    
 }
