@@ -29,7 +29,7 @@ const FavoriteButton = (
 );
 
 const ReserveButton = (
-  <div>
+  <div className='reserve_btn'>
     <img src={bell_btn} />
     <p>시청예약</p>
   </div>
@@ -60,7 +60,7 @@ function LiveTitle ({time}) {
   );
 }
 
-function ProductCard({url, live, live_time, time_1, time_2, name, favorite, reserve}) {
+function ProductCard({url, live, live_time, meridiem, time_1, time_2, name, favorite, reserve}) {
   return(
     <div className='product_wrapper'>
       <div className='product_img'>
@@ -70,7 +70,7 @@ function ProductCard({url, live, live_time, time_1, time_2, name, favorite, rese
       <div className='product_info'>
         {live ? <LiveTitle time={live_time}/> : (
         <p className='product_time'>
-          <span>오전</span>
+          <span>{meridiem}</span>
           <span>
             <span className='number'>{time_1}</span>시
           </span>
@@ -101,9 +101,10 @@ const logoArray = [
 ]
 
 const prodcutArray = [
-  {url: require('./img/channel/product_1.png'), live: true, live_time : 20, name : '네이더스 베이직 스트라이프 S/S 티셔츠 네이비 시…', favorite: true},
-  {url: require('./img/channel/product_2.png'), time_1: 10, time_2: 30, name : '블랭코브 나일론 백팩 DAYPACK 26 올리브 그…'},
-  {url: require('./img/channel/product_3.png'), time_1: 11, time_2: 45, name : '소니 All New Design 노이즈캔슬링 헤드폰(WH…'},
+  {url: require('./img/channel/product_1.png'), favorite: true, live: true, live_time : 20, name : '네이더스 베이직 스트라이프 S/S 티셔츠 네이비 시…'},
+  {url: require('./img/channel/product_2.png'), meridiem:'오전', time_1: 10, time_2: 30, name : '블랭코브 나일론 백팩 DAYPACK 26 올리브 그…'},
+  {url: require('./img/channel/product_3.png'), reserve: true, meridiem:'오전', time_1: 11, time_2: 45, name : '소니 All New Design 노이즈캔슬링 헤드폰(WH…'},
+  {url: require('./img/channel/product_1.png'), meridiem:'오후', time_1: 1, time_2: 30, name : 'GS SHOP 네번째 상품 GS SHOP 네번째 상품'}
 ]
 
 function Channel() {
@@ -113,9 +114,11 @@ function Channel() {
         {dateArray.map(element => (<DateNavigator day={element.day} date={element.date} line={element.line} focus={element.focus}/>))}
       </div>
       <div className='list_wrapper'>
-        <CompanyLogo url={channel_logo_1}/>
-        <div className='product_list_wrapper'>
-          {prodcutArray.map(element=>(<ProductCard url={element.url} live={element.live} live_time={element.live_time} time_1={element.time_1} time_2={element.time_2} name={element.name} favorite={element.favorite} reserve={element.reserve}/>))}          
+        <div className='list_block'>
+          <CompanyLogo url={channel_logo_1}/>
+          <div className='product_list_wrapper'>
+            {prodcutArray.map(element=>(<ProductCard url={element.url} live={element.live} live_time={element.live_time} meridiem={element.meridiem} time_1={element.time_1} time_2={element.time_2} name={element.name} favorite={element.favorite} reserve={element.reserve}/>))}          
+          </div>          
         </div>
       </div>
     </section>
