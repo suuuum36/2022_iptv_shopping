@@ -1,0 +1,40 @@
+.date_gnb {
+    width: 178px;
+    min-height: 928px;
+    display: flex;
+    flex-direction: column;
+    background: #080D19;
+    justify-content: space-around;
+}
+
+.date_wrapper {
+    position: relative;
+    font-weight: 400;
+    font-size: 22px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    color: #777777;
+    height: calc(928px / 4);
+}
+
+.date_text {
+    font-size: 34px;
+}
+
+.date_text + span {
+    font-size: 28px;
+}
+
+.date_line {
+    height: 2px;
+    width: 62px;
+    background: #2A2C3E;
+    margin-right: auto;
+    margin-left: auto;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+}
