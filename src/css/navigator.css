@@ -56,7 +56,13 @@
 
 .navigator_right_btn.active {
     background: #EEEEEE;
-    border-radius: 45.5px;
     color: #111424;
+    border-radius: 46px;
     height: 43px;
+}
+
+.navigator_right_btn.focus {
+    color: white;
+    border-radius: 46px;
+    background: #2A2C3E;
 }

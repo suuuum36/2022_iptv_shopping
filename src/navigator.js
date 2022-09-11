@@ -35,7 +35,7 @@ const labelArray = [
   {id:'label_btn_1', name: '지금하는 방송', img: ImgNavBtn1},
   {id:'label_btn_2', name: '베스트'},
   {id:'label_btn_3', name: 'U+ 추천'},
-  {id:'label_btn_4', name: '홈쇼핑 편성표', focus:'active'},
+  {id:'label_btn_4', name: '홈쇼핑 편성표', focus:'focus'},
   {id:'label_btn_5', name: '편성메뉴'}
 ];
 

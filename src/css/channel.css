@@ -19,6 +19,45 @@
     height: calc(928px / 4);
 }
 
+.date_focus_wrapper {
+    width: 130px;
+    height: 188px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.date_focus_wrapper.active {
+    color: #EEEEEE;
+    border: 6px solid #EEEEEE;
+    border-radius: 8px;
+}
+
+.date_focus_wrapper.active p {
+    font-weight: 500;
+}
+
+.date_focus_wrapper.focus {
+    color: #EEEEEE;
+}
+
+.date_focus_wrapper.foucs p {
+    font-weight: 500;
+}
+
+.focus_line {
+    position: absolute;
+    height: 52px;
+    width: 6px;
+    border-radius: 3px;
+    background: #EF3484;
+    border-radius: 3px;    
+    left: 16px;
+}
+
 .date_text {
     font-size: 34px;
 }
