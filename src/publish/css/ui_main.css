@@ -1,6 +1,7 @@
 body {
     width: 100vw;
     height: 100vh;
+    overflow: hidden;
 }
 
 article {
@@ -80,15 +81,16 @@ article.now_play {
 }
 
 .gnb .menu_text>.indicator {
-    display: none;
     width: 43px;
     height: 43px;
-    background: url(./../media/ic_indicator_live.png);
+    background: url(./../media/ic_indicator_live_nor.png);
     background-size: 100% 100%;
+    margin-right: 12px;
 }
 
 .gnb .menu_text.active>.indicator {
-    display: block;
+    background: url(./../media/ic_indicator_live.png);
+    background-size: 100% 100%;
 }
 
 .gnb .menu_text>span {
@@ -99,7 +101,6 @@ article.now_play {
     line-height: 43px;
     text-align: center;
     color: #777777;
-    padding-left: 12px;
 }
 
 .gnb .menu_text.active>span {
@@ -400,6 +401,11 @@ article.now_play {
     display: flex;
     flex-direction: column;
     width: 188px;
+    opacity: 0.6;
+}
+
+.module_item .carousel__item.active {
+    opacity: 1;
 }
 
 .module_item .carousel__item>.logo {
@@ -411,12 +417,24 @@ article.now_play {
 }
 
 .module_item .carousel__item>.img_item {
-    width: 164px;
-    padding-top: 18px;
+    width: 100%;
+    margin-top: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .module_item .carousel__item>.img_item>img {
-    width: 100%;
+    width: 164px;
+}
+
+.module_item .carousel__item.active>.img_item::after {
+    content: '';
+    position: absolute;
+    width: 164px;
+    height: 164px;
+    border: 6px solid #999999;
+    border-radius: 12px;
 }
 
 .module_item .carousel__item>.text {
