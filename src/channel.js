@@ -5,6 +5,7 @@ import channel_logo_2 from './img/channel/logo_2.png';
 import channel_logo_3 from './img/channel/logo_3.png';
 import favorite_btn from './img/channel/favorite.svg';
 import bell_btn from './img/channel/bell.svg';
+import React from 'react';
 
 function DateNavigator ({day, date, line, focus}) {
   return (
@@ -21,7 +22,33 @@ function DateNavigator ({day, date, line, focus}) {
   );
 }
 
-class 
+class PageIndex extends React.Component {
+  state = {date: false};
+  render(){
+    if(this.state.date == true) {
+      return (        
+        <div className='gradient_bg'>
+          <div className='gradient_bg gradient_bg_2'></div>
+          <div className='text_wrapper'>
+            <span className='number'>07/26</span>
+            <span>(금) 오후</span>
+            <span className='number'>18:30</span>            
+          </div>
+        </div>
+      );
+    } else {
+      return(
+        <div className='gradient_bg'>
+          <div className='text_wrapper product'>
+            <span className='product_click'>확인/OK</span>
+            <span>시청하기</span>        
+          </div>
+        </div>        
+      );
+    }
+     
+  }
+}
 
 const FavoriteButton = (
   <div className='favorite_btn'>
@@ -143,6 +170,7 @@ function Channel() {
           </div>
         </div>          
       </div>
+      <PageIndex />
     </section>
   );
 }

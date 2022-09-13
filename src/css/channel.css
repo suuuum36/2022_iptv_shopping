@@ -276,3 +276,60 @@
     background: #494D6D;
     margin-top: 18px;
 }
+
+/*하단 인디케이터*/
+.gradient_bg {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 572px;
+    height: 232px;
+    background: linear-gradient(180deg, rgba(8, 13, 25, 0.0001) 18.72%, #080D19 107.14%, rgba(8, 13, 25, 0.798792) 107.14%);
+}
+
+.gradient_bg.gradient_bg_2 {
+    background: linear-gradient(180deg, rgba(8, 13, 25, 0.0001) 0%, rgba(8, 13, 25, 0.1) 16.74%, rgba(8, 13, 25, 0.36) 54.43%, #080D19 86.84%, #080D19 86.84%);
+}
+
+.gradient_bg_3 {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 572px;
+    height: 232px;
+    background: linear-gradient(180deg, rgba(8, 13, 25, 0.0001) 0%, #080D19 86.84%, #080D19 86.84%);
+}
+
+.text_wrapper {
+    position: absolute;
+    right: 50px;
+    bottom: 30px;
+    font-size: 24px;
+    color: #9697A3;
+    display: flex;
+    gap: 3px;
+    align-items: baseline;
+}
+
+.text_wrapper .number {
+    font-size: 30px;
+}
+
+.text_wrapper.product {
+    align-items: center;
+    gap: 12px;
+}
+
+.text_wrapper .product_click {
+    width: 98px;
+    height: 34px;
+    background: #20212D;
+    border: 2px solid #9797A3;
+    border-radius: 34px;
+    font-family: 'Yoon Gothic 770';
+    font-size: 18px;
+    color: #9797A3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
