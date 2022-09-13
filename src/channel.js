@@ -1,3 +1,4 @@
+import React from 'react';
 import './css/channel.css';
 import {SectionLine} from './navigator';
 import channel_logo_1 from './img/channel/logo_1.png';
@@ -5,7 +6,7 @@ import channel_logo_2 from './img/channel/logo_2.png';
 import channel_logo_3 from './img/channel/logo_3.png';
 import favorite_btn from './img/channel/favorite.svg';
 import bell_btn from './img/channel/bell.svg';
-import React from 'react';
+import sample_video from './video/SampleVideo.mp4';
 
 function DateNavigator ({day, date, line, focus}) {
   return (
@@ -39,6 +40,7 @@ class PageIndex extends React.Component {
     } else {
       return(
         <div className='gradient_bg'>
+          <div className='gradient_bg gradient_bg_2'></div>
           <div className='text_wrapper product'>
             <span className='product_click'>확인/OK</span>
             <span>시청하기</span>        
@@ -85,9 +87,27 @@ function LiveTitle ({time}) {
   );
 }
 
-function ProductCard({url, live, live_time, meridiem, time_1, time_2, name, favorite, reserve}) {
+const VideoPlayer = (
+  <video autoPlay muted>
+    <source src={sample_video} type="video/mp4"></source>
+  </video>
+);
+
+function addActive(e) {
+  document.querySelectorAll('.product_wrapper').forEach((e)=>{
+    e.classList.remove('active');
+  })
+  let element = e.currentTarget;
+  if(element.classList.contains('active')) {
+    element.classList.remove('active');
+  } else {
+    element.classList.add('active');
+  }
+}
+
+function ProductCard({url, live, live_time, meridiem, time_1, time_2, name, favorite, reserve, focus}) {
   return(
-    <div className={`product_wrapper ${live? 'live':''}`}>
+    <div className={`product_wrapper ${live? 'live':"no-live"} ${focus? 'active' :""}`} onClick={addActive}>
       <div className='product_img'>
         <img src={url}/>
         {favorite ? FavoriteButton : null}
@@ -146,6 +166,37 @@ const prodcutArray3 = [
   {url: require('./img/channel/product_7.png'), meridiem:'오후', time_1: '1', time_2: '00', name : '롯데홈쇼핑 네번째 상품 롯데홈쇼핑 네번째 상품'}
 ]
 
+function ChannelArray ({array1, array2, array3}) {
+  return (
+    <div className='product_list_wrapper'>
+      <div className='product_block'>
+        {array1.map(element=>(<ProductCard url={element.url} focus={element.focus} live={element.live} live_time={element.live_time} meridiem={element.meridiem} time_1={element.time_1} time_2={element.time_2} name={element.name} favorite={element.favorite} reserve={element.reserve}/>))}              
+      </div>
+      <div className='block_line'></div>
+      <div className='product_block'>
+        {array2.map(element=>(<ProductCard url={element.url} focus={element.focus} live={element.live} live_time={element.live_time} meridiem={element.meridiem} time_1={element.time_1} time_2={element.time_2} name={element.name} favorite={element.favorite} reserve={element.reserve}/>))}              
+      </div>
+      <div className='block_line'></div>
+      <div className='product_block'>
+        {array3.map(element=>(<ProductCard url={element.url} focus={element.focus} live={element.live} live_time={element.live_time} meridiem={element.meridiem} time_1={element.time_1} time_2={element.time_2} name={element.name} favorite={element.favorite} reserve={element.reserve}/>))}              
+      </div>
+    </div>
+  );
+}
+
+function ChannelDate ({month, date, day, label}){
+  return (
+    <div className='date_section'>
+      <div className='date_section_text'>
+        <span><span className='number'>{month}</span>월</span>
+        <span><span className='number'>{date}</span>일</span>
+        <span>{day}</span>
+        {label ? <span className='day_label'>{label}</span> : null}        
+      </div>
+      <div className='date_section_line'></div>
+    </div>
+  );
+}
 function Channel() {
   return (
     <section className='channel_wrapper'>
@@ -156,18 +207,15 @@ function Channel() {
         <div className='logo_wrapper'>
           {logoArray.map(element=>(<CompanyLogo url={element.img}/>))} 
         </div>
-        <div className='product_list_wrapper'>
-          <div className='product_block'>
-            {prodcutArray1.map(element=>(<ProductCard url={element.url} live={element.live} live_time={element.live_time} meridiem={element.meridiem} time_1={element.time_1} time_2={element.time_2} name={element.name} favorite={element.favorite} reserve={element.reserve}/>))}              
-          </div>
-          <div className='block_line'></div>
-          <div className='product_block'>
-            {prodcutArray2.map(element=>(<ProductCard url={element.url} live={element.live} live_time={element.live_time} meridiem={element.meridiem} time_1={element.time_1} time_2={element.time_2} name={element.name} favorite={element.favorite} reserve={element.reserve}/>))}              
-          </div>
-          <div className='block_line'></div>
-          <div className='product_block'>
-            {prodcutArray3.map(element=>(<ProductCard url={element.url} live={element.live} live_time={element.live_time} meridiem={element.meridiem} time_1={element.time_1} time_2={element.time_2} name={element.name} favorite={element.favorite} reserve={element.reserve}/>))}              
-          </div>
+        <div className='product_day'>
+          <ChannelArray array1={prodcutArray1} array2={prodcutArray2} array3={prodcutArray3} />
+          <ChannelDate month='07' date='30' day='(화)' label='내일'/>
+          <ChannelArray array1={prodcutArray1} array2={prodcutArray2} array3={prodcutArray3} />
+          <ChannelDate month='07' date='31' day='(수)'/>
+          <ChannelArray array1={prodcutArray1} array2={prodcutArray2} array3={prodcutArray3} />
+          <ChannelDate month='07' date='29' day='(수)' label='오늘'/>
+          <ChannelArray array1={prodcutArray1} array2={prodcutArray2} array3={prodcutArray3} />
+          
         </div>          
       </div>
       <PageIndex />
