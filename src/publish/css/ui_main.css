@@ -83,14 +83,24 @@ article.now_play {
 .gnb .menu_text>.indicator {
     width: 43px;
     height: 43px;
-    background: url(./../media/ic_indicator_live_nor.png);
-    background-size: 100% 100%;
     margin-right: 12px;
+    position: relative;
 }
 
-.gnb .menu_text.active>.indicator {
-    background: url(./../media/ic_indicator_live.png);
-    background-size: 100% 100%;
+.gnb .menu_text>.indicator>img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    opacity: 0;
+}
+
+.gnb .menu_text>.indicator>img.nor {
+    opacity: 1;
+}
+
+.gnb .menu_text.active>.indicator>img.foc {
+    opacity: 1;
 }
 
 .gnb .menu_text>span {

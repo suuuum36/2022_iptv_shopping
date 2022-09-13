@@ -1,5 +1,1052 @@
 .App {
-  width: 1920px;
-  height: 1080px;
-  background-color: #080D19;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
 }
+
+article {
+  /* display: none; */
+  width: 100%;
+  height: 100%;
+}
+
+section {
+  width: 100%;
+  height: 100%;
+}
+
+
+/* div.App[data-page="now_play"]>article.now_play {display: block;}
+
+div.App[data-page="popup"]>article.popup,
+div.App[data-page="detail"]>article.detail 
+{display: flex;} */
+
+/* now_play */
+
+article.now_play {
+  background: rgba(8, 13, 25, 1);
+}
+
+.gnb {
+  display: flex;
+  align-items: center;
+  padding: 0 80px;
+  height: 152px;
+  width: 100%;
+}
+
+.gnb>div {
+  display: flex;
+  align-items: center;
+}
+
+.gnb>.left_set {
+  gap: 40px;
+}
+
+.gnb>.right_set {
+  flex:1;
+  justify-content: space-between;
+}
+
+.gnb .menu_icon {
+  width: 104px;
+}
+
+.gnb .menu_icon>img {
+  width: 100%;
+}
+
+
+.gnb>hr {
+  width: 2px;
+  height: 60px;
+  border-radius: 3px;
+  background: #777777;
+  opacity: 0.3;
+  margin: 0 60px;
+}
+
+.gnb .menu_text {
+  height: 90px;
+  padding: 24px 32px;
+  display: flex;
+  align-items: center;
+  border-radius: 43px;
+}
+
+.gnb .menu_text.active {
+  background: #FFFFFF;
+}
+
+.gnb .menu_text>.indicator {
+  width: 43px;
+  height: 43px;
+  margin-right: 12px;
+  position: relative;
+}
+
+.gnb .menu_text>.indicator>img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  opacity: 0;
+}
+
+.gnb .menu_text>.indicator>img.nor {
+  opacity: 1;
+}
+
+.gnb .menu_text.active>.indicator>img.foc {
+  opacity: 1;
+}
+
+.gnb .menu_text>span {
+  font-family: 'Yoon Gothic 700';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 32px;
+  line-height: 43px;
+  text-align: center;
+  color: #777777;
+}
+
+.gnb .menu_text.active>span {
+  color: #111424;    
+}
+
+.module_play {
+  display: flex;
+  align-items: center;
+  height: 513px;
+}
+
+.set_play {
+  width: 913px;
+  height: 513px;
+  overflow: hidden;
+  flex-shrink: 0;
+  position: relative;
+}
+
+.set_play::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 800px;
+  width: 1120px;
+  height: 513px;
+  background: linear-gradient(90.25deg, rgba(8, 13, 25, 0.0001) 0.19%, rgba(8, 13, 25, 0.0156863) 1.12%, rgba(8, 13, 25, 0.054902) 2.09%, rgba(8, 13, 25, 0.117647) 3.08%, rgba(8, 13, 25, 0.2) 4.07%, rgba(8, 13, 25, 0.290196) 5.04%, rgba(8, 13, 25, 0.392157) 5.98%, rgba(8, 13, 25, 0.501961) 6.87%, rgba(8, 13, 25, 0.607843) 7.69%, rgba(8, 13, 25, 0.709804) 8.43%, rgba(8, 13, 25, 0.8) 9.08%, rgba(8, 13, 25, 0.882353) 9.61%, rgba(8, 13, 25, 0.945098) 10.01%, rgba(8, 13, 25, 0.984314) 10.26%, #080D19 10.35%);
+}
+
+.set_play>video {
+  width: 100%;
+}
+
+.set_play>.set_progress {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 8px;
+  background: #353539;
+}
+
+.set_play>.set_progress>.progress {
+  background: #FA2828;
+  border-radius: 0px 3.85px 3.85px 0px;
+  width: 100px;
+  height: 100%;
+}
+
+.set_info {
+  padding: 40px; 
+  width: 680px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.set_info>.top {
+  display: flex;
+  align-items: center;
+}
+
+.set_info>.top>.badge_left {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #FA2828;
+  border-radius: 25px;
+  width: 107px;
+  height: 48px;
+}
+
+.set_info>.top>.badge_left>span {
+  font-family: 'Yoon Gothic 700';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 26px;
+  line-height: 35px;
+  letter-spacing: 0.461538px;
+  color: #EEEEEE;
+}
+
+.set_info>.top>.text_1 {
+  padding-left: 12px;
+  display: flex;
+  gap: 10px;
+}
+
+.set_info>.top>.text_1>span {
+  font-family: 'Yoon Gothic 700';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 30px;
+  line-height: 40px;
+  letter-spacing: -0.2px;
+}
+
+.set_info>.top>.text_1>span:nth-of-type(1) {
+  color: #D6D6D6;    
+}
+
+.set_info>.top>.text_1>span:nth-of-type(2) {
+  color: #FA2828;
+  display: flex;
+  align-items: center;
+}
+
+.set_info>.top>.text_1>span:nth-of-type(2)>.num {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 36px;
+  line-height: 42px;
+  letter-spacing: -0.2px;
+}
+
+.set_info>.top>.badge_right {
+  width: 166px;
+  margin-left: auto;
+}
+
+.set_info>.top>.badge_right>img {
+  width: 100%;
+}
+
+.set_info>.middle {
+  padding-top: 26px;
+  display: flex;
+  flex-direction: column;
+}
+
+.set_info>.middle>.logo {
+  height: 40px;
+}
+
+.set_info>.middle>.logo>img {
+  height: 100%;
+}
+
+.set_info>.middle>.text_item {
+  padding-top: 4px;
+}
+
+.set_info>.middle>.text_item>p {
+  font-family: 'Yoon Gothic 700';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 34px;
+  line-height: 49px;
+  letter-spacing: -0.2px;
+  color: #A9A9A9;    
+}
+
+.set_info>.middle>.module_text_price {
+  padding-top: 16px;
+}
+
+.set_info>.middle>.module_text_price>span:nth-of-type(1) {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 66px;
+  line-height: 77px;
+  text-align: center;
+  letter-spacing: -1.2px;
+  color: #EF3484;    
+}
+
+.set_info>.middle>.module_text_price>span:nth-of-type(2) {
+  font-family: 'Yoon Gothic 700';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 44px;
+  color: #EEEEEE;
+  padding-left: 15px;
+}
+
+.set_info>.middle>.module_text_price>span:nth-of-type(2)>span {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 66px;
+  line-height: 77px;
+  letter-spacing: -1.2px;
+  color: #EEEEEE;    
+}
+
+.set_info .bottom {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.set_info>.bottom>div.button {
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  height: 80px;
+  background: #2A2C3E;
+  border-radius: 8px;
+}
+
+.set_info>.bottom>div.button.active {
+  background: #EEEEEE;
+}
+
+.set_info>.bottom>div.button>.icon {
+  width: 30px;
+  height: 30px;
+  position: relative;
+}
+
+.set_info>.bottom>div.button>.icon>img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  width: 100%;
+}
+
+.set_info>.bottom>div.button>.icon>img.nor {
+  opacity: 1;
+}
+
+.set_info>.bottom>div.button.active>.icon>img.foc {
+  opacity: 1;
+}
+
+.set_info>.bottom>div.button>span {
+  font-family: 'Yoon Gothic 700';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 28px;
+  line-height: 37px;
+  text-align: center;
+  color: #A9A9A9;
+}
+
+.set_info>.bottom>div.button.active>span {
+  font-family: 'Yoon Gothic 700';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 30px;
+  line-height: 40px;
+  color: #080D19;
+}
+
+.module_play>.set_carousel {
+  padding: 0 60px 0 20px;
+}
+
+.module_play>.set_carousel .carousel__item {
+  width: 246px;
+}
+
+.module_play>.set_carousel .carousel__item>img {
+  width: 100%;
+}
+
+.module_play>.set_carousel .wrapper_indicator {
+  padding-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+}
+
+.module_play>.set_carousel .indicator {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #777777;
+}
+
+.module_play>.set_carousel .indicator.now {
+  background: #EEEEEE;
+}
+
+.module_item {
+  background: rgba(17, 20, 36, 1);
+  padding: 56px 0 56px 100px;
+  height: 415px;
+}
+
+.module_item>.carousel {
+  display: flex;
+  gap: 56px;
+  width: max-content;
+  flex-wrap: nowrap;
+}
+
+.module_item .carousel__item {
+  display: flex;
+  flex-direction: column;
+  width: 188px;
+  opacity: 0.6;
+}
+
+.module_item .carousel__item.active {
+  opacity: 1;
+}
+
+.module_item .carousel__item>.logo {
+  height: 32px;
+}
+
+.module_item .carousel__item>.logo>img {
+  height: 100%;
+}
+
+.module_item .carousel__item>.img_item {
+  width: 100%;
+  margin-top: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.module_item .carousel__item>.img_item>img {
+  width: 164px;
+}
+
+.module_item .carousel__item.active>.img_item::after {
+  content: '';
+  position: absolute;
+  width: 164px;
+  height: 164px;
+  border: 6px solid #999999;
+  border-radius: 12px;
+}
+
+.module_item .carousel__item>.text {
+  padding-top: 20px;
+  width: 100%;
+}
+
+.module_item .carousel__item>.text>p {
+  font-family: 'Yoon Gothic 700';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 34px;
+  color: #A9A9A9;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  word-break: break-word;
+      
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  height: 68px;
+}
+
+.display_time {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 572px;
+  height: 232px;
+  padding: 168px 0 50px 267px;
+  z-index: 10;
+}
+
+.display_time>img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: -1;
+}
+
+.display_time>span {
+  z-index: 100;
+  color: #9697A3;
+  display: flex;
+  align-items: center;
+}
+
+.display_time .num {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 30px;
+  line-height: 35px;
+}
+
+.display_time .kor {
+  font-family: 'Yoon Gothic 700';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 30px;
+}
+
+/* detail */
+article.detail {
+  background: #080D19;
+}
+
+.detail>section {
+  padding: 60px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.detail .title>span {
+  font-family: 'Yoon Gothic 700';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 52px;
+  line-height: 69px;
+  color: #EEEEEE;
+}
+
+.detail hr {
+  width: 82px;
+  height: 4px !important;
+  background: rgba(238, 238, 238, 0.3);
+  margin: 42px 0;
+  border: 0;
+  flex-shrink: 0;
+}
+
+.module_info_etc>span:nth-of-type(1) {
+  font-family: 'Yoon Gothic 700';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 25px;
+  letter-spacing: -0.0833333px;
+  color: #777777;    
+}
+
+.module_info_etc>span:nth-of-type(2) {
+  font-family: 'Yoon Gothic 700';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 28px;
+  letter-spacing: -0.0916667px;
+  color: #A9A9A9;   
+  padding-left: 10px; 
+}
+
+.detail .content {
+  display: flex;
+  align-items: center;
+}
+
+.detail .module_info {
+  width: 940px;
+}
+
+.module_info .product{
+  display: flex;
+}
+
+.module_info .product>.product__img {
+  width: 278px;
+}
+
+.module_info .product>.product__img>img {
+  width: 100%;
+}
+
+.detail .set_info {
+  height: auto;
+  padding: 0;
+  padding-left: 32px;
+}
+
+.detail .set_info>.top>.badge_left {
+  width: 83px;
+  height: 36px;
+  border-radius: 18px;
+}
+
+.detail .set_info>.top>.badge_left>span {
+  font-family: 'Yoon Gothic 700';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 27px;
+  letter-spacing: -0.0909091px;
+  color: #EEEEEE;    
+}
+
+.detail .set_info>.top>.text_1 {
+  padding-left: 8px;
+  gap: 5px;
+}
+
+.detail .set_info>.top>.text_1>span {
+  font-family: 'Yoon Gothic 700';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 36px;
+  letter-spacing: -0.3px;
+  color: #D6D6D6;
+}
+
+.detail .set_info>.top>.text_1>span:nth-of-type(2) {
+  color: #D6D6D6;
+}
+
+.detail .set_info>.top>.text_1>span:nth-of-type(2)>.num {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 27px;
+  line-height: 32px;
+  /* identical to box height, or 119% */
+
+  letter-spacing: -0.3px;
+
+  color: #D6D6D6;
+}
+
+.detail .set_info>.middle {
+  padding-top: 12px;
+}
+
+.detail .set_info>.middle>.logo {
+  height: 32px;
+}
+
+.detail .set_info>.middle>.text_item {
+  padding-top: 9px;
+}
+
+.detail .set_info>.middle>.module_text_price {
+  padding-top: 9px;
+}
+
+.detail .set_info>.middle>.text_item>p {
+  font-family: 'Yoon Gothic 700';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 28px;
+  line-height: 39px;
+  letter-spacing: -0.2px;
+  color: #A9A9A9;    
+}
+
+.detail .set_info>.middle>.module_text_price>span:nth-of-type(1) {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 44px;
+  line-height: 40px;
+  text-align: center;
+  letter-spacing: -0.22px;
+  color: #EF3484;    
+}
+
+.detail .set_info>.middle>.module_text_price>span:nth-of-type(2) {
+  font-family: 'Yoon Gothic 700';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 36px;
+  color: #D6D6D6;
+}
+
+.detail .set_info>.middle>.module_text_price>span:nth-of-type(2)>span {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 44px;
+  line-height: 40px;
+  letter-spacing: -0.22px;
+  color: #EEEEEE;    
+}
+
+.detail .set_info>.middle>.module_text_price>span:nth-of-type(3) {
+  font-family: 'Yoon Gothic 700';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 26px;
+  line-height: 36px;
+  text-decoration-line: line-through;
+  color: #777777;    
+  padding-left: 12px;
+}
+
+.detail .set_info>.bottom {
+  padding-top: 9px;
+}
+
+.detail .set_info>.bottom>.tag {
+  border: 2px solid #EF3484;
+  border-radius: 4px;
+  padding: 6px 10px;
+}
+
+.detail .set_info>.bottom>.tag>span {
+  font-family: 'Yoon Gothic 700';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 27px;
+  letter-spacing: 1px;
+  color: #EF3484;    
+}
+
+.detail .etc {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  padding-top: 22px;
+}
+
+.module_info_etc:nth-of-type(4) {
+  grid-column: 1/3;
+}
+
+.detail .module_info .terms_img {
+  padding-top: 40px;
+}
+
+.detail .module_info .terms_img>img,
+.detail .module_info .terms_img {
+  width: 100%;
+}
+
+.detail .module_detail_buttons {
+  padding-top: 55px;
+}
+
+.detail .module_detail_buttons .set_info {
+  padding: 0;
+  width: 100%;
+}
+
+.detail .module_detail_buttons .set_info>.bottom {
+  padding: 0;
+}
+
+.detail .set_info>.bottom>div.button {
+  position: relative;
+  gap: 10px;
+  width: 280px;
+}
+
+.detail .set_info>.bottom>div.button:nth-of-type(3) {
+  width: 360px;
+}
+
+.detail .set_info>.bottom>div.button>.icon {
+  width: 34px;
+  height: 34px;
+}
+
+.detail .set_info>.bottom>div.button.active {
+  height: 98px;
+}
+
+.detail .set_info>.bottom>div.button.active>span {
+  font-family: 'Yoon Gothic 700';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 34px;
+  line-height: 45px;
+  color: #080D19;
+}
+
+.detail .set_info>.bottom>div.button>p {
+  position: absolute;
+  bottom: 0;
+  transform: translateY(100%);
+  font-family: 'Yoon Gothic 700';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 28px;
+  color: #EEEEEE;
+  width: 500px;
+  padding-top: 10px;
+  opacity: 0;
+}
+
+.detail .set_info>.bottom>div.button.active>p {
+  opacity: 1;
+}
+
+.detail .set_info>.bottom>div.button:nth-of-type(1)>p {
+  left: 0;
+  width: 500px;
+  text-align: left;
+}
+
+.detail .set_info>.bottom>div.button:nth-of-type(2)>p {
+  left: 50%;
+  width: 500px;
+  text-align: center;
+  transform: translate(-50%, 100%);
+}
+
+.detail .set_info>.bottom>div.button>p>span {
+  color:rgba(239, 52, 132, 1);
+}
+
+.detail .set_info>.bottom>div.button:nth-of-type(3)>p {
+  right: 0;
+  width: 600px;
+  text-align: right;
+}
+
+.detail .content__right {
+  padding-left: 48px;
+  display: flex;
+  flex-direction: column;
+}
+
+.detail .content__right>.top {
+  display: flex;
+  align-items: flex-end;
+  gap: 12px;
+}
+
+.detail .content__right .banner {
+  width: 400px;
+}
+
+.detail .content__right .banner>img {
+  width: 100%;
+}
+
+.detail .content__right .btn_top {
+  width: 72px;
+}
+
+.detail .content__right .btn_top>img {
+  width: 100%;
+}
+
+.detail .content__right>.bottom {
+  position: relative;   
+}
+
+.detail .content__right>.bottom>p {
+  padding-top: 16px;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  transform: translateY(100%);
+  font-family: 'Yoon Gothic 700';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 24px;
+  color: #777777;    
+}
+
+/* popup */
+article.popup {
+  background: #080D19;
+}
+
+
+article.popup>section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.wrapper_popup {
+  width: 750px;
+  background: #EEEEEE;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+}
+
+.wrapper_popup>.title {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding: 24px 40px;
+}
+
+.wrapper_popup>.title>span {
+  font-family: 'Yoon Gothic 700';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 32px;
+  line-height: 43px;
+  text-align: center;
+  color: #353539;    
+}
+
+.wrapper_popup>hr {
+  border: 0;
+  background: #B7B5BD;
+  opacity: 0.3;
+  height: 2px;
+  width: 100%;
+}
+
+.wrapper_popup>.text_1 {
+  font-family: 'Yoon Gothic 700';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 28px;
+  line-height: 35px;
+  color: #353539;    
+  padding-top: 52px;
+}
+
+.wrapper_popup>.module_input {
+  padding-top: 43px;
+  display: flex;
+  align-items: center;
+}
+
+.wrapper_popup .input_text>input {
+  width: 480px;
+  height: 84px;
+  text-align: center;
+  background: #EEEEEE;
+  border: 3px solid #D6D6D6;
+  border-radius: 8px;
+  box-sizing: border-box;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 38px;
+  line-height: 45px;
+  text-align: center;
+  color: #353539;
+  padding: 20px 0 26px;
+}
+
+.wrapper_popup .input_text.active>input {
+  background: #EEEEEE;
+  border: 6px solid #EF3484;
+  border-radius: 8px;
+}
+
+.wrapper_popup .input_text>input::placeholder {
+  font-family: 'Yoon Gothic 700';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 30px;
+  line-height: 38px;
+  text-align: center;
+  color: #A9A9A9;
+}
+
+.wrapper_popup .input_checkbox {
+  padding-left: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.wrapper_popup .input_checkbox>input {
+  display: none;
+}
+
+.wrapper_popup .input_checkbox>label.box {
+  width: 30px;
+  height: 30px;
+  background: #EEEEEE;
+  border: 2px solid #A9A9A9;
+  border-radius: 4px;
+}
+
+.wrapper_popup .input_checkbox.active>label.box {
+  background: #EEEEEE;
+  border: 6px solid #EF3484;
+  border-radius: 4px;    
+}
+
+.wrapper_popup .input_checkbox>label.text {
+  font-family: 'Yoon Gothic 700';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 26px;
+  line-height: 56px;
+  color: #353539;    
+  margin-left: 10px;
+  text-align: center;
+  width: 126px;
+  height: 56px;
+}
+
+.wrapper_popup .input_checkbox.active>label.text {
+  background: #EF3484;
+  color: #EEEEEE;
+}
+
+.wrapper_popup .module_buttons {
+  background: #DDDDDD;
+  margin-top: 52px;
+  height: 102px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.wrapper_popup .module_buttons>button {
+  width: 50%;
+  font-family: 'Yoon Gothic 700';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 34px;
+  line-height: 45px;
+  text-align: center;
+  color: #080D19;
+  height: 100%;
+}
+
+.wrapper_popup .module_buttons>button.active {
+  background: #EF3484;
+  color: #EEEEEE; 
+}
+
+.wrapper_popup .module_buttons>hr {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4px;
+  height: 60px;
+  background: #777777;
+  opacity: 0.2;
+  border-radius: 2px;
+  z-index: 10;
+}
+
+
