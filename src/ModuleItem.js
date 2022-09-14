@@ -6,10 +6,10 @@ function ModuleItem () {
             <ul className="carousel wrapper_controllable">
                 <li className="carousel__item controllable active">
                     <div className="logo">
-                        <img src="img/logo_gs_shop_2.png" alt="" />
+                        <img src="/img/logo_gs_shop_2.png" alt="" />
                     </div>
                     <div className="img_item">
-                        <img src="img/img_item_164_1.png" alt="" />
+                        <img src="/img/img_item_164_1.png" alt="" />
                     </div>
                     <div className="text">
                         <p>
@@ -19,10 +19,10 @@ function ModuleItem () {
                 </li>
                 <li className="carousel__item controllable">
                     <div className="logo">
-                        <img src="img/logo_lotte.png" alt="" />
+                        <img src="/img/logo_lotte.png" alt="" />
                     </div>
                     <div className="img_item">
-                        <img src="img/img_item_164_2.png" alt="" />
+                        <img src="/img/img_item_164_2.png" alt="" />
                     </div>
                     <div className="text">
                         <p>
@@ -32,10 +32,10 @@ function ModuleItem () {
                 </li>
                 <li className="carousel__item controllable">
                     <div className="logo">
-                        <img src="img/logo_hyundai.png" alt="" />
+                        <img src="/img/logo_hyundai.png" alt="" />
                     </div>
                     <div className="img_item">
-                        <img src="img/img_item_164_3.png" alt="" />
+                        <img src="/img/img_item_164_3.png" alt="" />
                     </div>
                     <div className="text">
                         <p>
@@ -45,10 +45,10 @@ function ModuleItem () {
                 </li>
                 <li className="carousel__item controllable">
                     <div className="logo">
-                        <img src="img/logo_nsshop.png" alt="" />
+                        <img src="/img/logo_nsshop.png" alt="" />
                     </div>
                     <div className="img_item">
-                        <img src="img/img_item_164_4.png" alt="" />
+                        <img src="/img/img_item_164_4.png" alt="" />
                     </div>
                     <div className="text">
                         <p>
@@ -58,10 +58,10 @@ function ModuleItem () {
                 </li>
                 <li className="carousel__item controllable">
                     <div className="logo">
-                        <img src="img/logo_lotte_onetv.png" alt="" />
+                        <img src="/img/logo_lotte_onetv.png" alt="" />
                     </div>
                     <div className="img_item">
-                        <img src="img/img_item_164_5.png" alt="" />
+                        <img src="/img/img_item_164_5.png" alt="" />
                     </div>
                     <div className="text">
                         <p>
@@ -71,10 +71,10 @@ function ModuleItem () {
                 </li>
                 <li className="carousel__item controllable">
                     <div className="logo">
-                        <img src="img/logo_gs_myshop.png" alt="" />
+                        <img src="/img/logo_gs_myshop.png" alt="" />
                     </div>
                     <div className="img_item">
-                        <img src="img/img_item_164_6.png" alt="" />
+                        <img src="/img/img_item_164_6.png" alt="" />
                     </div>
                     <div className="text">
                         <p>
@@ -84,10 +84,10 @@ function ModuleItem () {
                 </li>
                 <li className="carousel__item controllable">
                     <div className="logo">
-                        <img src="img/logo_cj_onstyle.png" alt="" />
+                        <img src="/img/logo_cj_onstyle.png" alt="" />
                     </div>
                     <div className="img_item">
-                        <img src="img/img_item_164_7.png" alt="" />
+                        <img src="/img/img_item_164_7.png" alt="" />
                     </div>
                     <div className="text">
                         <p>
@@ -97,10 +97,10 @@ function ModuleItem () {
                 </li>
                 <li className="carousel__item controllable">
                     <div className="logo">
-                        <img src="img/logo_cj_onstyle.png" alt="" />
+                        <img src="/img/logo_cj_onstyle.png" alt="" />
                     </div>
                     <div className="img_item">
-                        <img src="img/img_item_164_8.png" alt="" />
+                        <img src="/img/img_item_164_8.png" alt="" />
                     </div>
                     <div className="text">
                         <p>
@@ -108,6 +108,99 @@ function ModuleItem () {
                         </p>
                     </div>
                 </li>
+                {/* dummy el */}
+                <li className="carousel__item controllable">
+                    <div className="logo">
+                        <img src="/img/logo_cj_onstyle.png" alt="" />
+                    </div>
+                    <div className="img_item">
+                        <img src="/img/img_item_164_8.png" alt="" />
+                    </div>
+                    <div className="text">
+                        <p>
+                            서플프레퍼레이션 언센티드 토너
+                        </p>
+                    </div>
+                </li>
+                <li className="carousel__item controllable">
+                    <div className="logo">
+                        <img src="/img/logo_cj_onstyle.png" alt="" />
+                    </div>
+                    <div className="img_item">
+                        <img src="/img/img_item_164_8.png" alt="" />
+                    </div>
+                    <div className="text">
+                        <p>
+                            서플프레퍼레이션 언센티드 토너
+                        </p>
+                    </div>
+                </li>
+                <li className="carousel__item controllable">
+                    <div className="logo">
+                        <img src="/img/logo_cj_onstyle.png" alt="" />
+                    </div>
+                    <div className="img_item">
+                        <img src="/img/img_item_164_8.png" alt="" />
+                    </div>
+                    <div className="text">
+                        <p>
+                            서플프레퍼레이션 언센티드 토너
+                        </p>
+                    </div>
+                </li>
+                <li className="carousel__item controllable">
+                    <div className="logo">
+                        <img src="/img/logo_cj_onstyle.png" alt="" />
+                    </div>
+                    <div className="img_item">
+                        <img src="/img/img_item_164_8.png" alt="" />
+                    </div>
+                    <div className="text">
+                        <p>
+                            서플프레퍼레이션 언센티드 토너
+                        </p>
+                    </div>
+                </li>
+                <li className="carousel__item controllable">
+                    <div className="logo">
+                        <img src="/img/logo_cj_onstyle.png" alt="" />
+                    </div>
+                    <div className="img_item">
+                        <img src="/img/img_item_164_8.png" alt="" />
+                    </div>
+                    <div className="text">
+                        <p>
+                            서플프레퍼레이션 언센티드 토너
+                        </p>
+                    </div>
+                </li>
+                <li className="carousel__item controllable">
+                    <div className="logo">
+                        <img src="/img/logo_cj_onstyle.png" alt="" />
+                    </div>
+                    <div className="img_item">
+                        <img src="/img/img_item_164_8.png" alt="" />
+                    </div>
+                    <div className="text">
+                        <p>
+                            서플프레퍼레이션 언센티드 토너
+                        </p>
+                    </div>
+                </li>
+                <li className="carousel__item controllable">
+                    <div className="logo">
+                        <img src="/img/logo_cj_onstyle.png" alt="" />
+                    </div>
+                    <div className="img_item">
+                        <img src="/img/img_item_164_8.png" alt="" />
+                    </div>
+                    <div className="text">
+                        <p>
+                            서플프레퍼레이션 언센티드 토너
+                        </p>
+                    </div>
+                </li>
+                
             </ul>
         </div>
     );

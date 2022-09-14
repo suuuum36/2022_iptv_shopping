@@ -36,7 +36,7 @@ const dt_minuate = dt.getMinutes().toString().padStart(2,'0');
 function ModuleTime(){
     return (
         <div className="display_time">
-            <img src="img/bg_keynotice_gr.png" alt="" />
+            <img src="/img/bg_keynotice_gr.png" alt="" />
             <span className="time"><span className="num">{dt_month}/{dt_date}</span><span className="kor">&nbsp;({dt_day})&nbsp;{dt_hour[0]}</span><span className="num">&nbsp;{dt_hour[1]}:{dt_minuate}</span></span>
         </div>
     )

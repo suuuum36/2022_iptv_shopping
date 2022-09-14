@@ -13,18 +13,18 @@ function Gnb(){
         <div className="gnb">
             <div className="left_set">
                 <div className="menu_icon menu_icon--my">
-                    <img src="img/ic_mymenu.png" alt="" />
+                    <img src="/img/ic_mymenu.png" alt="" />
                 </div>
                 <div className="menu_icon menu_icon--search">
-                    <img src="img/ic_search.png" alt="" />
+                    <img src="/img/ic_search.png" alt="" />
                 </div>
             </div>
             <hr />
             <div className="right_set wrapper_controllable">
                 <div className="menu_text menu_text--now controllable active">
                     <div className="indicator">
-                        <img src="img/ic_indicator_live_nor.png" alt="" className="nor" />
-                        <img src="img/ic_indicator_live.png" alt="" className="foc" />
+                        <img src="/img/ic_indicator_live_nor.png" alt="" className="nor" />
+                        <img src="/img/ic_indicator_live.png" alt="" className="foc" />
                     </div>
                     <span>지금하는 방송</span>
                 </div>

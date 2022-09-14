@@ -396,7 +396,7 @@ article.now_play {
 
 .module_item {
   background: rgba(17, 20, 36, 1);
-  padding: 56px 0 56px 100px;
+  padding: 56px 100px;
   height: 415px;
 }
 
@@ -405,6 +405,7 @@ article.now_play {
   gap: 56px;
   width: max-content;
   flex-wrap: nowrap;
+  transition: 0.5s ease-in-out;
 }
 
 .module_item .carousel__item {
@@ -412,6 +413,7 @@ article.now_play {
   flex-direction: column;
   width: 188px;
   opacity: 0.6;
+  transition: 0.5s ease-in-out;
 }
 
 .module_item .carousel__item.active {
