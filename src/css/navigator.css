@@ -50,6 +50,8 @@
     align-items: center;
     justify-content: center;
     gap: 12px;
+    border-radius: 46px;
+    transition: 0.5s all;
 }
 
 .navigator_right_btn.active {
@@ -57,10 +59,12 @@
     color: #111424;
     border-radius: 46px;
     height: 43px;
+    transition: 0.5s all;
 }
 
 .navigator_right_btn.focus {
     color: white;
     border-radius: 46px;
     background: #2A2C3E;
+    transition: 0.5s all;
 }
