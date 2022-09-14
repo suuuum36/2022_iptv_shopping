@@ -102,12 +102,12 @@
     }
 
     function changePageSetting(){
-        ({
-            'now_play' : async ()=>{
-            },
-        }
-        )[document.querySelector('.App').getAttribute('data-page')]();
-        console.log(document.querySelector('.App').getAttribute('data-page'));
+        // ({
+        //     'now_play' : async ()=>{
+        //     },
+        // }
+        // )[document.querySelector('.App').getAttribute('data-page')]();
+        // console.log(document.querySelector('.App').getAttribute('data-page'));
         defaultSetting();
     }
 
