@@ -8,6 +8,31 @@ import favorite_btn from './img/channel/favorite.svg';
 import bell_btn from './img/channel/bell.svg';
 import sample_video from './video/SampleVideo.mp4';
 
+//리모컨 active function
+function AddActive(e) {
+  document.querySelectorAll('div').forEach((e)=>{
+    e.classList.remove('active');
+  })
+  let element = e.currentTarget;
+  if(element.classList.contains('active')) {
+    element.classList.remove('active');
+  } else if (element.classList.contains('focus')) {
+    element.classList.remove('focus');
+    element.classList.add('active');
+  }
+  else {
+    element.classList.add('active');
+  }
+}
+
+const activeArray = ['.date_focus_wrapper', '.product_wrapper'];
+for(let i=0; i<activeArray.length; i++) {
+  document.querySelectorAll(activeArray[i]).forEach((e)=>{
+    e.addEventListener('click', AddActive);
+    console.log(e);
+  });
+}
+
 function DateNavigator ({day, date, line, focus}) {
   return (
     <div className='date_wrapper'>
@@ -24,7 +49,7 @@ function DateNavigator ({day, date, line, focus}) {
 }
 
 class PageIndex extends React.Component {
-  state = {date: false};
+  state = {date: true};
   render(){
     if(this.state.date == true) {
       return (        
@@ -93,21 +118,9 @@ const VideoPlayer = (
   </video>
 );
 
-function addActive(e) {
-  document.querySelectorAll('.product_wrapper').forEach((e)=>{
-    e.classList.remove('active');
-  })
-  let element = e.currentTarget;
-  if(element.classList.contains('active')) {
-    element.classList.remove('active');
-  } else {
-    element.classList.add('active');
-  }
-}
-
 function ProductCard({url, live, live_time, meridiem, time_1, time_2, name, favorite, reserve, focus}) {
   return(
-    <div className={`product_wrapper ${live? 'live':"no-live"} ${focus? 'active' :""}`} onClick={addActive}>
+    <div className={`product_wrapper ${live? 'live':"no-live"} ${focus? 'active' :""}`}>
       <div className='product_img'>
         <img src={url}/>
         {favorite ? FavoriteButton : null}
@@ -223,4 +236,5 @@ function Channel() {
   );
 }
 
-export default Channel;
+// export default Channel;
+export {Channel, AddActive}

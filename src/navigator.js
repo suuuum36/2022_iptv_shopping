@@ -2,6 +2,7 @@ import './css/navigator.css';
 import ImgMenu from './img/nav/ic_menu.svg';
 import ImgSearch from './img/nav/ic_search.svg';
 import ImgNavBtn1 from './img/nav/ic_nav_btn_1.svg';
+import {AddActive} from './channel.js';
 
 function FunctionButton ({name, imgUrl}) {
     return (
@@ -13,7 +14,7 @@ function FunctionButton ({name, imgUrl}) {
 
 function LabelButton ({label, imgUrl, focus}) {
   return (
-    <div className={`navigator_right_btn ${focus ? `${focus}` : ''}`}>
+    <div className={`navigator_right_btn ${focus ? `${focus}` : ''}`} onClick={AddActive}>
       {imgUrl ? <img src={imgUrl} alt={label}/> : null}
       <p>{label}</p>
     </div>
