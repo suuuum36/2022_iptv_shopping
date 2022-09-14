@@ -16,7 +16,7 @@ const RemoteEffect = async () => {
     document.addEventListener('keydown', (event)=>{
         const current_index = document.querySelector('.controllable.active').getAttribute('data-index');
         let num = current_index * 1;
-        console.log(num%1000);
+        let num_0 = parseInt(num/1000)*1000;
         const action_key =  {
             "ArrowUp" : ()=>{
                 if(num >= 8000) {
@@ -32,14 +32,19 @@ const RemoteEffect = async () => {
                 else {changeActive(num + 1);}
             },
             "ArrowDown" : ()=>{
-                if(num === 1003){changeActive(parseInt(num/1000)*1000 + 7000);}
-                else if (num >= 8000 ) {changeActive(num + 1);}
+                if(num === 1003){changeActive(num_0 + 7000);}
+                else if (num >= 8000 ) {
+                    if(num % 1000 === 3) {changeActive(num_0 + 1000);}
+                    else if (num % 1000 === 7) {changeActive(num_0 + 1000 + 4);}
+                    else if (num % 1000 === 11) {changeActive(num_0 + 1000 + 8);}
+                    else {changeActive(num + 1)};
+                }
                 else if (num == 7000){changeActive(4000)}
                 else {changeActive(num+1000);}
             },
             "ArrowLeft" : ()=>{
                 if(num >= 8000) {
-                    if(num%1000 < 4) {changeActive(parseInt(num/1000)*1000 - 4000);}
+                    if(num%1000 < 4) {changeActive(num_0 - 4000);}
                     else {changeActive(num - 4)};
                 } else {changeActive(num - 1);}
             },
