@@ -2,7 +2,6 @@ import './css/navigator.css';
 import ImgMenu from './img/nav/ic_menu.svg';
 import ImgSearch from './img/nav/ic_search.svg';
 import ImgNavBtn1 from './img/nav/ic_nav_btn_1.svg';
-import {AddActive} from './channel.js';
 
 function FunctionButton ({name, imgUrl}) {
     return (
@@ -12,9 +11,9 @@ function FunctionButton ({name, imgUrl}) {
     );
 }
 
-function LabelButton ({label, imgUrl, focus}) {
+function LabelButton ({label, imgUrl, focus, index}) {
   return (
-    <div className={`navigator_right_btn ${focus ? `${focus}` : ''}`}>
+    <div className={`navigator_right_btn controllable ${focus ? `${focus}` : ''}`} data-index={index}>
       {imgUrl ? <img src={imgUrl} alt={label}/> : null}
       <p>{label}</p>
     </div>
@@ -33,11 +32,11 @@ const FunctionArray = [
 ]
 
 const labelArray = [
-  {id:'label_btn_1', name: '지금하는 방송', img: ImgNavBtn1},
-  {id:'label_btn_2', name: '베스트'},
-  {id:'label_btn_3', name: 'U+ 추천'},
-  {id:'label_btn_4', name: '홈쇼핑 편성표', focus:'focus'},
-  {id:'label_btn_5', name: '편성메뉴'}
+  {id:'1000', name: '지금하는 방송', img: ImgNavBtn1},
+  {id:'1001', name: '베스트'},
+  {id:'1002', name: 'U+ 추천'},
+  {id:'1003', name: '홈쇼핑 편성표', focus:'active'},
+  {id:'1004', name: '편성메뉴'}
 ];
 
 function Navigator (props) {
@@ -48,7 +47,7 @@ function Navigator (props) {
       </div>
       <SectionLine height='60px'/>
       <div className='right_gnb'>
-        {labelArray.map(element=>(<LabelButton key={element.id} label={element.name} imgUrl={element.img} focus={element.focus}/>))}
+        {labelArray.map(element=>(<LabelButton key={element.id} label={element.name} imgUrl={element.img} focus={element.focus} index={element.id}/>))}
       </div>  
     </section>
   );

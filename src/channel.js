@@ -1,42 +1,20 @@
 import React from 'react';
 import './css/channel.css';
-import {SectionLine} from './navigator';
 import channel_logo_1 from './img/channel/logo_1.png';
 import channel_logo_2 from './img/channel/logo_2.png';
 import channel_logo_3 from './img/channel/logo_3.png';
 import favorite_btn from './img/channel/favorite.svg';
 import bell_btn from './img/channel/bell.svg';
 import sample_video from './video/SampleVideo.mp4';
-import RemoteEffect from './function_module';
+import bottom_bg from './img/channel/bottom_bg.png'
+import {CheckControllable, RemoteEffect} from './function_remote';
 
-//리모컨 active function
-function AddActive(e) {
-  document.querySelectorAll('div').forEach((e)=>{
-    e.classList.remove('active');
-  })
-  let element = e.currentTarget;
-  if(element.classList.contains('active')) {
-    element.classList.remove('active');
-  } else if (element.classList.contains('focus')) {
-    element.classList.remove('focus');
-    element.classList.add('active');
-  }
-  else {
-    element.classList.add('active');
-  }
-}
-
-// const activeArray = ['.date_focus_wrapper', '.product_wrapper'];
-// for(let i=0; i<activeArray.length; i++) {
-//   document.querySelectorAll(activeArray[i]).forEach((e)=>{
-//     e.addEventListener('click', AddActive);
-//   });
-// }
+RemoteEffect();
 
 function DateNavigator ({day, date, line, focus}) {
   return (
-    <div className='date_wrapper'>
-      <div className={`date_focus_wrapper ${focus ? `${focus}`: ''}`} onClick={addActive}>
+    <div className='date_wrapper wrapper_controllable' onLoad={CheckControllable}>
+      <div className={`date_focus_wrapper ${focus ? `${focus}`: ''} controllable`}>
         <p>{day}</p>
         <p className={`date_text ${focus ? `${focus}`: ''}`}>
           <span>{date}</span>일
@@ -49,12 +27,12 @@ function DateNavigator ({day, date, line, focus}) {
 }
 
 class PageIndex extends React.Component {
-  state = {date: true};
+  state = {date: false};
   render(){
     if(this.state.date == true) {
       return (        
         <div className='gradient_bg'>
-          <div className='gradient_bg gradient_bg_2'></div>
+          <img src={bottom_bg}></img>
           <div className='text_wrapper'>
             <span className='number'>07/26</span>
             <span>(금) 오후</span>
@@ -65,7 +43,7 @@ class PageIndex extends React.Component {
     } else {
       return(
         <div className='gradient_bg'>
-          <div className='gradient_bg gradient_bg_2'></div>
+          <img src={bottom_bg}></img>
           <div className='text_wrapper product'>
             <span className='product_click'>확인/OK</span>
             <span>시청하기</span>        
@@ -120,7 +98,7 @@ const VideoPlayer = (
 
 function ProductCard({url, live, live_time, meridiem, time_1, time_2, name, favorite, reserve, focus}) {
   return(
-    <div className={`product_wrapper ${live? 'live':"no-live"} controllable`} data-index="3000">
+    <div className={`product_wrapper ${live? 'live':"no-live"} controllable`}>
       <div className='product_img'>
         <img src={url}/>
         {favorite ? FavoriteButton : null}
@@ -181,18 +159,14 @@ const prodcutArray3 = [
 
 function ChannelArray ({array1, array2, array3}) {
   return (
-    <div className='product_list_wrapper'>
-      <div className='product_block'>
-        {array1.map(element=>(<ProductCard url={element.url} focus={element.focus} live={element.live} live_time={element.live_time} meridiem={element.meridiem} time_1={element.time_1} time_2={element.time_2} name={element.name} favorite={element.favorite} reserve={element.reserve}/>))}              
+    <div className='product_list_wrapper' onLoad={CheckControllable}>
+      <div className='product_block wrapper_controllable'>
+        {array1.map(element=>(<ProductCard url={element.url} focus={element.focus} live={element.live} live_time={element.live_time} meridiem={element.meridiem} time_1={element.time_1} time_2={element.time_2} name={element.name} favorite={element.favorite} reserve={element.reserve}/>))}    
+        {array2.map(element=>(<ProductCard url={element.url} focus={element.focus} live={element.live} live_time={element.live_time} meridiem={element.meridiem} time_1={element.time_1} time_2={element.time_2} name={element.name} favorite={element.favorite} reserve={element.reserve}/>))}     
+        {array3.map(element=>(<ProductCard url={element.url} focus={element.focus} live={element.live} live_time={element.live_time} meridiem={element.meridiem} time_1={element.time_1} time_2={element.time_2} name={element.name} favorite={element.favorite} reserve={element.reserve}/>))}             
       </div>
       <div className='block_line'></div>
-      <div className='product_block'>
-        {array2.map(element=>(<ProductCard url={element.url} focus={element.focus} live={element.live} live_time={element.live_time} meridiem={element.meridiem} time_1={element.time_1} time_2={element.time_2} name={element.name} favorite={element.favorite} reserve={element.reserve}/>))}              
-      </div>
       <div className='block_line'></div>
-      <div className='product_block'>
-        {array3.map(element=>(<ProductCard url={element.url} focus={element.focus} live={element.live} live_time={element.live_time} meridiem={element.meridiem} time_1={element.time_1} time_2={element.time_2} name={element.name} favorite={element.favorite} reserve={element.reserve}/>))}              
-      </div>
     </div>
   );
 }
@@ -235,6 +209,5 @@ function Channel() {
     </section>
   );
 }
-
 // export default Channel;
-export {Channel, AddActive}
+export {Channel}
