@@ -56,10 +56,12 @@
     color: #EEEEEE;
     border: 6px solid #EEEEEE;
     border-radius: 8px;
+    transition: 0.3s all;
 }
 
 .date_focus_wrapper.focus {
     color: #EEEEEE;
+    transition: 0.3s all;
 }
 
 .focus_line {

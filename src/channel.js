@@ -11,7 +11,7 @@ import sample_video from './video/SampleVideo.mp4';
 function DateNavigator ({day, date, line, focus}) {
   return (
     <div className='date_wrapper'>
-      <div className={`date_focus_wrapper ${focus ? `${focus}`: ''}`}>
+      <div className={`date_focus_wrapper ${focus ? `${focus}`: ''}`} onClick={addActive}>
         <p>{day}</p>
         <p className={`date_text ${focus ? `${focus}`: ''}`}>
           <span>{date}</span>일
@@ -96,7 +96,7 @@ const VideoPlayer = (
 function addActive(e) {
   document.querySelectorAll('.product_wrapper').forEach((e)=>{
     e.classList.remove('active');
-  })
+  });
   let element = e.currentTarget;
   if(element.classList.contains('active')) {
     element.classList.remove('active');
