@@ -14,7 +14,7 @@ function FunctionButton ({name, imgUrl}) {
 
 function LabelButton ({label, imgUrl, focus}) {
   return (
-    <div className={`navigator_right_btn ${focus ? `${focus}` : ''}`} onClick={AddActive}>
+    <div className={`navigator_right_btn ${focus ? `${focus}` : ''}`}>
       {imgUrl ? <img src={imgUrl} alt={label}/> : null}
       <p>{label}</p>
     </div>

@@ -7,6 +7,7 @@ import channel_logo_3 from './img/channel/logo_3.png';
 import favorite_btn from './img/channel/favorite.svg';
 import bell_btn from './img/channel/bell.svg';
 import sample_video from './video/SampleVideo.mp4';
+import RemoteEffect from './function_module';
 
 //리모컨 active function
 function AddActive(e) {
@@ -25,13 +26,12 @@ function AddActive(e) {
   }
 }
 
-const activeArray = ['.date_focus_wrapper', '.product_wrapper'];
-for(let i=0; i<activeArray.length; i++) {
-  document.querySelectorAll(activeArray[i]).forEach((e)=>{
-    e.addEventListener('click', AddActive);
-    console.log(e);
-  });
-}
+// const activeArray = ['.date_focus_wrapper', '.product_wrapper'];
+// for(let i=0; i<activeArray.length; i++) {
+//   document.querySelectorAll(activeArray[i]).forEach((e)=>{
+//     e.addEventListener('click', AddActive);
+//   });
+// }
 
 function DateNavigator ({day, date, line, focus}) {
   return (
@@ -120,7 +120,7 @@ const VideoPlayer = (
 
 function ProductCard({url, live, live_time, meridiem, time_1, time_2, name, favorite, reserve, focus}) {
   return(
-    <div className={`product_wrapper ${live? 'live':"no-live"} ${focus? 'active' :""}`}>
+    <div className={`product_wrapper ${live? 'live':"no-live"} controllable`} data-index="3000">
       <div className='product_img'>
         <img src={url}/>
         {favorite ? FavoriteButton : null}
