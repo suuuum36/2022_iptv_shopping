@@ -132,7 +132,7 @@
     box-sizing: border-box;
     /* overflow: hidden; */
     transition: 0.3s all;
-    transform: translateY(0px);
+    transform: translate(0px, 0px);
 }
 
 .product_block {

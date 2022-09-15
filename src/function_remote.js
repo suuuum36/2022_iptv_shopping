@@ -39,35 +39,42 @@ function MoveWrapper(num, key, section){
     let move = 260;
     
     let x = productWrapper.style.transform;
-    x = x.replace('translateY(', '').replace(')', '');
+    x = x.replace(')', '').split(',')[1];
 
     function MoveLogic (n, k) {
         if(remainder==1 || remainder==5 || remainder==9) {
             if(key == 'ArrowDown') {
-                productWrapper.style.transform = `translateY(${move*-(n)-k + 'px'})`;
+                productWrapper.style.transform = `translate(0px, ${move*-(n)-k + 'px'})`;
             }
         }
         else if (remainder==2 || remainder==6 || remainder==10) {
             if(key == 'ArrowUp') {
-                productWrapper.style.transform = `translateY(${move*-(n-1)-k + 'px'})`;
+                productWrapper.style.transform = `translate(0px, ${move*-(n-1)-k + 'px'})`;
             } else if (key == 'ArrowDown') {
-                productWrapper.style.transform = `translateY(${move*-(n+1)-k + 'px'})`;
+                productWrapper.style.transform = `translate(0px, ${move*-(n+1)-k + 'px'})`;
             }
         }
         else if(remainder==3 || remainder==7 || remainder==11) {
             if (key == 'ArrowDown') {
-                productWrapper.style.transform = `translateY(${move*-(n+3)-(k+140) + 'px'})`;
+                productWrapper.style.transform = `translate(0px, ${move*-(n+3)-(k+140) + 'px'})`;
             }
         }
-
         if (key == 'ArrowRight') {
             if (4<=remainder && remainder <=7) {
                 if(x==''){x= '0px'}
                 productWrapper.style.transform = `translate(${-330 + 'px'}, ${x})`;      
-                logoWrapper.style.transform = `translateX(${-330 + 'px'})`;
+                logoWrapper.style.transform = `translate(${-330 + 'px'}, 0px)`;
             }
         }
-        
+        if (key == 'ArrowLeft') {
+            if (8<=remainder && remainder <=11) {
+                if(x==''){x= '0px'}
+                console.log(`translate(0px, ${x})`);
+                productWrapper.style.transform = `translate(0px, ${x})`;
+                logoWrapper.style.transform = `translate(${-330 + 'px'}, 0px)`;
+            }
+        }
+
     }
     if (num >= 8000) {
         let defaultNum = 140;

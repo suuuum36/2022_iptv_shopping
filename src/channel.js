@@ -194,7 +194,7 @@ function Channel() {
         <div className='logo_wrapper'>
           {logoArray.map(element=>(<CompanyLogo url={element.img}/>))} 
         </div>
-        <div className='product_day'>
+        <div className='product_day' style={{transform: 'translate(0px, 0px)'}}>
           <ChannelArray array1={prodcutArray1} array2={prodcutArray2} array3={prodcutArray3} />
           <ChannelDate month='07' date='30' day='(화)' label='내일'/>
           <ChannelArray array1={prodcutArray1} array2={prodcutArray2} array3={prodcutArray3} />
