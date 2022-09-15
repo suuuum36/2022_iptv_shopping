@@ -34,9 +34,12 @@ function DayWrapper () {
 
 function MoveWrapper(num, key, section){
     const productWrapper = document.querySelector('.product_day');
-    productWrapper.style.transition = '0.3s';
+    const logoWrapper = document.querySelector('.logo_wrapper');
     let remainder = num % 1000;
     let move = 260;
+    
+    let x = productWrapper.style.transform;
+    x = x.replace('translateY(', '').replace(')', '');
 
     function MoveLogic (n, k) {
         if(remainder==1 || remainder==5 || remainder==9) {
@@ -56,6 +59,15 @@ function MoveWrapper(num, key, section){
                 productWrapper.style.transform = `translateY(${move*-(n+3)-(k+140) + 'px'})`;
             }
         }
+
+        if (key == 'ArrowRight') {
+            if (4<=remainder && remainder <=7) {
+                if(x==''){x= '0px'}
+                productWrapper.style.transform = `translate(${-330 + 'px'}, ${x})`;      
+                logoWrapper.style.transform = `translateX(${-330 + 'px'})`;
+            }
+        }
+        
     }
     if (num >= 8000) {
         let defaultNum = 140;
