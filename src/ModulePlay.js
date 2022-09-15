@@ -1,12 +1,31 @@
-import React from "react"
+import React, { useEffect, useRef } from "react"
+
 
 function Module_play(){
+    const videoRef = useRef(null);
+    const progressRef = useRef(null);
+    const isListenerAttached = useRef(false);
+    function timeUpdate(){
+        const progress = 100 * videoRef.current.currentTime / videoRef.current.duration;
+        progressRef.current.style.width = `${progress}%`;
+    }
+    useEffect(()=>{
+        if(!isListenerAttached.current){
+            videoRef.current.addEventListener('timeupdate', timeUpdate);
+            isListenerAttached.current = true;
+            console.log('excuted');
+            return;
+        }
+        return ()=>{
+            videoRef.current.removeEventListener('timeupdate', timeUpdate);
+        }
+    })
     return (
         <div className="module_play">
             <div className="set_play">
-                <video src="/img/vidoe_sample.mp4"></video>
+                <video src="/img/vidoe_sample.mp4" ref={videoRef} autoPlay={true} loop={true} playsInline={true} muted={true}></video>
                 <div className="set_progress">
-                    <div className="progress"></div>
+                    <div className="progress" ref={progressRef}></div>
                 </div>
             </div>
             <div className="set_info">

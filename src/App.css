@@ -159,6 +159,7 @@ article.now_play {
   border-radius: 0px 3.85px 3.85px 0px;
   width: 100px;
   height: 100%;
+  transition: 0.3s linear;
 }
 
 .set_info {

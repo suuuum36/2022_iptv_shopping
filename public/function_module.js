@@ -88,8 +88,6 @@ function checkControllable(){
 }
 
 function scrollWithDatumH(target_el, datum_value, direction){
-    console.log("target_el = ", target_el);
-    console.log("direction = ", direction);
     const counts = target_el.childNodes.length;
     const num_nth = parseInt(document.querySelector('.active').getAttribute('data-index'))%1000;
     const move_value = target_el.childNodes[0].getBoundingClientRect().width;
@@ -105,10 +103,6 @@ function scrollWithDatumH(target_el, datum_value, direction){
         point_end = counts - datum_value;
         total_move_distance = (move_value+56)*(num_nth-datum_value + 1);
     }
-    console.log("datum_value - 1 = ", datum_value -2);
-    console.log("num_nth = ", num_nth);
-    console.log("counts - datum_value = ", counts - datum_value + 1);
-    console.log("total_move_distance = ", total_move_distance);
     if(point_start < num_nth && num_nth < point_end) {
         target_el.style.transform = `translate(-${total_move_distance}px)`;
     }

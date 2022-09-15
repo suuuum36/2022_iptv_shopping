@@ -8,9 +8,6 @@ import DepthDetail from './DepthDetail';
 import DepthBuyMobile from './DepthBuyMobile';
 import ModuleTime from './ModuleTime';
 
-import SetNowPlay from "./SetNowPlay";
-import SetNowPlayTest from "./SetNowPlayTest";
-
 function App() {
   return (
     <div className="App">
