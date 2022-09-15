@@ -13,7 +13,8 @@ function CheckControllable() {
 
 function DayWrapper () {
     let scaleY = document.querySelector('.product_day').style.transform;
-    scaleY = scaleY.replace('translateY(', '').replace('px)', '');
+    scaleY = scaleY.replace('px)', '').split(',')[1];
+    console.log(scaleY);
     let defaultY = 1180;
     let defaultNum = 4000;
     const removeFocus = ()=>{
@@ -27,7 +28,7 @@ function DayWrapper () {
         }
     }
     function MoveDay(n) {
-        if(scaleY == defaultY*n*-1) {DayFocus(defaultNum+(1000*n))}
+        if(scaleY == defaultY * n * -1) {DayFocus(defaultNum+(1000*n))}
     }
     for(let i=0; i<4; i++) {MoveDay(i);}
 }
@@ -40,21 +41,22 @@ function MoveWrapper(num, key, section){
     
     let x = productWrapper.style.transform;
     x = x.replace(')', '').split(',')[1];
+    let moveX = '-330px';
 
     function MoveLogic (n, k) {
-        if(remainder==1 || remainder==5 || remainder==9) {
+        if(remainder==1 || remainder==5) {
             if(key == 'ArrowDown') {
                 productWrapper.style.transform = `translate(0px, ${move*-(n)-k + 'px'})`;
             }
         }
-        else if (remainder==2 || remainder==6 || remainder==10) {
+        else if (remainder==2 || remainder==6) {
             if(key == 'ArrowUp') {
                 productWrapper.style.transform = `translate(0px, ${move*-(n-1)-k + 'px'})`;
             } else if (key == 'ArrowDown') {
                 productWrapper.style.transform = `translate(0px, ${move*-(n+1)-k + 'px'})`;
             }
         }
-        else if(remainder==3 || remainder==7 || remainder==11) {
+        else if(remainder==3 || remainder==7) {
             if (key == 'ArrowDown') {
                 productWrapper.style.transform = `translate(0px, ${move*-(n+3)-(k+140) + 'px'})`;
             }
@@ -62,8 +64,8 @@ function MoveWrapper(num, key, section){
         if (key == 'ArrowRight') {
             if (4<=remainder && remainder <=7) {
                 if(x==''){x= '0px'}
-                productWrapper.style.transform = `translate(${-330 + 'px'}, ${x})`;      
-                logoWrapper.style.transform = `translate(${-330 + 'px'}, 0px)`;
+                productWrapper.style.transform = `translate(${moveX}, ${x})`;      
+                logoWrapper.style.transform = `translate(${moveX}, 0px)`;
             }
         }
         if (key == 'ArrowLeft') {
@@ -71,7 +73,18 @@ function MoveWrapper(num, key, section){
                 if(x==''){x= '0px'}
                 console.log(`translate(0px, ${x})`);
                 productWrapper.style.transform = `translate(0px, ${x})`;
-                logoWrapper.style.transform = `translate(${-330 + 'px'}, 0px)`;
+                logoWrapper.style.transform = `translate(0px, 0px)`;
+            }
+        }
+        if (key == 'ArrowDown') {
+            if (remainder == 9) {
+                productWrapper.style.transform = `translate(${moveX}, ${move*-(n)-k + 'px'})`;
+            }
+            else if(remainder == 10) {
+                productWrapper.style.transform = `translate(${moveX}, ${move*-(n+1)-k + 'px'})`;
+            }
+            else if (remainder == 11) {
+                productWrapper.style.transform = `translate(${moveX}, ${move*-(n+3)-(k+140) + 'px'})`;
             }
         }
 
@@ -98,7 +111,7 @@ function MoveWrapper(num, key, section){
         function MoveDay(data, k) {
             const day = document.querySelector(`.date_focus_wrapper[data-index='${data}']`);
             if(day.classList.contains('active')) {
-                productWrapper.style.transform = `translateY(${defaultY*k*-1 + 'px'})`;
+                productWrapper.style.transform = `translate(0px, ${defaultY*k*-1 + 'px'})`;
             }
         }
         for(let i=0; i<4; i++) {MoveDay(4000+(1000*i), i);}
