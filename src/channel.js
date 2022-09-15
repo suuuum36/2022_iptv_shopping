@@ -19,7 +19,7 @@ function DateNavigator ({day, date, line, focus}) {
         <p className={`date_text ${focus ? `${focus}`: ''}`}>
           <span>{date}</span>일
         </p>
-        {focus=='focus' ? <div className='focus_line'></div> : null}
+        <div className='focus_line'></div>
       </div>
       {line ? <div className='date_line'></div> : null}
     </div>
@@ -200,7 +200,9 @@ function Channel() {
           <ChannelArray array1={prodcutArray1} array2={prodcutArray2} array3={prodcutArray3} />
           <ChannelDate month='07' date='31' day='(수)'/>
           <ChannelArray array1={prodcutArray1} array2={prodcutArray2} array3={prodcutArray3} />
-          <ChannelDate month='07' date='29' day='(수)' label='오늘'/>
+          <ChannelDate month='08' date='1' day='(목)'/>
+          <ChannelArray array1={prodcutArray1} array2={prodcutArray2} array3={prodcutArray3} />
+          <ChannelDate month='07' date='29' day='(월)' label='오늘'/>
           <ChannelArray array1={prodcutArray1} array2={prodcutArray2} array3={prodcutArray3} />
           
         </div>          
