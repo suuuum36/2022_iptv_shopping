@@ -14,22 +14,20 @@ function CheckControllable() {
 function DayWrapper () {
     let scaleY = document.querySelector('.product_day').style.transform;
     scaleY = scaleY.replace('translateY(', '').replace('px)', '');
+    let defaultY = 1180;
+    
     const removeFocus = ()=>{
         document.querySelectorAll('.date_focus_wrapper').forEach((e)=>{e.classList.remove(('focus'))});
     }
-    if(scaleY =='-1180') {
+    function DayFocus (data) {
         removeFocus();
-        const day2 = document.querySelector('.date_focus_wrapper[data-index="5000"]');
-        day2.classList.add('focus');
-    } else if (scaleY == '-2360') {
-        removeFocus();
-        const day2 = document.querySelector('.date_focus_wrapper[data-index="6000"]');
-        day2.classList.add('focus');
-    } else if (scaleY == '-3540') {
-        removeFocus();
-        const day2 = document.querySelector('.date_focus_wrapper[data-index="7000"]');
-        day2.classList.add('focus');
+        const day = document.querySelector(`.date_focus_wrapper[data-index='${data}']`);
+        day.classList.add('focus');
     }
+    if(scaleY == '') {DayFocus('4000');}
+    else if(scaleY == defaultY*-1) {DayFocus('5000');}
+    else if (scaleY == defaultY*-2) {DayFocus('6000');}
+    else if (scaleY == defaultY*-3) {DayFocus('7000');}
 }
 
 function MoveWrapper(num, key, section){
@@ -60,85 +58,18 @@ function MoveWrapper(num, key, section){
     if (num >= 8000) {
         switch (section) {
             case '4':
-                if(remainder==1 || remainder==5 || remainder==9) {
-                    if(key == 'ArrowDown') {
-                        productWrapper.style.transform = `translateY(${move*-1 + 'px'})`;
-                    }
-                }
-                else if (remainder==2 || remainder==6 || remainder==10) {
-                    if(key == 'ArrowUp') {
-                        productWrapper.style.transform = `translateY(${move*0 + 'px'})`;
-                    } else if (key == 'ArrowDown') {
-                        productWrapper.style.transform = `translateY(${move*-2 + 'px'})`;
-                    }
-                }
-                else if(remainder==3 || remainder==7 || remainder==11) {
-                    if (key == 'ArrowDown') {
-                        productWrapper.style.transform = `translateY(${move*-4-140 + 'px'})`;
-                    }
-                }
+                MoveLogic(1, 0);
                 break;
             case '5' :
-                if(remainder==1 || remainder==5 || remainder==9) {
-                    if(key == 'ArrowDown') {
-                        productWrapper.style.transform = `translateY(${move*-5-140 + 'px'})`;
-                    }
-                }
-                else if (remainder==2 || remainder==6 || remainder==10) {
-                    if(key == 'ArrowUp') {
-                        productWrapper.style.transform = `translateY(${move*-4-140 + 'px'})`;
-                    } else if (key == 'ArrowDown') {
-                        productWrapper.style.transform = `translateY(${move*-6-140 + 'px'})`;
-                    }
-                }
-                else if(remainder==3 || remainder==7 || remainder==11) {
-                    if (key == 'ArrowDown') {
-                        productWrapper.style.transform = `translateY(${move*-8-280 + 'px'})`;
-                    }
-                }
+                MoveLogic(5, 140);
                 break;
             case '6' :
-                if(remainder==1 || remainder==5 || remainder==9) {
-                    if(key == 'ArrowDown') {
-                        productWrapper.style.transform = `translateY(${move*-9-280 + 'px'})`;
-                    }
-                }
-                else if (remainder==2 || remainder==6 || remainder==10) {
-                    if(key == 'ArrowUp') {
-                        productWrapper.style.transform = `translateY(${move*-8-280 + 'px'})`;
-                    } else if (key == 'ArrowDown') {
-                        productWrapper.style.transform = `translateY(${move*-10-280 + 'px'})`;
-                    }
-                }
-                else if(remainder==3 || remainder==7 || remainder==11) {
-                    if (key == 'ArrowDown') {
-                        productWrapper.style.transform = `translateY(${move*-12-420 + 'px'})`;
-                    }
-                }
+                MoveLogic(9, 280);
                 break;  
             case '7' :
-                if(remainder==1 || remainder==5 || remainder==9) {
-                    if(key == 'ArrowDown') {
-                        productWrapper.style.transform = `translateY(${move*-13-420 + 'px'})`;
-                    }
-                }
-                else if (remainder==2 || remainder==6 || remainder==10) {
-                    if(key == 'ArrowUp') {
-                        productWrapper.style.transform = `translateY(${move*-12-420 + 'px'})`;
-                    } else if (key == 'ArrowDown') {
-                        productWrapper.style.transform = `translateY(${move*-14-420 + 'px'})`;
-                    }
-                }
-                else if(remainder==3 || remainder==7 || remainder==11) {
-                    if (key == 'ArrowDown') {
-                        productWrapper.style.transform = `translateY(${move*-16-560 + 'px'})`;
-                        // productWrapper.style.transition = "0ms";
-                        // productWrapper.style.transform = `translateY(${move*0 + 'px'})`;
-                    }
-                }
+                MoveLogic(13, 420);
                 break;           
-        }
-          
+        }          
     }
 }
 
