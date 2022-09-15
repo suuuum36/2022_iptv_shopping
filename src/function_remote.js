@@ -2,7 +2,7 @@ import { useAsync } from "react-async";
 
 function CheckControllable() {
     document.querySelectorAll('.wrapper_controllable').forEach((item, index)=>{
-        const line_num = index + 4;
+        const line_num = index+4;
         item.querySelectorAll('.controllable').forEach((item, index)=>{
             const controllable_index = line_num * 1000 + index;
             item.setAttribute('data-index', controllable_index);
@@ -15,7 +15,7 @@ function DayWrapper () {
     let scaleY = document.querySelector('.product_day').style.transform;
     scaleY = scaleY.replace('translateY(', '').replace('px)', '');
     let defaultY = 1180;
-    
+    let defaultNum = 4000;
     const removeFocus = ()=>{
         document.querySelectorAll('.date_focus_wrapper').forEach((e)=>{e.classList.remove(('focus'))});
     }
@@ -24,10 +24,12 @@ function DayWrapper () {
         const day = document.querySelector(`.date_focus_wrapper[data-index='${data}']`);
         day.classList.add('focus');
     }
-    if(scaleY == '') {DayFocus('4000');}
-    else if(scaleY == defaultY*-1) {DayFocus('5000');}
-    else if (scaleY == defaultY*-2) {DayFocus('6000');}
-    else if (scaleY == defaultY*-3) {DayFocus('7000');}
+
+    function MoveDay(n) {
+        if(scaleY == defaultY*n*-1) {DayFocus(defaultNum+(1000*n))}
+    }
+    
+    for(let i=0; i<4; i++) {MoveDay(i);}
 }
 
 function MoveWrapper(num, key, section){
@@ -35,6 +37,7 @@ function MoveWrapper(num, key, section){
     productWrapper.style.transition = '0.3s';
     let remainder = num % 1000;
     let move = 260;
+
     function MoveLogic (n, k) {
         if(remainder==1 || remainder==5 || remainder==9) {
             if(key == 'ArrowDown') {
@@ -54,7 +57,6 @@ function MoveWrapper(num, key, section){
             }
         }
     }
-    
     if (num >= 8000) {
         switch (section) {
             case '4':
@@ -70,6 +72,16 @@ function MoveWrapper(num, key, section){
                 MoveLogic(13, 420);
                 break;           
         }          
+    } 
+    else if (4000<= num && num <= 7000) {
+        let defaultY = 1180;
+        function MoveDay(data, k) {
+            const day = document.querySelector(`.date_focus_wrapper[data-index='${data}']`);
+            if(day.classList.contains('active')) {
+                productWrapper.style.transform = `translateY(${defaultY*k*-1 + 'px'})`;
+            }
+        }
+        for(let i=0; i<4; i++) {MoveDay(4000+(1000*i), i);}
     }
 }
 
@@ -119,24 +131,9 @@ const RemoteEffect = async () => {
                 actionByEnter(current_index);
             },
         };
-        // if(isFinite(event.key)){
-        //     digit_array.push(event.key);
-        //     console.log(digit_array.length);
-        //     if(digit_array.length <12) {
-        //         document.querySelector('#popup_digit').value = digit_array.toString().replace(/,/g,"").replace(/^(\d{0,3})(\d{0,4})(\d{0,4})$/g, "$1-$2-$3").replace(/\-{1,2}$/g, "");
-        //     }
-
-        //     console.log(digit_array.toString().replace(/,/g,"").replace(/^(\d{0,3})(\d{0,4})(\d{0,4})$/g, "$1-$2-$3"));
-
-        // } else  {
-        //     action_key[event.key]();
-        // }
         action_key[event.key]();
         MoveWrapper(num, event.key, prodcut_section);
         DayWrapper();
-        // console.log(event.key);
-        // console.log(current_index);
-        // console.log(document.querySelector(`[data-index="${current_index}"]`));
     });
     
     function changeActive(index_num){
@@ -144,22 +141,8 @@ const RemoteEffect = async () => {
             // console.log(document.querySelector(`[data-index="${index_num}"]`));
             document.querySelector('.controllable.active').classList.remove('active');
             document.querySelector(`[data-index="${index_num}"]`).classList.add('active');
-            // actionByMovement(parseInt(index_num/1000));
         }
     }
-
-    // function actionByMovement(line_num){
-    //     const current_page = document.querySelector('body').getAttribute('data-page');
-    //     ({
-    //         'now_play' : {
-    //             1 : ()=>{},
-    //             2 : ()=>{},
-    //             3 : ()=>{
-    //                 console.log('here!!!');
-    //             },
-    //         }
-    //     })[current_page][line_num]();
-    // }
 
     function actionByEnter(index_num){
         const current_page = document.querySelector('.App').getAttribute('data-page');
@@ -198,8 +181,6 @@ const RemoteEffect = async () => {
 
     async function defaultSetting(){
         await clearActiveClass();
-        // await checkControllable();
-        // await activeFirstIndex();
     }
 
      function clearActiveClass(){
@@ -207,37 +188,6 @@ const RemoteEffect = async () => {
             item.classList.remove('active');
         });
      }
-
-    // function activeFirstIndex(){
-    //     document.querySelector('[data-index="1000"]').classList.add('active');
-    // }
-
-    // function checkControllable(){
-    //     document.querySelectorAll('.wrapper_controllable').forEach((item, index)=>{
-    //         const line_num = index + 4;
-    //         item.querySelectorAll('.controllable').forEach((item, index)=>{
-    //             const controllable_index = line_num * 1000 + index;
-    //             item.setAttribute('data-index', controllable_index);
-    //         });
-    //     })
-    // }
-    
-    function getUrlParameter(sParam) {
-        const sPageURL = window.location.search.substring(1);
-        const sURLVariables = sPageURL.split('&');
-        let sParameterName;
-    
-        for (let i = 0; i < sURLVariables.length; i++) {
-            sParameterName = sURLVariables[i].split('=');
-            if (sParameterName[0] === sParam) {
-                console.log('sParam is ' + sParam);
-                console.log('sParameterName is ' + sParameterName[1]);
-                return sParameterName[1] === undefined ? true : decodeURIComponent(sParameterName[1]);
-            }
-        }
-        return true;
-        // return 0;
-    };
 };
 
 export {CheckControllable, RemoteEffect};
