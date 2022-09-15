@@ -22,13 +22,13 @@ function DayWrapper () {
     function DayFocus (data) {
         removeFocus();
         const day = document.querySelector(`.date_focus_wrapper[data-index='${data}']`);
-        day.classList.add('focus');
+        if (!day.classList.contains('active')) {
+            day.classList.add('focus');
+        }
     }
-
     function MoveDay(n) {
         if(scaleY == defaultY*n*-1) {DayFocus(defaultNum+(1000*n))}
     }
-    
     for(let i=0; i<4; i++) {MoveDay(i);}
 }
 
@@ -58,18 +58,19 @@ function MoveWrapper(num, key, section){
         }
     }
     if (num >= 8000) {
+        let defaultNum = 140;
         switch (section) {
             case '4':
                 MoveLogic(1, 0);
                 break;
             case '5' :
-                MoveLogic(5, 140);
+                MoveLogic(5, defaultNum);
                 break;
             case '6' :
-                MoveLogic(9, 280);
+                MoveLogic(9, defaultNum*2);
                 break;  
             case '7' :
-                MoveLogic(13, 420);
+                MoveLogic(13, defaultNum*3);
                 break;           
         }          
     } 
@@ -82,6 +83,23 @@ function MoveWrapper(num, key, section){
             }
         }
         for(let i=0; i<4; i++) {MoveDay(4000+(1000*i), i);}
+    }
+}
+
+function FindClosestActive () {
+    let focusedSection = document.querySelector('.date_focus_wrapper.focus').getAttribute('product-section');
+    focusedSection = focusedSection * 1 + 4;
+    let closestProduct = document.querySelectorAll(`.product_wrapper[product-section='${focusedSection}']`);
+    closestProduct.forEach((e)=>{
+        let num = e.getAttribute('data-index');
+        if(num % 1000 == 0) {changeActive(num);}
+    });
+}
+
+function changeActive(index_num){
+    if(document.querySelector(`[data-index="${index_num}"]`) !== null ){
+        document.querySelector('.controllable.active').classList.remove('active');
+        document.querySelector(`[data-index="${index_num}"]`).classList.add('active');
     }
 }
 
@@ -108,7 +126,7 @@ const RemoteEffect = async () => {
                 else {changeActive(num + 1);}
             },
             "ArrowDown" : ()=>{
-                if(num === 1003){changeActive(num_0 + 7000);}
+                if(num === 1003){FindClosestActive();}
                 else if (num >= 8000 ) {
                     if(num % 1000 === 3) {
                         if (num === 11003) {changeActive(8000);}
@@ -135,14 +153,6 @@ const RemoteEffect = async () => {
         MoveWrapper(num, event.key, prodcut_section);
         DayWrapper();
     });
-    
-    function changeActive(index_num){
-        if(document.querySelector(`[data-index="${index_num}"]`) !== null ){
-            // console.log(document.querySelector(`[data-index="${index_num}"]`));
-            document.querySelector('.controllable.active').classList.remove('active');
-            document.querySelector(`[data-index="${index_num}"]`).classList.add('active');
-        }
-    }
 
     function actionByEnter(index_num){
         const current_page = document.querySelector('.App').getAttribute('data-page');
