@@ -3,8 +3,9 @@ import { useEffect } from 'react';
 import useScript from "./hooks/useScript"
 
 import Gnb from './Gnb';
-import SetNowPlay from "./SetNowPlay";
-import SetNowPlayTest from "./SetNowPlayTest";
+import SetNowPlay_1 from "./SetNowPlay_1";
+import SetNowPlay_2 from "./SetNowPlay_2";
+import { Route, Routes, useLocation, useParams } from "react-router-dom";
 
 function actionByEnter(index_num){
   
@@ -59,6 +60,9 @@ async function keyAction(event){
 
 function DepthOne() {
   const status = useScript('/function_module.js');
+  const params = useParams();
+  const location = useLocation();
+  // console.log(location);
   useEffect(()=>{
     if(status === "ready") {
       window.defaultSetting();
@@ -73,8 +77,11 @@ function DepthOne() {
     <article className="now_play">
         <section>
           <Gnb></Gnb>
-          <SetNowPlay></SetNowPlay>
-          {/* <SetNowPlayTest></SetNowPlayTest> */}
+          <Routes>
+            <Route path={`1`} element={<SetNowPlay_1 />}></Route>
+            <Route path={`2`} element={<SetNowPlay_2 />}></Route>
+            {/* <SetNowPlay_1></SetNowPlay_1> */}
+          </Routes>
         </section>
     </article>
   );

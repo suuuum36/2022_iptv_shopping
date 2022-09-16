@@ -3,7 +3,7 @@ import React from "react";
 import ModulePlay from './ModulePlay';
 import ModuleItem from './ModuleItem';
 
-function SetNowPlay() {
+function SetNowPlay_1() {
   return (
     <>
       <ModulePlay></ModulePlay>
@@ -12,4 +12,4 @@ function SetNowPlay() {
   );
 }
 
-export default SetNowPlay;
+export default SetNowPlay_1;
