@@ -35,6 +35,7 @@ function DayWrapper () {
 function MoveWrapper(num, key, section){
     const productWrapper = document.querySelector('.product_day');
     const logoWrapper = document.querySelector('.logo_wrapper');
+    productWrapper.style.transition = '0.5s all';
     let remainder = num % 1000;
     let move = 260;
     
@@ -111,11 +112,11 @@ function MoveWrapper(num, key, section){
             case '7' :
                 MoveLogic(13, defaultNum*3);
                 if(num==11003 || num == 11007 || num == 11011) {
-                    productWrapper.style.transform = `translate(0px, -4907px)`;
+                    productWrapper.style.transform = `translate(0px, -4903px)`;
                     setTimeout (()=>{
                         productWrapper.style.transform = `translate(0px, 0px)`;
                         productWrapper.style.transition = '0s all';
-                    },1000);
+                    },500);
                 }
                 break;           
         }          
@@ -143,22 +144,32 @@ function FindClosestActive () {
 }
 
 function ActiveMove (){
-    let element = document.querySelector('.controllable.active');
-    let children = [...element.parentElement.children];
-    children = children.filter(child => child !== element);
-    children = children.filter(child => child.classList.contains('live'));
-
-    if (element.classList.contains('live')) {
-        element.classList.remove('moved');
-        children.forEach((e)=> {e.classList.add('moved');});
-    } else {
-        element.classList.remove('moved');
-        children.forEach((e)=> {e.classList.remove('moved');});
-        document.querySelectorAll('.product_wrapper').forEach((e)=>{
-            e.classList.remove('moved');
-        })
+    let element = document.querySelectorAll('.controllable.active');
+    let element2 = document.querySelectorAll('.controllable.fake');
+    function checkMove (element){
+        element.forEach((element)=>{
+            let children = [...element.parentElement.children];
+            children = children.filter(child => child !== element);
+            children = children.filter(child => child.classList.contains('live'));
+        
+            if (element.classList.contains('live')) {
+                element.classList.remove('moved');
+                children.forEach((e)=> {e.classList.add('moved');});
+            } else {
+                element.classList.remove('moved');
+                children.forEach((e)=> {e.classList.remove('moved');});
+                document.querySelectorAll('.product_wrapper').forEach((e)=>{
+                    e.classList.remove('moved');
+                })
+            }
+        });
     }
+    checkMove(element);
+    if(element2 != null) {
+        checkMove(element2);
+    }        
 }
+
 
 function changeActive(index_num){
     if(document.querySelector(`[data-index="${index_num}"]`) !== null ){
@@ -194,13 +205,25 @@ const RemoteEffect = async () => {
                 else if (num >= 8000 ) {
                     if(num % 1000 === 3) {
                         if (num === 11003) {
-                            changeActive(num_0 + 1000);
-                            document.querySelector('div[data-index="8000"]').classList.add('active');
+                            changeActive(8000);
+                            document.querySelector(`div[data-index="${num_0+1000}"]`).classList.add('fake');
                         }
                         else {changeActive(num_0 + 1000);};
                     }
-                    else if (num % 1000 === 7) {changeActive(num_0 + 1000 + 4);}
-                    else if (num % 1000 === 11) {changeActive(num_0 + 1000 + 8);}
+                    else if (num % 1000 === 7) {
+                        if (num === 11007) {
+                            changeActive(8004);
+                            document.querySelector(`div[data-index="${num_0 + 1000 + 4}"]`).classList.add('fake');
+                        }
+                        else {changeActive(num_0 + 1000 + 4)};
+                    }
+                    else if (num % 1000 === 11) {
+                        if (num === 11011) {
+                            changeActive(8011);
+                            document.querySelector(`div[data-index="${num_0 + 1000 + 8}"]`).classList.add('fake');
+                        }
+                        else {changeActive(num_0 + 1000 + 8)};
+                    }
                     else {changeActive(num + 1)};
                 }
                 else if (num === 7000){changeActive(4000)}
