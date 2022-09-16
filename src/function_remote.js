@@ -87,6 +87,11 @@ function MoveWrapper(num, key, section){
                 productWrapper.style.transform = `translate(${moveX}, ${move*-(n+3)-(k+140) + 'px'})`;
             }
         }
+        if (key == 'ArrowUp') {
+            if(remainder == 10) {
+                productWrapper.style.transform = `translate(${moveX}, ${move*-(n-1)-k + 'px'})`;
+            }
+        }
 
     }
     if (num >= 8000) {

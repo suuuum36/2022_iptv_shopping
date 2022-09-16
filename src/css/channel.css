@@ -136,7 +136,7 @@
 }
 
 .product_block {
-    max-height: 1020px;
+    max-height: 1200px;
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
@@ -420,4 +420,32 @@ span.day_label {
     height: 2px;
     background: #EEEEEE;
     opacity: 0.3;
+}
+
+/*Pip 플레이어 설정*/
+.product_wrapper.video.active {
+    height: 374px;
+    transform: scale(1.08);
+    border: 8px solid #EEEEEE;
+    margin-right: 0px;
+}
+
+.pip_player {
+    display: none;
+}
+
+.product_wrapper.video.active .pip_player {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 9px;
+}
+
+.product_wrapper.video.active .product_img{
+    display: none;
+}
+
+.product_wrapper.video.active .product_info{
+    display: none;
 }
