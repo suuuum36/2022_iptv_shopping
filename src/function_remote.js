@@ -95,7 +95,6 @@ function MoveWrapper(num, key, section){
                 logoWrapper.style.transform = `translate(0px, 0px)`;
             }
         }
-
     }
     if (num >= 8000) {
         let defaultNum = 140;
@@ -111,6 +110,13 @@ function MoveWrapper(num, key, section){
                 break;  
             case '7' :
                 MoveLogic(13, defaultNum*3);
+                if(num==11003 || num == 11007 || num == 11011) {
+                    productWrapper.style.transform = `translate(0px, -4907px)`;
+                    setTimeout (()=>{
+                        productWrapper.style.transform = `translate(0px, 0px)`;
+                        productWrapper.style.transition = '0s all';
+                    },1000);
+                }
                 break;           
         }          
     } 
@@ -187,8 +193,11 @@ const RemoteEffect = async () => {
                 if(num === 1003){FindClosestActive();}
                 else if (num >= 8000 ) {
                     if(num % 1000 === 3) {
-                        if (num === 11003) {changeActive(8000);}
-                        else {changeActive(num_0 + 1000)};
+                        if (num === 11003) {
+                            changeActive(num_0 + 1000);
+                            document.querySelector('div[data-index="8000"]').classList.add('active');
+                        }
+                        else {changeActive(num_0 + 1000);};
                     }
                     else if (num % 1000 === 7) {changeActive(num_0 + 1000 + 4);}
                     else if (num % 1000 === 11) {changeActive(num_0 + 1000 + 8);}
