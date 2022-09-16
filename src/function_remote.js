@@ -14,7 +14,6 @@ function CheckControllable() {
 function DayWrapper () {
     let scaleY = document.querySelector('.product_day').style.transform;
     scaleY = scaleY.replace('px)', '').split(',')[1];
-    console.log(scaleY);
     let defaultY = 1180;
     let defaultNum = 4000;
     const removeFocus = ()=>{
@@ -91,6 +90,10 @@ function MoveWrapper(num, key, section){
             if(remainder == 10) {
                 productWrapper.style.transform = `translate(${moveX}, ${move*-(n-1)-k + 'px'})`;
             }
+            if(remainder == 0 || remainder == 4 || remainder == 8) {
+                productWrapper.style.transform = `translate(0px, ${x})`;
+                logoWrapper.style.transform = `translate(0px, 0px)`;
+            }
         }
 
     }
@@ -131,6 +134,24 @@ function FindClosestActive () {
         let num = e.getAttribute('data-index');
         if(num % 1000 == 0) {changeActive(num);}
     });
+}
+
+function ActiveMove (){
+    let element = document.querySelector('.controllable.active');
+    let children = [...element.parentElement.children];
+    children = children.filter(child => child !== element);
+    children = children.filter(child => child.classList.contains('live'));
+
+    if (element.classList.contains('live')) {
+        element.classList.remove('moved');
+        children.forEach((e)=> {e.classList.add('moved');});
+    } else {
+        element.classList.remove('moved');
+        children.forEach((e)=> {e.classList.remove('moved');});
+        document.querySelectorAll('.product_wrapper').forEach((e)=>{
+            e.classList.remove('moved');
+        })
+    }
 }
 
 function changeActive(index_num){
@@ -189,6 +210,7 @@ const RemoteEffect = async () => {
         action_key[event.key]();
         MoveWrapper(num, event.key, prodcut_section);
         DayWrapper();
+        ActiveMove();
     });
 
     function actionByEnter(index_num){

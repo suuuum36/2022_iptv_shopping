@@ -90,16 +90,18 @@ function LiveTitle ({time}) {
   );
 }
 
-const VideoPlayer = (
-  <video autoPlay muted className='pip_player'>
-    <source src={sample_video} type="video/mp4"></source>
-  </video>
-);
+function VideoPlayer ({url}) {
+  return (
+    <video autoPlay muted className='pip_player'>
+      <source src={url} type="video/mp4"></source>
+    </video>
+  );
+}
 
 function ProductCard({url, live, live_time, meridiem, time_1, time_2, name, favorite, reserve, focus, video}) {
   return(
-    <div className={`product_wrapper ${live? 'live':"no-live"} controllable ${video? 'video':"no-video"}`}>
-      {video ? VideoPlayer : null}
+    <div className={`product_wrapper ${live? 'live':'normal'} controllable`}>
+      {video ? <VideoPlayer url={video}/>: null}
       <div className='product_img'>
         <img src={url}/>
         {favorite ? FavoriteButton : null}
@@ -138,21 +140,21 @@ const logoArray = [
 ]
 
 const prodcutArray1 = [
-  {url: require('./img/channel/product_1.png'), favorite: true, live: true, live_time : '20', video: true, name : '네이더스 베이직 스트라이프 S/S 티셔츠 네이비 시…'},
+  {url: require('./img/channel/product_1.png'), video: sample_video, favorite: true, live: true, live_time : '20', name : '네이더스 베이직 스트라이프 S/S 티셔츠 네이비 시…'},
   {url: require('./img/channel/product_2.png'), meridiem:'오전', time_1: '10', time_2: '30', name : '블랭코브 나일론 백팩 DAYPACK 26 올리브 그…'},
   {url: require('./img/channel/product_3.png'), reserve: true, meridiem:'오전', time_1: '11', time_2: '45', name : '소니 All New Design 노이즈캔슬링 헤드폰(WH…'},
   {url: require('./img/channel/product_1.png'), meridiem:'오후', time_1: '1', time_2: '30', name : 'GS SHOP 네번째 상품 GS SHOP 네번째 상품'}
 ]
 
 const prodcutArray2 = [
-  {url: require('./img/channel/product_4.png'), live: true, live_time : '120', name : '토앤토 플립플랍 ZEROVIT Y BIO 네추롤 타우페'},
+  {url: require('./img/channel/product_4.png'), video: sample_video, live: true, live_time : '120', name : '토앤토 플립플랍 ZEROVIT Y BIO 네추롤 타우페'},
   {url: require('./img/channel/product_5.png'), favorite:true, meridiem:'오전', time_1: '10', time_2: '00', name : '오가프 노킹 로고 베이스볼 캡 네이비'},
   {url: require('./img/channel/product_6.png'), favorite:true, reserve:true, meridiem:'오전', time_1: '11', time_2: '30', name : '토마스모어 TC2-PT02 인디고 스트링 팬츠'},
   {url: require('./img/channel/product_4.png'), meridiem:'오후', time_1: '12', time_2: '30', name : 'CJ ONSTYLE 네번째 상품 CJ ONSTYLE 네번…'}
 ]
 
 const prodcutArray3 = [
-  {url: require('./img/channel/product_7.png'), favorite: true, live: true, live_time : '20', name : '네이더스 베이직 스트라이프 S/S 티셔츠 네이…'},
+  {url: require('./img/channel/product_7.png'), video: sample_video, favorite: true, live: true, live_time : '20', name : '네이더스 베이직 스트라이프 S/S 티셔츠 네이…'},
   {url: require('./img/channel/product_8.png'), meridiem:'오전', time_1: '10', time_2: '30', name : '블랭코브 나일론 백팩 DAYPACK 26 올리브 그레'},
   {url: require('./img/channel/product_9.png'), favorite:true, meridiem:'오전', time_1: '11', time_2: '45', name : '소니 All New Design 노이즈캔슬링 헤드폰'},
   {url: require('./img/channel/product_7.png'), meridiem:'오후', time_1: '1', time_2: '00', name : '롯데홈쇼핑 네번째 상품 롯데홈쇼핑 네번째 상품'}
@@ -163,8 +165,8 @@ function ChannelArray ({array1, array2, array3}) {
     <div className='product_list_wrapper' onLoad={CheckControllable}>
       <div className='product_block wrapper_controllable'>
         {array1.map(element=>(<ProductCard url={element.url} focus={element.focus} live={element.live} live_time={element.live_time} meridiem={element.meridiem} time_1={element.time_1} time_2={element.time_2} name={element.name} favorite={element.favorite} reserve={element.reserve} video={element.video}/>))}    
-        {array2.map(element=>(<ProductCard url={element.url} focus={element.focus} live={element.live} live_time={element.live_time} meridiem={element.meridiem} time_1={element.time_1} time_2={element.time_2} name={element.name} favorite={element.favorite} reserve={element.reserve}/>))}     
-        {array3.map(element=>(<ProductCard url={element.url} focus={element.focus} live={element.live} live_time={element.live_time} meridiem={element.meridiem} time_1={element.time_1} time_2={element.time_2} name={element.name} favorite={element.favorite} reserve={element.reserve}/>))}             
+        {array2.map(element=>(<ProductCard url={element.url} focus={element.focus} live={element.live} live_time={element.live_time} meridiem={element.meridiem} time_1={element.time_1} time_2={element.time_2} name={element.name} favorite={element.favorite} reserve={element.reserve} video={element.video}/>))}     
+        {array3.map(element=>(<ProductCard url={element.url} focus={element.focus} live={element.live} live_time={element.live_time} meridiem={element.meridiem} time_1={element.time_1} time_2={element.time_2} name={element.name} favorite={element.favorite} reserve={element.reserve} video={element.video}/>))}             
       </div>
       <div className='block_line'></div>
       <div className='block_line'></div>
