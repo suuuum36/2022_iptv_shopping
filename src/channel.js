@@ -181,7 +181,7 @@ function ChannelDate ({month, date, day, label}){
         <span><span className='number'>{month}</span>월</span>
         <span><span className='number'>{date}</span>일</span>
         <span>{day}</span>
-        {label ? <span className='day_label'>{label}</span> : null}        
+        {label ? <span className={`day_label ${label=='오늘'?'today':'yesterday'}`}>{label}</span> : null}        
       </div>
       <div className='date_section_line'></div>
     </div>

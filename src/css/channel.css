@@ -416,6 +416,10 @@ span.day_label {
     margin-left: 3px;
 }
 
+span.day_label.today {
+    background: #EF3484;
+}
+
 .date_section_line {
     width: 100%;
     height: 2px;

@@ -111,10 +111,19 @@ function MoveWrapper(num, key, section){
                 break;  
             case '7' :
                 MoveLogic(13, defaultNum*3);
+                //루프용 이동 및 효과
                 if(num==11003 || num == 11007 || num == 11011) {
-                    productWrapper.style.transform = `translate(0px, -4903px)`;
+                    let tempMoveX = '-330px';
+                    let tempMoveY = '-4903px';
+                    document.querySelector('.date_focus_wrapper[data-index="4000"]').classList.add('focus');
+                    document.querySelector('.date_focus_wrapper[data-index="7000"]').classList.remove('focus');
+
+                    if(num==11011){productWrapper.style.transform = `translate(${tempMoveX}, ${tempMoveY})`;}
+                    else {productWrapper.style.transform = `translate(0px, ${tempMoveY})`;}
+                    
                     setTimeout (()=>{
-                        productWrapper.style.transform = `translate(0px, 0px)`;
+                        if(num==11011){productWrapper.style.transform = `translate(${tempMoveX}, 0px)`;}
+                        else {productWrapper.style.transform = `translate(0px, 0px)`;}
                         productWrapper.style.transition = '0s all';
                     },500);
                 }
@@ -178,6 +187,11 @@ function changeActive(index_num){
     }
 }
 
+function AddFakeActive (fakeActive) {
+    fakeActive.classList.add('fake');
+    setTimeout (()=>{fakeActive.classList.remove('fake');},1000);
+}
+
 const RemoteEffect = async () => {
     const digit_array = [];
     changePageSetting();
@@ -206,21 +220,24 @@ const RemoteEffect = async () => {
                     if(num % 1000 === 3) {
                         if (num === 11003) {
                             changeActive(8000);
-                            document.querySelector(`div[data-index="${num_0+1000}"]`).classList.add('fake');
+                            let fakeActive = document.querySelector(`div[data-index="${num_0+1000}"]`);
+                            AddFakeActive(fakeActive);
                         }
                         else {changeActive(num_0 + 1000);};
                     }
                     else if (num % 1000 === 7) {
                         if (num === 11007) {
                             changeActive(8004);
-                            document.querySelector(`div[data-index="${num_0 + 1000 + 4}"]`).classList.add('fake');
+                            let fakeActive = document.querySelector(`div[data-index="${num_0 + 1000 + 4}"]`);
+                            AddFakeActive(fakeActive);
                         }
                         else {changeActive(num_0 + 1000 + 4)};
                     }
                     else if (num % 1000 === 11) {
                         if (num === 11011) {
-                            changeActive(8011);
-                            document.querySelector(`div[data-index="${num_0 + 1000 + 8}"]`).classList.add('fake');
+                            changeActive(8008);
+                            let fakeActive = document.querySelector(`div[data-index="${num_0 + 1000 + 8}"]`);
+                            AddFakeActive(fakeActive);
                         }
                         else {changeActive(num_0 + 1000 + 8)};
                     }
