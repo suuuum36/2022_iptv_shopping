@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import './css/channel.css';
 import channel_logo_1 from './img/channel/logo_1.png';
 import channel_logo_2 from './img/channel/logo_2.png';
@@ -7,6 +7,7 @@ import favorite_btn from './img/channel/favorite.svg';
 import bell_btn from './img/channel/bell.svg';
 import sample_video from './video/SampleVideo.mp4';
 import bottom_bg from './img/channel/bottom_bg.png'
+import {Navigator} from './Navigator';
 import {CheckControllable, RemoteEffect} from './function_remote';
 
 RemoteEffect();
@@ -189,29 +190,32 @@ function ChannelDate ({month, date, day, label}){
 }
 function Channel() {
   return (
-    <section className='channel_wrapper'>
-      <div className='date_gnb'>
-        {dateArray.map(element => (<DateNavigator day={element.day} date={element.date} line={element.line} focus={element.focus}/>))}
-      </div>
-      <div className='list_wrapper'>
-        <div className='logo_wrapper'>
-          {logoArray.map(element=>(<CompanyLogo url={element.img}/>))} 
+    <Fragment>
+      <Navigator />
+      <section className='channel_wrapper'>
+        <div className='date_gnb'>
+          {dateArray.map(element => (<DateNavigator day={element.day} date={element.date} line={element.line} focus={element.focus}/>))}
         </div>
-        <div className='product_day' style={{transform: 'translate(0px, 0px)'}}>
-          <ChannelArray array1={prodcutArray1} array2={prodcutArray2} array3={prodcutArray3} />
-          <ChannelDate month='07' date='30' day='(화)' label='내일'/>
-          <ChannelArray array1={prodcutArray1} array2={prodcutArray2} array3={prodcutArray3} />
-          <ChannelDate month='07' date='31' day='(수)'/>
-          <ChannelArray array1={prodcutArray1} array2={prodcutArray2} array3={prodcutArray3} />
-          <ChannelDate month='08' date='1' day='(목)'/>
-          <ChannelArray array1={prodcutArray1} array2={prodcutArray2} array3={prodcutArray3} />
-          <ChannelDate month='07' date='29' day='(월)' label='오늘'/>
-          <ChannelArray array1={prodcutArray1} array2={prodcutArray2} array3={prodcutArray3} />
-          
-        </div>          
-      </div>
-      <PageIndex />
-    </section>
+        <div className='list_wrapper'>
+          <div className='logo_wrapper'>
+            {logoArray.map(element=>(<CompanyLogo url={element.img}/>))} 
+          </div>
+          <div className='product_day' style={{transform: 'translate(0px, 0px)'}}>
+            <ChannelArray array1={prodcutArray1} array2={prodcutArray2} array3={prodcutArray3} />
+            <ChannelDate month='07' date='30' day='(화)' label='내일'/>
+            <ChannelArray array1={prodcutArray1} array2={prodcutArray2} array3={prodcutArray3} />
+            <ChannelDate month='07' date='31' day='(수)'/>
+            <ChannelArray array1={prodcutArray1} array2={prodcutArray2} array3={prodcutArray3} />
+            <ChannelDate month='08' date='1' day='(목)'/>
+            <ChannelArray array1={prodcutArray1} array2={prodcutArray2} array3={prodcutArray3} />
+            <ChannelDate month='07' date='29' day='(월)' label='오늘'/>
+            <ChannelArray array1={prodcutArray1} array2={prodcutArray2} array3={prodcutArray3} />
+            
+          </div>          
+        </div>
+        <PageIndex />
+      </section>
+    </Fragment>
   );
 }
 // export default Channel;

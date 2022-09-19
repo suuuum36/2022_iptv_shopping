@@ -1,4 +1,5 @@
 import { useAsync } from "react-async";
+import { useLocation } from 'react-router-dom';
 
 function CheckControllable() {
     document.querySelectorAll('.wrapper_controllable').forEach((item, index)=>{
@@ -253,7 +254,7 @@ const RemoteEffect = async () => {
                 } else {changeActive(num - 1);}
             },
             "Enter" : ()=>{
-                actionByEnter(current_index);
+                ActionByEnter(current_index);
             },
         };
         action_key[event.key]();
@@ -262,35 +263,39 @@ const RemoteEffect = async () => {
         ActiveMove();
     });
 
-    function actionByEnter(index_num){
-        const current_page = document.querySelector('.App').getAttribute('data-page');
-        console.log(current_page);
-        ({
-            'now_play': {
-                "2000" : ()=>{
-                    window.location.href = './buymobile';
-                },
-                "2001" : ()=>{
-                    window.location.href = './detail';
+    function ActionByEnter(index_num){
+        // const current_page = document.querySelector('#root').getAttribute('data-page');
+        let current_page = window.location.pathname;
+        current_page = current_page.replace('/', '');
+        if(current_page == 'channel') {
+            const go_detail = {
+                "channel" : () =>{
+                    if(8000<= index_num || index_num <= 12011) {
+                        window.location.href = './detail';
+                    }
                 }
-            },
-            'detail':{
-                "1000" : ()=>{
-                    document.querySelector('.App').setAttribute('data-page','now_play');
-                    window.location.href = './';
+            };
+            go_detail[current_page]();            
+        } else {
+            ({
+                'detail':{
+                    "1000" : ()=>{
+                        document.querySelector('.App').setAttribute('data-page','now_play');
+                        window.location.href = './';
+                    },
+                    "1002" : ()=>{
+                        document.querySelector('.App').setAttribute('data-page','buymobile');
+                        window.location.href = './buymobile';
+                    },
                 },
-                "1002" : ()=>{
-                    document.querySelector('.App').setAttribute('data-page','buymobile');
-                    window.location.href = './buymobile';
-                },
-            },
-            'buymobile' : {
-                "1000" : ()=>{
-                    document.querySelector('.App').setAttribute('data-page','now_play');
-                    window.location.href = './';
-                },
-            }
-        })[current_page][index_num]();
+                'buymobile' : {
+                    "1000" : ()=>{
+                        document.querySelector('.App').setAttribute('data-page','now_play');
+                        window.location.href = './';
+                    },
+                }
+            })[current_page][index_num]();
+        }
     }
 
     function changePageSetting(){
