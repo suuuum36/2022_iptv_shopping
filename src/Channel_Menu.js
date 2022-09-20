@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react';
 import './css/channel.css';
 import './css/channel_menu.css';
+import logo_gs from './img/channel/logo_gs.svg';
 import {Navigator} from './Navigator';
 import {CheckControllable, RemoteEffect} from './function_remote';
 import {Channel, FavoriteButton, PageIndex, bell_btn, channel_logo_1, channel_logo_2, channel_logo_3} from './Channel';
@@ -57,8 +58,8 @@ function ProductCard({url, url_logo, favorite, live_status, live_date, live_day,
     );
 }
 
-const prodcutArray3 = [
-    {url: require('./img/channel/product_7.png'), url_logo: channel_logo_1, favorite: true, live_status: '방송중', live_date: '08/26', live_day:'(금)', live_time : '12:50', live_color:'live', reserve: true, name : '네이더스 베이직 스트라이프 S/S 티셔츠 추가 경…', sale_num:'30%', price:'42,000', tag:'1+1'}
+const prodcutArray = [
+    {url: require('./img/channel/product_1.png'), url_logo: logo_gs, favorite: true, live_status: '방송중', live_date: '08/26', live_day:'(금)', live_time : '12:50', live_color:'live', reserve: true, name : '네이더스 베이직 스트라이프 S/S 티셔츠 추가 경…', sale_num:'30%', price:'42,000', tag:'1+1'}
 ]
 
 
@@ -67,7 +68,7 @@ return (
     <Fragment>
         <Navigator />
         <section className="channel_wrapper channel_menu_wrapper">
-            {prodcutArray3.map(element=>(
+            {prodcutArray.map(element=>(
                 <ProductCard 
                 url={element.url} url_logo={element.url_logo} favorite={element.favorite}
                 live_status={element.live_status} live_date={element.live_date} live_day={element.live_day} live_time={element.live_time} live_color={element.live_color}
