@@ -1,5 +1,4 @@
 import { useAsync } from "react-async";
-import { useLocation } from 'react-router-dom';
 
 function CheckControllable() {
     document.querySelectorAll('.wrapper_controllable').forEach((item, index)=>{

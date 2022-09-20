@@ -210,7 +210,6 @@ function Channel() {
             <ChannelArray array1={prodcutArray1} array2={prodcutArray2} array3={prodcutArray3} />
             <ChannelDate month='07' date='29' day='(월)' label='오늘'/>
             <ChannelArray array1={prodcutArray1} array2={prodcutArray2} array3={prodcutArray3} />
-            
           </div>          
         </div>
         <PageIndex />
@@ -219,4 +218,4 @@ function Channel() {
   );
 }
 // export default Channel;
-export {Channel}
+export {Channel, FavoriteButton, PageIndex, bell_btn, channel_logo_1, channel_logo_2, channel_logo_3}
