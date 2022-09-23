@@ -1368,3 +1368,30 @@ article.popup>section {
 .module_item_expand .carousel__item.active::after {
   opacity: 1;
 }
+
+.module_play.type_b {
+  height: 640px;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+}
+
+.module_play.type_b>.set_carousel {
+  display: none;
+}
+
+.module_play.type_b .set_play {
+  width: 1140px;
+  height: 640px;
+}
+
+.module_play.type_b .set_play::after {
+  width: 110%;
+  height: 100%;
+  left: -10px;
+  background-image: url("./../public/img/video_gradient_type_b.png");
+  background-size: 100% 100%;
+}
+
+.module_item.type_b {
+  background: none;
+}

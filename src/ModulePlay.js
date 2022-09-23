@@ -1,7 +1,8 @@
 import React, { useEffect, useRef } from "react"
 
 
-function Module_play(){
+function Module_play(props){
+    console.log(props);
     const videoRef = useRef(null);
     const progressRef = useRef(null);
     const isListenerAttached = useRef(false);
@@ -21,7 +22,8 @@ function Module_play(){
         }
     })
     return (
-        <div className="module_play">
+        // <div className="module_play">
+        <div className={`module_play ${props.type}`}>
             <div className="set_play">
                 <video src="/img/vidoe_sample.mp4" ref={videoRef} autoPlay={true} loop={true} playsInline={true} muted={true}></video>
                 <div className="set_progress">
