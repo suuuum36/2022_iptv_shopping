@@ -14,7 +14,7 @@ root.render(
     <BrowserRouter>
       <Routes>
         <Route path='/' element = {<Channel />}/>
-        <Route path='/channel_menu' element = {<ChannelMenu/>}/>
+        <Route path='/menu' element = {<ChannelMenu/>}/>
         <Route path='/detail' element = {<DepthDetail/>}/>
       </Routes>
     </BrowserRouter>

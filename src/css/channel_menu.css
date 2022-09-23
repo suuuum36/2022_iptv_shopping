@@ -1,9 +1,11 @@
 .channel_menu_wrapper {
     background: #080D19;
+    flex-direction: column;
+    gap: 40px;
 }
 
-.product_wrapper {
-    width: 682px;
+.channel_menu_wrapper .product_wrapper {
+    min-width: 682px;
     height: 285px;
     background: #2A2C3E;
     border-radius: 20px;
@@ -11,42 +13,66 @@
     padding-right: 32px;
 }
 
-.product_img {
+.channel_menu_wrapper .product_img {
     width: 285px;
     height: 285px;
 }
 
-.logo {
-    width: 110px;
-    height: auto;
+.channel_menu_wrapper .product_img > img {
+    border-radius: 20px 0px 0px 20px;
+}
+
+
+.channel_menu_wrapper .logo {
+    height: 35px;
+    width: max-content;
     margin-top: 10px;
 }
 
-.live_title {
+.channel_menu_wrapper .live_title {
     width: 100%;
     align-items: center;
 }
 
-.live_text {
+.channel_menu_wrapper .live_text {
     font-size: 24px;
     align-items: initial;
 }
 
-.live_text.number {
+.channel_menu_wrapper .live_text.number {
     font-size: 30px;
 }
 
-.live_label {
+.channel_menu_wrapper .live_label {
     box-sizing: border-box;
     width: max-content;
     padding: 4px 12px;
 }
 
-.live_label.live {
+/*방송 상태별 색상*/
+
+.channel_menu_wrapper .live_label.live {
     background: #FA2828;
 }
 
-.reserve_btn {
+.channel_menu_wrapper .live_label.finished {
+    background: #777777;
+}
+
+.channel_menu_wrapper .live_label.tomorrow {
+    background: #965ACE;
+}
+
+.channel_menu_wrapper .live_label.today {
+    background: #EF3484;
+}
+
+.channel_menu_wrapper .live_label.reserved {
+    background: #2498D9;
+}
+
+
+.channel_menu_wrapper .reserve_btn {
     position: absolute;
     right: 0;
     right: 32px;
@@ -56,12 +82,12 @@
     border-radius: 100%;
 }
 
-.product_info {
+.channel_menu_wrapper .product_info {
     gap: 0px;
     padding-top: 20px;
 }
 
-.price_wrapper {
+.channel_menu_wrapper .price_wrapper {
     display: flex;
     color: white;
     align-items: baseline;
@@ -72,33 +98,33 @@
     margin-top: 4px;
 }
 
-.sale_text {
+.channel_menu_wrapper .sale_text {
     font-family: 'Roboto Bold';
     font-size: 42px;
     font-weight: 700;
     color: #EF3484;
 }
 
-.price {
+.channel_menu_wrapper .price {
     display: flex;
     gap: 3px;
     align-items: baseline;
 }
 
-.price .number {
+.channel_menu_wrapper .price .number {
     font-family: 'Roboto Bold';
     font-size: 42px;
     font-weight: 500;
     color: #EEEEEE;
 }
 
-.product_name {
+.channel_menu_wrapper .product_name {
     max-width: 333px;
     font-size: 24px;
     margin-top: 4px;
 }
 
-.product_tag {
+.channel_menu_wrapper .product_tag {
     width: max-content;
     display: flex;
     align-items: center;
@@ -109,4 +135,68 @@
     font-size: 20px;
     margin-top: 4px;
     padding: 4px 8px;
+}
+
+/*상품 섹션*/
+.channel_menu_wrapper .section_wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    overflow: hidden;
+}
+.channel_menu_wrapper .product_list {
+    height: 290px;
+    display: flex;
+    overflow-x: scroll;
+    margin-left: 72px;
+}
+
+.channel_menu_wrapper .section_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0px 72px;
+}
+
+.channel_menu_wrapper .section_title {
+    font-size: 26px;
+    color: #EEEEEE;
+}
+
+.channel_menu_wrapper .product_index {
+    width: max-content;
+    height: 40px;
+    background: #292B3A;
+    border-radius: 20px;
+    padding: 0px 16px;
+    display: flex;
+    align-items: center;
+}
+
+.channel_menu_wrapper .product_index span {
+    font-family: 'Roboto Regular';
+    font-size: 26px;
+    color: #EEEEEE;
+    opacity: 0.7;
+}
+
+.channel_menu_wrapper .product_index span.current_index {
+    font-family: 'Roboto Medium';
+    color: white;
+}
+
+.btn_top {
+    width: 245px;
+    height: 86px;
+    background: #2A2C3E;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    justify-content: center;
+    font-family: 'Yoon Gothic 770';
+    font-size: 30px;
+    color: #A9A9A9;
+    margin: 30px auto 135px auto;
 }
