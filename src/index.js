@@ -7,16 +7,15 @@ import {Navigator} from './Navigator';
 import {Channel} from './Channel';
 import { ChannelMenu } from './Channel_Menu';
 import DepthDetail from './DepthDetail';
+import {CheckControllable, RemoteEffect} from './function_remote';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
-    <BrowserRouter>
-      <Routes>
-        <Route path='/' element = {<Channel />}/>
-        <Route path='/menu' element = {<ChannelMenu/>}/>
-        <Route path='/detail' element = {<DepthDetail/>}/>
-      </Routes>
-    </BrowserRouter>
-  </React.StrictMode>
+  <BrowserRouter>
+    <Routes>
+      <Route path='/channel' element = {<Channel />}/>
+      <Route path='/menu' element = {<ChannelMenu />}/>
+      <Route path='/detail' element = {<DepthDetail/>}/>
+    </Routes>
+  </BrowserRouter>
 );

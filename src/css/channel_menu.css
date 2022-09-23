@@ -1,7 +1,8 @@
 .channel_menu_wrapper {
-    background: #080D19;
+    background: #111424;
     flex-direction: column;
     gap: 40px;
+    padding-top: 32px;
 }
 
 .channel_menu_wrapper .product_wrapper {
@@ -148,7 +149,7 @@
 .channel_menu_wrapper .product_list {
     height: 290px;
     display: flex;
-    overflow-x: scroll;
+    /* overflow-x: scroll; */
     margin-left: 72px;
 }
 

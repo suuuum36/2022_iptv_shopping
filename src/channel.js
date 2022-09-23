@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useEffect } from 'react';
 import './css/channel.css';
 import channel_logo_1 from './img/channel/logo_1.png';
 import channel_logo_2 from './img/channel/logo_2.png';
@@ -10,11 +10,9 @@ import bottom_bg from './img/channel/bottom_bg.png'
 import {Navigator} from './Navigator';
 import {CheckControllable, RemoteEffect} from './function_remote';
 
-RemoteEffect();
-
 function DateNavigator ({day, date, line, focus}) {
   return (
-    <div className='date_wrapper wrapper_controllable' onLoad={CheckControllable}>
+    <div className='date_wrapper wrapper_controllable'>
       <div className={`date_focus_wrapper ${focus ? `${focus}`: ''} controllable`}>
         <p>{day}</p>
         <p className={`date_text ${focus ? `${focus}`: ''}`}>
@@ -52,7 +50,6 @@ class PageIndex extends React.Component {
         </div>        
       );
     }
-     
   }
 }
 
@@ -163,7 +160,7 @@ const prodcutArray3 = [
 
 function ChannelArray ({array1, array2, array3}) {
   return (
-    <div className='product_list_wrapper' onLoad={CheckControllable}>
+    <div className='product_list_wrapper'>
       <div className='product_block wrapper_controllable'>
         {array1.map(element=>(<ProductCard url={element.url} focus={element.focus} live={element.live} live_time={element.live_time} meridiem={element.meridiem} time_1={element.time_1} time_2={element.time_2} name={element.name} favorite={element.favorite} reserve={element.reserve} video={element.video}/>))}    
         {array2.map(element=>(<ProductCard url={element.url} focus={element.focus} live={element.live} live_time={element.live_time} meridiem={element.meridiem} time_1={element.time_1} time_2={element.time_2} name={element.name} favorite={element.favorite} reserve={element.reserve} video={element.video}/>))}     
@@ -188,34 +185,41 @@ function ChannelDate ({month, date, day, label}){
     </div>
   );
 }
-function Channel() {
-  return (
-    <Fragment>
-      <Navigator />
-      <section className='channel_wrapper'>
-        <div className='date_gnb'>
-          {dateArray.map(element => (<DateNavigator day={element.day} date={element.date} line={element.line} focus={element.focus}/>))}
-        </div>
-        <div className='list_wrapper'>
-          <div className='logo_wrapper'>
-            {logoArray.map(element=>(<CompanyLogo url={element.img}/>))} 
+
+class Channel extends React.Component {
+  componentDidMount() {
+    CheckControllable();
+  }
+  render () {
+    RemoteEffect();
+    return (
+      <Fragment>
+        <Navigator/>
+        <section className='channel_wrapper'>
+          <div className='date_gnb'>
+            {dateArray.map(element => (<DateNavigator day={element.day} date={element.date} line={element.line} focus={element.focus}/>))}
           </div>
-          <div className='product_day' style={{transform: 'translate(0px, 0px)'}}>
-            <ChannelArray array1={prodcutArray1} array2={prodcutArray2} array3={prodcutArray3} />
-            <ChannelDate month='07' date='30' day='(화)' label='내일'/>
-            <ChannelArray array1={prodcutArray1} array2={prodcutArray2} array3={prodcutArray3} />
-            <ChannelDate month='07' date='31' day='(수)'/>
-            <ChannelArray array1={prodcutArray1} array2={prodcutArray2} array3={prodcutArray3} />
-            <ChannelDate month='08' date='1' day='(목)'/>
-            <ChannelArray array1={prodcutArray1} array2={prodcutArray2} array3={prodcutArray3} />
-            <ChannelDate month='07' date='29' day='(월)' label='오늘'/>
-            <ChannelArray array1={prodcutArray1} array2={prodcutArray2} array3={prodcutArray3} />
-          </div>          
-        </div>
-        <PageIndex />
-      </section>
-    </Fragment>
-  );
+          <div className='list_wrapper'>
+            <div className='logo_wrapper'>
+              {logoArray.map(element=>(<CompanyLogo url={element.img}/>))} 
+            </div>
+            <div className='product_day' style={{transform: 'translate(0px, 0px)'}}>
+              <ChannelArray array1={prodcutArray1} array2={prodcutArray2} array3={prodcutArray3} />
+              <ChannelDate month='07' date='30' day='(화)' label='내일'/>
+              <ChannelArray array1={prodcutArray1} array2={prodcutArray2} array3={prodcutArray3} />
+              <ChannelDate month='07' date='31' day='(수)'/>
+              <ChannelArray array1={prodcutArray1} array2={prodcutArray2} array3={prodcutArray3} />
+              <ChannelDate month='08' date='1' day='(목)'/>
+              <ChannelArray array1={prodcutArray1} array2={prodcutArray2} array3={prodcutArray3} />
+              <ChannelDate month='07' date='29' day='(월)' label='오늘'/>
+              <ChannelArray array1={prodcutArray1} array2={prodcutArray2} array3={prodcutArray3} />
+            </div>          
+          </div>
+          <PageIndex />
+        </section>
+      </Fragment>
+    );
+  }
 }
 // export default Channel;
-export {Channel, FavoriteButton, PageIndex, bell_btn, channel_logo_1, channel_logo_2, channel_logo_3}
+export {Channel, FavoriteButton, PageIndex, bell_btn}

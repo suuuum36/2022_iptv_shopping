@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { useAsync } from "react-async";
 
 function CheckControllable() {
@@ -13,7 +12,7 @@ function CheckControllable() {
 }
 
 function DayWrapper () {
-    let scaleY = document.querySelector('.product_day').style.transform;
+    let scaleY = document.querySelector('.channel_menu_wrapper').style.transform;
     scaleY = scaleY.replace('px)', '').split(',')[1];
     let defaultY = 1180;
     let defaultNum = 4000;
@@ -149,8 +148,9 @@ function FindClosestActive () {
     let closestProduct = document.querySelectorAll(`.product_wrapper[product-section='${focusedSection}']`);
     closestProduct.forEach((e)=>{
         let num = e.getAttribute('data-index');
-        if(num % 1000 == 0) {ChangeActive(num);}
+        if(num % 1000 == 0) {changeActive(num);}
     });
+    console.log('HI');
 }
 
 function ActiveMove (){
@@ -180,7 +180,8 @@ function ActiveMove (){
     }        
 }
 
-function ChangeActive(index_num){
+
+function changeActive(index_num){
     if(document.querySelector(`[data-index="${index_num}"]`) !== null ){
         document.querySelector('.controllable.active').classList.remove('active');
         document.querySelector(`[data-index="${index_num}"]`).classList.add('active');
@@ -192,66 +193,65 @@ function AddFakeActive (fakeActive) {
     setTimeout (()=>{fakeActive.classList.remove('fake');},1000);
 }
 
-function RemoteEffect() {
+const RemoteEffect = async () => {
     const digit_array = [];
-    clearActiveClass();
+    changePageSetting();
     document.addEventListener('keydown', (event)=>{
         const current_index = document.querySelector('.controllable.active').getAttribute('data-index');
         let num = current_index * 1;
         let num_0 = parseInt(num/1000)*1000;
         let prodcut_section = document.querySelector('.controllable.active').getAttribute('product-section');
-        console.log(num);
         const action_key =  {
             "ArrowUp" : ()=>{
                 if(num >= 8000) {
-                    if(num % 4 === 0) {ChangeActive(1003);}
-                    else {ChangeActive(num - 1);}
+                    if(num % 4 === 0) {changeActive(1003);}
+                    else {changeActive(num - 1);}
                 }
-                else if (num == 4000){ChangeActive(7000)}
-                else {ChangeActive(num-1000);}
+                else if (num == 4000){changeActive(7000)}
+                else {changeActive(num-1000);}
             },
             "ArrowRight" : ()=>{
-                if(num >= 8000) {ChangeActive(num + 4);}
-                else if (4000<= num && num <= 7000) {ChangeActive(num + 4000);}
-                else {ChangeActive(num + 1);}
+                if(num >= 8000) {changeActive(num + 4);}
+                else if (4000<= num && num <= 7000) {changeActive(num + 4000);}
+                else {changeActive(num + 1);}
             },
             "ArrowDown" : ()=>{
                 if(num === 1003){FindClosestActive();}
                 else if (num >= 8000 ) {
                     if(num % 1000 === 3) {
                         if (num === 11003) {
-                            ChangeActive(8000);
+                            changeActive(8000);
                             let fakeActive = document.querySelector(`div[data-index="${num_0+1000}"]`);
                             AddFakeActive(fakeActive);
                         }
-                        else {ChangeActive(num_0 + 1000);};
+                        else {changeActive(num_0 + 1000);};
                     }
                     else if (num % 1000 === 7) {
                         if (num === 11007) {
-                            ChangeActive(8004);
+                            changeActive(8004);
                             let fakeActive = document.querySelector(`div[data-index="${num_0 + 1000 + 4}"]`);
                             AddFakeActive(fakeActive);
                         }
-                        else {ChangeActive(num_0 + 1000 + 4)};
+                        else {changeActive(num_0 + 1000 + 4)};
                     }
                     else if (num % 1000 === 11) {
                         if (num === 11011) {
-                            ChangeActive(8008);
+                            changeActive(8008);
                             let fakeActive = document.querySelector(`div[data-index="${num_0 + 1000 + 8}"]`);
                             AddFakeActive(fakeActive);
                         }
-                        else {ChangeActive(num_0 + 1000 + 8)};
+                        else {changeActive(num_0 + 1000 + 8)};
                     }
-                    else {ChangeActive(num + 1)};
+                    else {changeActive(num + 1)};
                 }
-                else if (num === 7000){ChangeActive(4000)}
-                else {ChangeActive(num+1000);}
+                else if (num === 7000){changeActive(4000)}
+                else {changeActive(num+1000);}
             },
             "ArrowLeft" : ()=>{
                 if(num >= 8000) {
-                    if(num%1000 < 4) {ChangeActive(num_0 - 4000);}
-                    else {ChangeActive(num - 4)};
-                } else {ChangeActive(num - 1);}
+                    if(num%1000 < 4) {changeActive(num_0 - 4000);}
+                    else {changeActive(num - 4)};
+                } else {changeActive(num - 1);}
             },
             "Enter" : ()=>{
                 ActionByEnter(current_index);
@@ -268,9 +268,14 @@ function RemoteEffect() {
         let current_page = window.location.pathname;
         current_page = current_page.replace('/', '');
         if(current_page == 'channel') {
-            if(8000<= index_num || index_num <= 12011) {
-                window.location.href = './detail';
-            }          
+            const go_detail = {
+                "channel" : () =>{
+                    if(8000<= index_num || index_num <= 12011) {
+                        window.location.href = './detail';
+                    }
+                }
+            };
+            go_detail[current_page]();            
         } else {
             ({
                 'detail':{
@@ -293,12 +298,19 @@ function RemoteEffect() {
         }
     }
 
-    function clearActiveClass(){
+    function changePageSetting(){
+        defaultSetting();
+    }
+
+    async function defaultSetting(){
+        await clearActiveClass();
+    }
+
+     function clearActiveClass(){
         document.querySelectorAll('.active').forEach((item)=>{
             item.classList.remove('active');
-    });
-    }
+        });
+     }
 };
-
 
 export {CheckControllable, RemoteEffect};

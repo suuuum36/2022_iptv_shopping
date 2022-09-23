@@ -8,8 +8,8 @@ import logo_cj from './img/channel_menu/logo_cj.svg';
 import logo_home from './img/channel_menu/logo_home.svg';
 import arrow_top from './img/channel_menu/arrow_top.svg';
 import {Navigator} from './Navigator';
-import {CheckControllable, RemoteEffect} from './function_remote';
-import {Channel, FavoriteButton, PageIndex, bell_btn, channel_logo_1, channel_logo_2, channel_logo_3} from './Channel';
+import {CheckControllable, RemoteEffect} from './function_remote_menu.js';
+import {Channel, FavoriteButton, PageIndex, bell_btn} from './Channel';
 
 const ReserveButton = (
     <div className='reserve_btn'>
@@ -101,7 +101,7 @@ function ProductSection ({title, product}) {
                     <span className='total_index'>/10</span>
                 </div>
             </div>
-            <div className='product_list'>
+            <div className='product_list wrapper_controllable'>
                 {product.map(element=>(
                     <ProductCard 
                     url={element.url} url_logo={element.url_logo} favorite={element.favorite}
