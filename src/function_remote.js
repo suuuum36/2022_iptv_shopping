@@ -12,7 +12,7 @@ function CheckControllable() {
     });
 }
 
-function DayWrapper () {
+function DayWrapper() {
     let scaleY = document.querySelector('.product_day').style.transform;
     scaleY = scaleY.replace('px)', '').split(',')[1];
     let defaultY = 1180;
@@ -143,7 +143,7 @@ function MoveWrapper(num, key, section){
     }
 }
 
-function FindClosestActive () {
+function FindClosestActive() {
     let focusedSection = document.querySelector('.date_focus_wrapper.focus').getAttribute('product-section');
     focusedSection = focusedSection * 1 + 4;
     let closestProduct = document.querySelectorAll(`.product_wrapper[product-section='${focusedSection}']`);
@@ -153,7 +153,7 @@ function FindClosestActive () {
     });
 }
 
-function ActiveMove (){
+function ActiveMove() {
     let element = document.querySelectorAll('.controllable.active');
     let element2 = document.querySelectorAll('.controllable.fake');
     function checkMove (element){
