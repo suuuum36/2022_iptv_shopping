@@ -1,3 +1,4 @@
+import React, { useEffect } from 'react';
 import './css/navigator.css';
 import ImgMenu from './img/nav/ic_menu.svg';
 import ImgSearch from './img/nav/ic_search.svg';
@@ -35,11 +36,20 @@ const labelArray = [
   {id:'1000', name: '지금하는 방송', img: ImgNavBtn1},
   {id:'1001', name: '베스트'},
   {id:'1002', name: 'U+ 추천'},
-  {id:'1003', name: '홈쇼핑 편성표', focus:'active'},
+  {id:'1003', name: '홈쇼핑 편성표'},
   {id:'1004', name: '편성메뉴'}
 ];
 
 function Navigator (props) {
+  switch (props['props']) {
+    case 'channel' :
+      labelArray[3]['focus'] = 'active focus';
+      break;
+    case 'channel_menu' :
+      labelArray[4]['focus'] = 'active focus';
+      break;
+  }
+
   return (
     <section className='menu_navigator'>
       <div className='left_gnb'>

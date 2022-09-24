@@ -55,8 +55,8 @@
 }
 
 .navigator_right_btn.active {
-    background: #EEEEEE;
-    color: #111424;
+    background: #EEEEEE !important;
+    color: #111424 !important;
     border-radius: 46px;
     height: 43px;
     transition: 0.5s all;

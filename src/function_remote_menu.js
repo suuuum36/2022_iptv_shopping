@@ -2,7 +2,7 @@ import { useAsync } from "react-async";
 
 function CheckControllable() {
     document.querySelectorAll('.wrapper_controllable').forEach((item, index)=>{
-        const line_num = index+4;
+        const line_num = index+13;
         item.querySelectorAll('.controllable').forEach((item, index)=>{
             const controllable_index = line_num * 1000 + index;
             item.setAttribute('data-index', controllable_index);
@@ -11,30 +11,8 @@ function CheckControllable() {
     });
 }
 
-function DayWrapper () {
-    let scaleY = document.querySelector('.channel_menu_wrapper').style.transform;
-    scaleY = scaleY.replace('px)', '').split(',')[1];
-    let defaultY = 1180;
-    let defaultNum = 4000;
-    const removeFocus = ()=>{
-        document.querySelectorAll('.date_focus_wrapper').forEach((e)=>{e.classList.remove(('focus'))});
-    }
-    function DayFocus (data) {
-        removeFocus();
-        const day = document.querySelector(`.date_focus_wrapper[data-index='${data}']`);
-        if (!day.classList.contains('active')) {
-            day.classList.add('focus');
-        }
-    }
-    function MoveDay(n) {
-        if(scaleY == defaultY * n * -1) {DayFocus(defaultNum+(1000*n))}
-    }
-    for(let i=0; i<4; i++) {MoveDay(i);}
-}
-
 function MoveWrapper(num, key, section){
-    const productWrapper = document.querySelector('.product_day');
-    const logoWrapper = document.querySelector('.logo_wrapper');
+    const productWrapper = document.querySelector('.channel_menu_wrapper');
     productWrapper.style.transition = '0.5s all';
     let remainder = num % 1000;
     let move = 260;
@@ -65,7 +43,6 @@ function MoveWrapper(num, key, section){
             if (4<=remainder && remainder <=7) {
                 if(x==''){x= '0px'}
                 productWrapper.style.transform = `translate(${moveX}, ${x})`;      
-                logoWrapper.style.transform = `translate(${moveX}, 0px)`;
             }
         }
         if (key == 'ArrowLeft') {
@@ -73,7 +50,6 @@ function MoveWrapper(num, key, section){
                 if(x==''){x= '0px'}
                 console.log(`translate(0px, ${x})`);
                 productWrapper.style.transform = `translate(0px, ${x})`;
-                logoWrapper.style.transform = `translate(0px, 0px)`;
             }
         }
         if (key == 'ArrowDown') {
@@ -93,7 +69,6 @@ function MoveWrapper(num, key, section){
             }
             if(remainder == 0 || remainder == 4 || remainder == 8) {
                 productWrapper.style.transform = `translate(0px, ${x})`;
-                logoWrapper.style.transform = `translate(0px, 0px)`;
             }
         }
     }
@@ -111,22 +86,6 @@ function MoveWrapper(num, key, section){
                 break;  
             case '7' :
                 MoveLogic(13, defaultNum*3);
-                //루프용 이동 및 효과
-                if(num==11003 || num == 11007 || num == 11011) {
-                    let tempMoveX = '-330px';
-                    let tempMoveY = '-4903px';
-                    document.querySelector('.date_focus_wrapper[data-index="4000"]').classList.add('focus');
-                    document.querySelector('.date_focus_wrapper[data-index="7000"]').classList.remove('focus');
-
-                    if(num==11011){productWrapper.style.transform = `translate(${tempMoveX}, ${tempMoveY})`;}
-                    else {productWrapper.style.transform = `translate(0px, ${tempMoveY})`;}
-                    
-                    setTimeout (()=>{
-                        if(num==11011){productWrapper.style.transform = `translate(${tempMoveX}, 0px)`;}
-                        else {productWrapper.style.transform = `translate(0px, 0px)`;}
-                        productWrapper.style.transition = '0s all';
-                    },500);
-                }
                 break;           
         }          
     } 
@@ -180,7 +139,6 @@ function ActiveMove (){
     }        
 }
 
-
 function changeActive(index_num){
     if(document.querySelector(`[data-index="${index_num}"]`) !== null ){
         document.querySelector('.controllable.active').classList.remove('active');
@@ -188,14 +146,9 @@ function changeActive(index_num){
     }
 }
 
-function AddFakeActive (fakeActive) {
-    fakeActive.classList.add('fake');
-    setTimeout (()=>{fakeActive.classList.remove('fake');},1000);
-}
-
-const RemoteEffect = async () => {
+function RemoteEffect () {
     const digit_array = [];
-    changePageSetting();
+    clearActiveClass();
     document.addEventListener('keydown', (event)=>{
         const current_index = document.querySelector('.controllable.active').getAttribute('data-index');
         let num = current_index * 1;
@@ -203,55 +156,26 @@ const RemoteEffect = async () => {
         let prodcut_section = document.querySelector('.controllable.active').getAttribute('product-section');
         const action_key =  {
             "ArrowUp" : ()=>{
-                if(num >= 8000) {
-                    if(num % 4 === 0) {changeActive(1003);}
-                    else {changeActive(num - 1);}
+                if (parseInt(num/1000) === 13) {
+                    changeActive (1004);
+                } else {
+                    changeActive(num-1000);
                 }
-                else if (num == 4000){changeActive(7000)}
-                else {changeActive(num-1000);}
             },
             "ArrowRight" : ()=>{
-                if(num >= 8000) {changeActive(num + 4);}
-                else if (4000<= num && num <= 7000) {changeActive(num + 4000);}
-                else {changeActive(num + 1);}
+                changeActive(num + 1);
             },
             "ArrowDown" : ()=>{
-                if(num === 1003){FindClosestActive();}
-                else if (num >= 8000 ) {
-                    if(num % 1000 === 3) {
-                        if (num === 11003) {
-                            changeActive(8000);
-                            let fakeActive = document.querySelector(`div[data-index="${num_0+1000}"]`);
-                            AddFakeActive(fakeActive);
-                        }
-                        else {changeActive(num_0 + 1000);};
-                    }
-                    else if (num % 1000 === 7) {
-                        if (num === 11007) {
-                            changeActive(8004);
-                            let fakeActive = document.querySelector(`div[data-index="${num_0 + 1000 + 4}"]`);
-                            AddFakeActive(fakeActive);
-                        }
-                        else {changeActive(num_0 + 1000 + 4)};
-                    }
-                    else if (num % 1000 === 11) {
-                        if (num === 11011) {
-                            changeActive(8008);
-                            let fakeActive = document.querySelector(`div[data-index="${num_0 + 1000 + 8}"]`);
-                            AddFakeActive(fakeActive);
-                        }
-                        else {changeActive(num_0 + 1000 + 8)};
-                    }
-                    else {changeActive(num + 1)};
+                if(num === 1004){
+                    changeActive(13000);
                 }
-                else if (num === 7000){changeActive(4000)}
+                else if (parseInt(num/1000) === 15) {
+                    changeActive(16000);
+                }
                 else {changeActive(num+1000);}
             },
             "ArrowLeft" : ()=>{
-                if(num >= 8000) {
-                    if(num%1000 < 4) {changeActive(num_0 - 4000);}
-                    else {changeActive(num - 4)};
-                } else {changeActive(num - 1);}
+                changeActive(num - 1);
             },
             "Enter" : ()=>{
                 ActionByEnter(current_index);
@@ -259,7 +183,6 @@ const RemoteEffect = async () => {
         };
         action_key[event.key]();
         MoveWrapper(num, event.key, prodcut_section);
-        DayWrapper();
         ActiveMove();
     });
 
@@ -298,19 +221,11 @@ const RemoteEffect = async () => {
         }
     }
 
-    function changePageSetting(){
-        defaultSetting();
-    }
-
-    async function defaultSetting(){
-        await clearActiveClass();
-    }
-
-     function clearActiveClass(){
+    function clearActiveClass() {
         document.querySelectorAll('.active').forEach((item)=>{
             item.classList.remove('active');
         });
-     }
+    }
 };
 
 export {CheckControllable, RemoteEffect};

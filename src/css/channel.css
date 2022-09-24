@@ -318,6 +318,7 @@
     right: 0;
     width: 572px;
     height: 232px;
+    z-index: 10;
 }
 
 .gradient_bg > img {
