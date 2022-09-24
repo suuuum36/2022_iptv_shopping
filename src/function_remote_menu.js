@@ -146,6 +146,18 @@ function changeActive(index_num){
     }
 }
 
+function Bubble () {
+    document.querySelectorAll('.product_wrapper.controllable').forEach((item, index)=>{
+        if(index==0) {
+            if(item.classList.contains('active')) {
+                document.querySelector('.bubble').classList.add('active');   
+            } else {
+                document.querySelector('.bubble').classList.remove('active');   
+            }
+        }
+    });
+}
+
 function RemoteEffect () {
     const digit_array = [];
     clearActiveClass();
@@ -184,6 +196,7 @@ function RemoteEffect () {
         action_key[event.key]();
         MoveWrapper(num, event.key, prodcut_section);
         ActiveMove();
+        Bubble();
     });
 
     function ActionByEnter(index_num){
@@ -193,7 +206,7 @@ function RemoteEffect () {
         if(current_page == 'channel') {
             const go_detail = {
                 "channel" : () =>{
-                    if(8000<= index_num || index_num <= 12011) {
+                    if(13000<= index_num || index_num < 16000) {
                         window.location.href = './detail';
                     }
                 }

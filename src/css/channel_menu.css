@@ -1,4 +1,5 @@
 .channel_menu_wrapper {
+    position: relative;
     width: 100%;
     height: calc(1080px - 152px);
     box-sizing: border-box;
@@ -6,7 +7,7 @@
     flex-direction: column;
     gap: 15px;
     padding-top: 32px;
-    /* overflow: hidden; */
+    overflow: hidden;
 }
 
 .channel_menu_wrapper .channel_menu_list {
@@ -242,4 +243,17 @@
 
 .channel_menu_wrapper .btn_top.controllable.active > svg {
     fill: #080D19;
+}
+
+.channel_menu_wrapper .bubble {
+    opacity: 0;
+    position: absolute;
+    left: 411px;
+    top: 5px;
+    transition: 0.3s all;
+}
+
+.channel_menu_wrapper .bubble.active {
+    opacity: 1;
+    transition: 0.3s all;
 }
