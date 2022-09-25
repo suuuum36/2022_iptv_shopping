@@ -1,142 +1,77 @@
-import { useAsync } from "react-async";
-
 function CheckControllable() {
     document.querySelectorAll('.wrapper_controllable').forEach((item, index)=>{
         const line_num = index+13;
         item.querySelectorAll('.controllable').forEach((item, index)=>{
             const controllable_index = line_num * 1000 + index;
             item.setAttribute('data-index', controllable_index);
-            item.setAttribute('product-section', line_num-4);
+            // item.setAttribute('product-section', line_num-4);
         });
     });
 }
 
-function MoveWrapper(num, key, section){
-    const productWrapper = document.querySelector('.channel_menu_wrapper');
+function MoveWrapper(num, key, section, current_active){
+    const productWrapper = document.querySelector('.channel_menu_list');
     productWrapper.style.transition = '0.5s all';
     let remainder = num % 1000;
-    let move = 260;
-    
-    let x = productWrapper.style.transform;
+    let share = parseInt(num/1000);
+
+    let x = current_active.parentElement.style.transform;
     x = x.replace(')', '').split(',')[1];
-    let moveX = '-330px';
+    let moveX = 730;
+
+    console.log(remainder);
 
     function MoveLogic (n, k) {
-        if(remainder==1 || remainder==5) {
-            if(key == 'ArrowDown') {
-                productWrapper.style.transform = `translate(0px, ${move*-(n)-k + 'px'})`;
-            }
-        }
-        else if (remainder==2 || remainder==6) {
-            if(key == 'ArrowUp') {
-                productWrapper.style.transform = `translate(0px, ${move*-(n-1)-k + 'px'})`;
-            } else if (key == 'ArrowDown') {
-                productWrapper.style.transform = `translate(0px, ${move*-(n+1)-k + 'px'})`;
-            }
-        }
-        else if(remainder==3 || remainder==7) {
-            if (key == 'ArrowDown') {
-                productWrapper.style.transform = `translate(0px, ${move*-(n+3)-(k+140) + 'px'})`;
+        if(share === 16) {
+            if (key == 'Enter') {
+                productWrapper.style.transform = `initial`;
             }
         }
         if (key == 'ArrowRight') {
-            if (4<=remainder && remainder <=7) {
-                if(x==''){x= '0px'}
-                productWrapper.style.transform = `translate(${moveX}, ${x})`;      
+            if (1<= remainder && remainder < 9) {
+                current_active.parentElement.style.transform = `translate(${moveX * remainder * -1 + 'px'}, 0px)`;      
             }
         }
         if (key == 'ArrowLeft') {
-            if (8<=remainder && remainder <=11) {
-                if(x==''){x= '0px'}
-                console.log(`translate(0px, ${x})`);
-                productWrapper.style.transform = `translate(0px, ${x})`;
+            if (1<= remainder && remainder < 9) {
+                current_active.parentElement.style.transform = `translate(${moveX * (remainder-1) * -1 + 'px'}, 0px)`;      
             }
         }
         if (key == 'ArrowDown') {
-            if (remainder == 9) {
-                productWrapper.style.transform = `translate(${moveX}, ${move*-(n)-k + 'px'})`;
+            if (share === 13) {
+                productWrapper.style.transform = `translate(0px, -170px)`;
             }
-            else if(remainder == 10) {
-                productWrapper.style.transform = `translate(${moveX}, ${move*-(n+1)-k + 'px'})`;
-            }
-            else if (remainder == 11) {
-                productWrapper.style.transform = `translate(${moveX}, ${move*-(n+3)-(k+140) + 'px'})`;
+            else if(share === 14) {
+                productWrapper.style.transform = `translate(0px, -530px)`;
             }
         }
         if (key == 'ArrowUp') {
-            if(remainder == 10) {
-                productWrapper.style.transform = `translate(${moveX}, ${move*-(n-1)-k + 'px'})`;
+            if(share === 14) {
+                productWrapper.style.transform = `translate(0px, 0px)`;
             }
-            if(remainder == 0 || remainder == 4 || remainder == 8) {
-                productWrapper.style.transform = `translate(0px, ${x})`;
+            if(share === 15) {
+                productWrapper.style.transform = `translate(0px, -170px)`;
             }
         }
     }
-    if (num >= 8000) {
-        let defaultNum = 140;
-        switch (section) {
-            case '4':
-                MoveLogic(1, 0);
-                break;
-            case '5' :
-                MoveLogic(5, defaultNum);
-                break;
-            case '6' :
-                MoveLogic(9, defaultNum*2);
-                break;  
-            case '7' :
-                MoveLogic(13, defaultNum*3);
-                break;           
-        }          
+    if (num >= 13000) {
+        // let defaultNum = 140;
+        // switch (section) {
+        //     case '4':
+        //         MoveLogic(1, 0);
+        //         break;
+        //     case '5' :
+        //         MoveLogic(5, defaultNum);
+        //         break;
+        //     case '6' :
+        //         MoveLogic(9, defaultNum*2);
+        //         break;  
+        //     case '7' :
+        //         MoveLogic(13, defaultNum*3);
+        //         break;           
+        // }
+        MoveLogic(1,0);    
     } 
-    else if (4000<= num && num <= 7000) {
-        let defaultY = 1180;
-        function MoveDay(data, k) {
-            const day = document.querySelector(`.date_focus_wrapper[data-index='${data}']`);
-            if(day.classList.contains('active')) {
-                productWrapper.style.transform = `translate(0px, ${defaultY*k*-1 + 'px'})`;
-            }
-        }
-        for(let i=0; i<4; i++) {MoveDay(4000+(1000*i), i);}
-    }
-}
-
-function FindClosestActive () {
-    let focusedSection = document.querySelector('.date_focus_wrapper.focus').getAttribute('product-section');
-    focusedSection = focusedSection * 1 + 4;
-    let closestProduct = document.querySelectorAll(`.product_wrapper[product-section='${focusedSection}']`);
-    closestProduct.forEach((e)=>{
-        let num = e.getAttribute('data-index');
-        if(num % 1000 == 0) {changeActive(num);}
-    });
-    console.log('HI');
-}
-
-function ActiveMove (){
-    let element = document.querySelectorAll('.controllable.active');
-    let element2 = document.querySelectorAll('.controllable.fake');
-    function checkMove (element){
-        element.forEach((element)=>{
-            let children = [...element.parentElement.children];
-            children = children.filter(child => child !== element);
-            children = children.filter(child => child.classList.contains('live'));
-        
-            if (element.classList.contains('live')) {
-                element.classList.remove('moved');
-                children.forEach((e)=> {e.classList.add('moved');});
-            } else {
-                element.classList.remove('moved');
-                children.forEach((e)=> {e.classList.remove('moved');});
-                document.querySelectorAll('.product_wrapper').forEach((e)=>{
-                    e.classList.remove('moved');
-                })
-            }
-        });
-    }
-    checkMove(element);
-    if(element2 != null) {
-        checkMove(element2);
-    }        
 }
 
 function changeActive(index_num){
@@ -146,7 +81,7 @@ function changeActive(index_num){
     }
 }
 
-function Bubble () {
+function Bubble() {
     document.querySelectorAll('.product_wrapper.controllable').forEach((item, index)=>{
         if(index==0) {
             if(item.classList.contains('active')) {
@@ -162,6 +97,7 @@ function RemoteEffect () {
     const digit_array = [];
     clearActiveClass();
     document.addEventListener('keydown', (event)=>{
+        const current_active = document.querySelector('.controllable.active');
         const current_index = document.querySelector('.controllable.active').getAttribute('data-index');
         let num = current_index * 1;
         let num_0 = parseInt(num/1000)*1000;
@@ -190,17 +126,19 @@ function RemoteEffect () {
                 changeActive(num - 1);
             },
             "Enter" : ()=>{
-                ActionByEnter(current_index);
+                if(parseInt(num/1000) === 16) {
+                    changeActive(13000);
+                } else {
+                    ActionByEnter(current_index);
+                }
             },
         };
         action_key[event.key]();
-        MoveWrapper(num, event.key, prodcut_section);
-        ActiveMove();
+        MoveWrapper(num, event.key, prodcut_section, current_active);
         Bubble();
     });
 
     function ActionByEnter(index_num){
-        // const current_page = document.querySelector('#root').getAttribute('data-page');
         let current_page = window.location.pathname;
         current_page = current_page.replace('/', '');
         if(current_page == 'channel') {

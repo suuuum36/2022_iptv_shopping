@@ -11,6 +11,7 @@
 }
 
 .channel_menu_wrapper .channel_menu_list {
+    position: relative;
     background: #111424;
     padding-bottom: 1px;
 }
@@ -182,6 +183,7 @@
     display: flex;
     /* overflow-x: scroll; */
     margin-left: 72px;
+    transition:  0.5s all;
 }
 
 .channel_menu_wrapper .section_header {
@@ -230,7 +232,7 @@
     font-family: 'Yoon Gothic 770';
     font-size: 30px;
     color: #A9A9A9;
-    margin: 30px auto 135px auto;
+    margin: 70px auto 135px auto;
     transition: 0.5s all;
 }
 
@@ -249,7 +251,7 @@
     opacity: 0;
     position: absolute;
     left: 411px;
-    top: 5px;
+    top: -28px;
     transition: 0.3s all;
 }
 
