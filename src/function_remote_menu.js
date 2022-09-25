@@ -79,7 +79,8 @@ function Bubble() {
 }
 
 function IndexShow () {
-    document.querySelectorAll('.product_index').forEach((e)=>{
+    let product_index = document.querySelectorAll('.product_index');
+    product_index.forEach((e, index, array)=>{
         let childWrapper =[... e.parentElement.parentElement.children[1].childNodes];
         let activeArray = childWrapper.filter(t => t.classList.contains('active'));
         if (activeArray.length == 1) {
@@ -94,26 +95,34 @@ function IndexShow () {
         } else {
             e.style.opacity = 0;
         }
+        if (document.querySelector('.navigator_right_btn[data-index="1004"]').classList.contains('active')) {
+            if(index == 0) {e.style.opacity = 1;}
+        }
+        else if (document.querySelector('.btn_top.controllable').classList.contains('active')) {
+            if(index == array.length -1) {e.style.opacity = 1;}
+        }
     });
 }
 
 function FindFirstActive (num, key) {
     let share = parseInt(num/1000);
+    function getIndex (calc) {
+        let next_index = document.querySelector(`.product_index[data-index='${calc}']`);
+        next_index = next_index.firstElementChild.innerText;
+        next_index = (parseInt(next_index)-1) + (calc * 1000);
+        changeActive(next_index);
+    }
     switch(key) {
         case 'ArrowDown':
-            let next_index = document.querySelector(`.product_index[data-index='${share+1}']`);
-            next_index = next_index.firstElementChild.innerText;
-            next_index = (parseInt(next_index)-1) + ((share+1)*1000);
-            changeActive(next_index);
+            getIndex(share+1);
             break;
         case 'ArrowUp':
-            let next_index2 = document.querySelector(`.product_index[data-index='${share-1}']`);
-            next_index2 = next_index2.firstElementChild.innerText;
-            next_index2 = (parseInt(next_index2)-1) + ((share-1)*1000);
-            changeActive(next_index2);
+            getIndex(share-1);
+            break;
+        case 'Enter':
+            getIndex(share);
             break;
     }
-
 }
 
 function RemoteEffect () {
@@ -131,6 +140,8 @@ function RemoteEffect () {
                 }
                 else if (num_share === 14 || num_share === 15) {
                     FindFirstActive(num, event.key);
+                } else if (num_share === 16) {
+                    FindFirstActive(15000, 'Enter');
                 }
             },
             "ArrowRight" : ()=>{
@@ -138,7 +149,7 @@ function RemoteEffect () {
             },
             "ArrowDown" : ()=>{
                 if(num === 1004){
-                    changeActive(13000);
+                    FindFirstActive(13000, 'Enter');
                 }
                 else if (num_share === 13 || num_share === 14) {
                     FindFirstActive(num, event.key);
@@ -152,7 +163,7 @@ function RemoteEffect () {
             },
             "Enter" : ()=>{
                 if(num_share === 16) {
-                    changeActive(13000);
+                    FindFirstActive(13000, event.key);
                 } else {
                     ActionByEnter(current_index);
                 }
@@ -162,7 +173,6 @@ function RemoteEffect () {
         MoveWrapper(num, event.key, prodcut_section, current_active);
         Bubble();
         IndexShow();
-        // getRelative(current_active);
     });
 
     function ActionByEnter(index_num){
