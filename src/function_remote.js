@@ -264,10 +264,9 @@ function RemoteEffect() {
     });
 
     function ActionByEnter(index_num){
-        // const current_page = document.querySelector('#root').getAttribute('data-page');
         let current_page = window.location.pathname;
         current_page = current_page.replace('/', '');
-        if(current_page == 'channel') {
+        if(current_page == 'channel' || current_page == 'menu') {
             if(8000<= index_num || index_num <= 12011) {
                 window.location.href = './detail';
             }          

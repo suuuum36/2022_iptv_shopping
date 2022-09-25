@@ -23,6 +23,7 @@
     border-radius: 20px;
     gap: 32px;
     padding-right: 32px;
+    transform-origin: 0 50%;
 }
 
 .channel_menu_wrapper .product_wrapper.active {
@@ -206,6 +207,7 @@
     padding: 0px 16px;
     display: flex;
     align-items: center;
+    opacity: 0;
 }
 
 .channel_menu_wrapper .product_index span {
@@ -258,4 +260,8 @@
 .channel_menu_wrapper .bubble.active {
     opacity: 1;
     transition: 0.3s all;
+}
+
+.channel_menu_wrapper .product_index[data-index="13"] {
+    opacity: 1;
 }

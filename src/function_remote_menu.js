@@ -4,8 +4,10 @@ function CheckControllable() {
         item.querySelectorAll('.controllable').forEach((item, index)=>{
             const controllable_index = line_num * 1000 + index;
             item.setAttribute('data-index', controllable_index);
-            // item.setAttribute('product-section', line_num-4);
         });
+    });
+    document.querySelectorAll ('.product_index').forEach((item, index)=>{
+        item.setAttribute('data-index', index+13);
     });
 }
 
@@ -19,8 +21,6 @@ function MoveWrapper(num, key, section, current_active){
     x = x.replace(')', '').split(',')[1];
     let moveX = 730;
 
-    console.log(remainder);
-
     function MoveLogic (n, k) {
         if(share === 16) {
             if (key == 'Enter') {
@@ -28,8 +28,8 @@ function MoveWrapper(num, key, section, current_active){
             }
         }
         if (key == 'ArrowRight') {
-            if (1<= remainder && remainder < 9) {
-                current_active.parentElement.style.transform = `translate(${moveX * remainder * -1 + 'px'}, 0px)`;      
+            if (0<= remainder && remainder < 8) {
+                current_active.parentElement.style.transform = `translate(${moveX * (remainder+1) * -1 + 'px'}, 0px)`;      
             }
         }
         if (key == 'ArrowLeft') {
@@ -55,21 +55,6 @@ function MoveWrapper(num, key, section, current_active){
         }
     }
     if (num >= 13000) {
-        // let defaultNum = 140;
-        // switch (section) {
-        //     case '4':
-        //         MoveLogic(1, 0);
-        //         break;
-        //     case '5' :
-        //         MoveLogic(5, defaultNum);
-        //         break;
-        //     case '6' :
-        //         MoveLogic(9, defaultNum*2);
-        //         break;  
-        //     case '7' :
-        //         MoveLogic(13, defaultNum*3);
-        //         break;           
-        // }
         MoveLogic(1,0);    
     } 
 }
@@ -93,21 +78,59 @@ function Bubble() {
     });
 }
 
+function IndexShow () {
+    document.querySelectorAll('.product_index').forEach((e)=>{
+        let childWrapper =[... e.parentElement.parentElement.children[1].childNodes];
+        let activeArray = childWrapper.filter(t => t.classList.contains('active'));
+        if (activeArray.length == 1) {
+            e.style.opacity = 1;
+            let index = e.firstElementChild;
+            for (let i=0; i<childWrapper.length; i++) {
+                if (childWrapper[i].classList.contains('active')) {
+                    if(i<9) {index.innerText = '0' + (i + 1);}
+                    else {index.innerText = i+1;}
+                } 
+            }
+        } else {
+            e.style.opacity = 0;
+        }
+    });
+}
+
+function FindFirstActive (num, key) {
+    let share = parseInt(num/1000);
+    switch(key) {
+        case 'ArrowDown':
+            let next_index = document.querySelector(`.product_index[data-index='${share+1}']`);
+            next_index = next_index.firstElementChild.innerText;
+            next_index = (parseInt(next_index)-1) + ((share+1)*1000);
+            changeActive(next_index);
+            break;
+        case 'ArrowUp':
+            let next_index2 = document.querySelector(`.product_index[data-index='${share-1}']`);
+            next_index2 = next_index2.firstElementChild.innerText;
+            next_index2 = (parseInt(next_index2)-1) + ((share-1)*1000);
+            changeActive(next_index2);
+            break;
+    }
+
+}
+
 function RemoteEffect () {
-    const digit_array = [];
     clearActiveClass();
     document.addEventListener('keydown', (event)=>{
         const current_active = document.querySelector('.controllable.active');
         const current_index = document.querySelector('.controllable.active').getAttribute('data-index');
-        let num = current_index * 1;
-        let num_0 = parseInt(num/1000)*1000;
         let prodcut_section = document.querySelector('.controllable.active').getAttribute('product-section');
+        let num = current_index * 1;
+        let num_share = parseInt(num/1000);
         const action_key =  {
             "ArrowUp" : ()=>{
-                if (parseInt(num/1000) === 13) {
+                if (num_share === 13) {
                     changeActive (1004);
-                } else {
-                    changeActive(num-1000);
+                }
+                else if (num_share === 14 || num_share === 15) {
+                    FindFirstActive(num, event.key);
                 }
             },
             "ArrowRight" : ()=>{
@@ -117,16 +140,18 @@ function RemoteEffect () {
                 if(num === 1004){
                     changeActive(13000);
                 }
-                else if (parseInt(num/1000) === 15) {
+                else if (num_share === 13 || num_share === 14) {
+                    FindFirstActive(num, event.key);
+                }
+                else if (num_share === 15) {
                     changeActive(16000);
                 }
-                else {changeActive(num+1000);}
             },
             "ArrowLeft" : ()=>{
                 changeActive(num - 1);
             },
             "Enter" : ()=>{
-                if(parseInt(num/1000) === 16) {
+                if(num_share === 16) {
                     changeActive(13000);
                 } else {
                     ActionByEnter(current_index);
@@ -136,20 +161,17 @@ function RemoteEffect () {
         action_key[event.key]();
         MoveWrapper(num, event.key, prodcut_section, current_active);
         Bubble();
+        IndexShow();
+        // getRelative(current_active);
     });
 
     function ActionByEnter(index_num){
         let current_page = window.location.pathname;
         current_page = current_page.replace('/', '');
-        if(current_page == 'channel') {
-            const go_detail = {
-                "channel" : () =>{
-                    if(13000<= index_num || index_num < 16000) {
-                        window.location.href = './detail';
-                    }
-                }
-            };
-            go_detail[current_page]();            
+        if(current_page == 'channel' || current_page == 'menu') {
+            if(8000<= index_num || index_num <= 12011) {
+                window.location.href = './detail';
+            }          
         } else {
             ({
                 'detail':{
