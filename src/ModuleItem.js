@@ -19,21 +19,19 @@ const carousel_items = [
 
 function CarouselItem(props) {
     return (
-        <>
-            <li className="carousel__item controllable">
-                    <div className="logo">
-                        <img src={props.logo} alt="" />
-                    </div>
-                    <div className="img_item">
-                        <img src={props.thumbnail} alt="" />
-                    </div>
-                    <div className="text">
-                        <p>
-                            {props.title}
-                        </p>
-                    </div>
-                </li>
-        </>
+        <li className="carousel__item controllable">
+            <div className="logo">
+                <img src={props.logo} alt="" />
+            </div>
+            <div className="img_item">
+                <img src={props.thumbnail} alt="" />
+            </div>
+            <div className="text">
+                <p>
+                    {props.title}
+                </p>
+            </div>
+        </li>
     )
 }
 

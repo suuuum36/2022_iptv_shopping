@@ -245,7 +245,7 @@ article.now_play {
 }
 
 .set_info>.middle>.logo {
-  height: 40px;
+  height: 44px;
 }
 
 .set_info>.middle>.logo>img {
@@ -1394,4 +1394,123 @@ article.popup>section {
 
 .module_item.type_b {
   background: none;
+  padding-left: 40px;
+}
+
+.module_play.type_b .set_info {
+  padding-top: 120px;
+}
+
+/* lnb */
+section.home_3 {
+  display: flex;
+}
+
+section.home_3>.explore {
+  width: calc(100% - 124px);
+}
+
+.lnb {
+  width: 124px;
+  height: 100%;
+  position: relative;
+}
+
+.lnb>.lnb_float {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 0 20px 0 60px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  transition: 0.3s ease-in-out;
+  overflow: hidden;
+  gap: 60px;
+}
+
+.lnb>.lnb_float.expanded {
+  width: 632px;
+  padding: 0 208px 0 60px;
+  background: url("./../public/img/lnb_expanded_bg.png");
+  background-size: 100% 100%;
+  z-index: 100;
+}
+
+.lnb>.lnb_float>.menu {
+  display: flex;
+  align-items: center;
+  width: 400px;
+  position: relative;
+}
+
+.lnb>.lnb_float>.menu>.icon {
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  position: relative;
+}
+
+.lnb>.lnb_float>.menu>.icon>img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  opacity: 0;
+}
+
+.lnb>.lnb_float>.menu>.icon>img.nor { opacity: 1; }
+.lnb>.lnb_float>.menu.active>.icon>img.nor { opacity: 0;}
+.lnb>.lnb_float>.menu>.icon>img.foc { opacity: 0; }
+.lnb>.lnb_float>.menu.active>.icon>img.foc { opacity: 1;}
+
+
+.lnb>.lnb_float>.menu>span {
+  font-family: 'Yoon Gothic 700';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 36px;
+  line-height: 45px;
+  letter-spacing: -0.07em;
+  color: #797A7E;
+  padding-left: 26px;
+}
+
+.lnb>.lnb_float>.menu::after {
+  content: '';
+  position: absolute;
+  width: 400px;
+  height: 86px;
+  top: 50%;
+  left: 45%;
+  transform: translate(-50%, -50%);
+  border: 6px solid #EEEEEE;
+  border-radius: 8px;
+  opacity: 0;
+  transition: 0.3s ease-in-out;
+  box-sizing: border-box;
+}
+
+.lnb>.lnb_float>.menu.active::after {
+  opacity: 1;
+}
+
+.lnb>.lnb_float.expanded>.menu.active>span {
+  font-family: 'Yoon Gothic 700';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 36px;
+  line-height: 48px;
+  letter-spacing: -0.0909091px;
+  color: #EEEEEE;  
+}
+
+.lnb>.lnb_float>hr {
+  width: 100%;
+  height: 2px;
+  margin: 20px 0;
+  background: rgba(238, 238, 238, 0.3);
+  border-radius: 999px;
 }
