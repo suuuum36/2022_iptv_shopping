@@ -1414,6 +1414,17 @@ section.home_3>.explore {
   width: 124px;
   height: 100%;
   position: relative;
+  z-index: 100;
+}
+
+.lnb::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 160px;
+  height: 100%;
+  background: rgba(8, 13, 25, 0.7);
 }
 
 .lnb>.lnb_float {
@@ -1426,7 +1437,6 @@ section.home_3>.explore {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  transition: 0.3s ease-in-out;
   overflow: hidden;
   gap: 60px;
 }
@@ -1437,13 +1447,32 @@ section.home_3>.explore {
   background: url("./../public/img/lnb_expanded_bg.png");
   background-size: 100% 100%;
   z-index: 100;
+  transition: 0.3s ease-in-out;
 }
 
 .lnb>.lnb_float>.menu {
   display: flex;
   align-items: center;
   width: 400px;
+  height: 40px;
   position: relative;
+}
+
+.lnb>.lnb_float>.menu_4::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -20px;
+  width: 6px;
+  height: 50px;
+  background: #EF3484;
+  border-radius: 999px;
+  opacity: 1;
+}
+
+.lnb>.lnb_float.expanded>.menu_4.active::before {
+  opacity: 0;
+  transition: 0.3s ease-in-out;
 }
 
 .lnb>.lnb_float>.menu>.icon {
@@ -1466,6 +1495,12 @@ section.home_3>.explore {
 .lnb>.lnb_float>.menu>.icon>img.foc { opacity: 0; }
 .lnb>.lnb_float>.menu.active>.icon>img.foc { opacity: 1;}
 
+.lnb>.lnb_float>.menu.menu_4>.icon>img.nor { opacity: 0;}
+.lnb>.lnb_float>.menu.menu_4>.icon>img.foc { opacity: 1;}
+.lnb>.lnb_float.expanded>.menu.menu_4>.icon>img.nor { opacity: 1;}
+.lnb>.lnb_float.expanded>.menu.menu_4.active>.icon>img.nor { opacity: 0;}
+.lnb>.lnb_float.expanded>.menu.menu_4>.icon>img.foc { opacity: 0;}
+.lnb>.lnb_float.expanded>.menu.menu_4.active>.icon>img.foc { opacity: 1;}
 
 .lnb>.lnb_float>.menu>span {
   font-family: 'Yoon Gothic 700';
@@ -1489,12 +1524,12 @@ section.home_3>.explore {
   border: 6px solid #EEEEEE;
   border-radius: 8px;
   opacity: 0;
-  transition: 0.3s ease-in-out;
   box-sizing: border-box;
 }
 
 .lnb>.lnb_float>.menu.active::after {
   opacity: 1;
+  transition: 0.3s ease-in-out;
 }
 
 .lnb>.lnb_float.expanded>.menu.active>span {
