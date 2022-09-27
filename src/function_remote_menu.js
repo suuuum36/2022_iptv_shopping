@@ -28,7 +28,7 @@ function MoveWrapper(num, key, section, current_active){
             }
         }
         if (key == 'ArrowRight') {
-            if (0<= remainder && remainder < 8) {
+            if (0<= remainder && remainder < 8 && num != 16000) {
                 current_active.parentElement.style.transform = `translate(${moveX * (remainder+1) * -1 + 'px'}, 0px)`;      
             }
         }
@@ -160,6 +160,9 @@ function RemoteEffect () {
             },
             "ArrowLeft" : ()=>{
                 changeActive(num - 1);
+                if(num === 1004) {
+                    window.location.href = './channel';
+                }
             },
             "Enter" : ()=>{
                 if(num_share === 16) {

@@ -12,6 +12,7 @@ import {CheckControllable, RemoteEffect} from './function_remote';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <BrowserRouter>
+    <Navigator/>
     <Routes>
       <Route path='/channel' element = {<Channel />}/>
       <Route path='/menu' element = {<ChannelMenu />}/>

@@ -50,6 +50,18 @@ function Navigator (props) {
       break;
   }
 
+  let current_page = window.location.pathname;
+  current_page = current_page.replace('/', '');
+
+  switch (current_page) {
+    case 'channel' :
+      labelArray[3]['focus'] = 'active focus';
+      break;
+    case 'menu' :
+      labelArray[4]['focus'] = 'active focus';
+      break;
+  }
+
   return (
     <section className='menu_navigator'>
       <div className='left_gnb'>

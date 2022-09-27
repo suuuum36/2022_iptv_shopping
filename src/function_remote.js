@@ -200,7 +200,6 @@ function RemoteEffect() {
         let num = current_index * 1;
         let num_0 = parseInt(num/1000)*1000;
         let prodcut_section = document.querySelector('.controllable.active').getAttribute('product-section');
-        console.log(num);
         const action_key =  {
             "ArrowUp" : ()=>{
                 if(num >= 8000) {
@@ -213,7 +212,12 @@ function RemoteEffect() {
             "ArrowRight" : ()=>{
                 if(num >= 8000) {ChangeActive(num + 4);}
                 else if (4000<= num && num <= 7000) {ChangeActive(num + 4000);}
-                else {ChangeActive(num + 1);}
+                else {
+                    ChangeActive(num + 1);
+                    if(num === 1003) {
+                        window.location.href = './menu';
+                    }
+                }
             },
             "ArrowDown" : ()=>{
                 if(num === 1003){FindClosestActive();}
@@ -251,7 +255,12 @@ function RemoteEffect() {
                 if(num >= 8000) {
                     if(num%1000 < 4) {ChangeActive(num_0 - 4000);}
                     else {ChangeActive(num - 4)};
-                } else {ChangeActive(num - 1);}
+                } else {
+                    ChangeActive(num - 1);
+                    if(num === 1004) {
+                        window.location.href = './channel';
+                    }
+                }
             },
             "Enter" : ()=>{
                 ActionByEnter(current_index);
@@ -267,9 +276,9 @@ function RemoteEffect() {
         let current_page = window.location.pathname;
         current_page = current_page.replace('/', '');
         if(current_page == 'channel' || current_page == 'menu') {
-            if(8000<= index_num || index_num <= 12011) {
+            if(8000<= index_num && index_num <= 12011) {
                 window.location.href = './detail';
-            }          
+            }
         } else {
             ({
                 'detail':{
@@ -287,7 +296,7 @@ function RemoteEffect() {
                         document.querySelector('.App').setAttribute('data-page','now_play');
                         window.location.href = './';
                     },
-                }
+                },
             })[current_page][index_num]();
         }
     }
