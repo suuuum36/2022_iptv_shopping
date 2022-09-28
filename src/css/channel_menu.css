@@ -59,7 +59,7 @@
 .channel_menu_wrapper .logo {
     height: 35px;
     width: max-content;
-    margin-top: 10px;
+    margin-top: 9px;
 }
 
 .channel_menu_wrapper .live_title {
@@ -128,7 +128,7 @@
     font-size: 20px;
     line-height: 36px;
     color: #D6D6D6;
-    margin-top: 4px;
+    margin-top: 10px;
 }
 
 .channel_menu_wrapper .sale_text {
@@ -155,6 +155,8 @@
     max-width: 333px;
     font-size: 24px;
     margin-top: 4px;
+    line-height: 34px;
+    color: #A9A9A9;
 }
 
 .channel_menu_wrapper .product_tag {
