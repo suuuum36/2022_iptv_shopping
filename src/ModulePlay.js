@@ -1,9 +1,10 @@
 import React, { useEffect, useRef } from "react"
 
 
-function Module_play(props){
-    console.log(props);
-    const videoRef = useRef(null);
+const Module_play = React.forwardRef((props, ref)=>{
+    console.log(ref);
+    // const videoRef = useRef(null);
+    const videoRef = ref;
     const progressRef = useRef(null);
     const isListenerAttached = useRef(false);
     function timeUpdate(){
@@ -25,7 +26,7 @@ function Module_play(props){
         // <div className="module_play">
         <div className={`module_play ${props.type}`}>
             <div className="set_play">
-                <video src="/img/vidoe_sample.mp4" ref={videoRef} autoPlay={true} loop={true} playsInline={true} muted={true}></video>
+                <video src="/img/video_sample.mp4" ref={videoRef} autoPlay={true} loop={true} playsInline={true} muted={true}></video>
                 <div className="set_progress">
                     <div className="progress" ref={progressRef}></div>
                 </div>
@@ -86,6 +87,6 @@ function Module_play(props){
             </div>
         </div>
     )
-}
+})
 
 export default Module_play;

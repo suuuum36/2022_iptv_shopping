@@ -14,8 +14,8 @@ function App() {
           <BrowserRouter>
             <Routes>
               <Route path="/home/*" element={<DepthOne />}></Route>
-              <Route path="/detail" element={<DepthDetail />}></Route>
-              <Route path="/buymobile" element={<DepthBuyMobile />}></Route>
+              <Route path="/detail/:id" element={<DepthDetail />}></Route>
+              <Route path="/buymobile/:id" element={<DepthBuyMobile />}></Route>
             </Routes>
             <ModuleTime></ModuleTime>
           </BrowserRouter>

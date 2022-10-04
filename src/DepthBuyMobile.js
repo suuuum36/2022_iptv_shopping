@@ -1,21 +1,22 @@
 import React, { useEffect } from "react";
+import { useParams } from "react-router-dom";
 import useScript from "./hooks/useScript"
 
-function actionByEnter(index_num){
-    ({
-        "2000" : ()=>{
-            window.location.href = './';
-        },
-        "2001" : ()=>{
-            // 팝업 동작
-        },
-    })[index_num]();
-}
-
-
 function DepthBuyMobile() {
+    function actionByEnter(index_num){
+        ({
+            "2000" : ()=>{
+                window.location.href = '/home/'+params.id;
+            },
+            "2001" : ()=>{
+                // 팝업 동작
+            },
+        })[index_num]();
+    }
+
     const status = useScript('/function_module.js');
     const digit_array = [];
+    const params = useParams();
     useEffect(()=>{
         if(status === "ready") {
             window.defaultSetting();

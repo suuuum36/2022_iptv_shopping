@@ -8,84 +8,6 @@ import useScript from "./hooks/useScript"
 import { useLocation, useParams } from "react-router-dom";
 import { useState } from "react";
 
-
-function activeFirstIndex(){
-  // document.querySelector('[data-index="2000"]').classList.add('active');
-  // console.log(document.querySelector('[data-index="2000"]'));
-}
-
-// function actionByEnter(index_num){
-//   ({
-//     "1000" : ()=>{
-//       window.location.href = '/buymobile';
-//     },
-//     "1001" : ()=>{
-//       window.location.href = '/detail';
-//     },
-//   })[index_num]();
-// }
-
-// function actionAtIndex(next_num, direction){
-//   if(next_num === 1000){
-//     console.log('편성표');
-//   }
-//   if(next_num === 1003){
-//     console.log('편성표');
-//   }
-
-//   if(next_num.toString().match(/^3/)){
-//     window.scrollWithDatumH(document.querySelector('.module_item .carousel'), 4, direction);
-//   }
-// }
-
-// const menu_items = [
-//   {index:1, src_nor: "/img/lnb_icon_my_nor.png", src_foc: "/img/lnb_icon_my_foc.png", text:"마이메뉴"},
-//   {index:2, src_nor: "/img/lnb_icon_search_nor.png", src_foc: "/img/lnb_icon_search_foc.png", text:"검색"},
-//   {index:3, src_nor: "/img/lnb_icon_home_nor.png", src_foc: "/img/lnb_icon_home_foc.png", text:"홈"},
-//   {index:4, src_nor: "/img/lnb_icon_live_nor.png", src_foc: "/img/lnb_icon_live_foc.png", text:"지금하는 방송"},
-//   {index:5, src_nor: "/img/lnb_icon_schedule_nor.png", src_foc: "/img/lnb_icon_schedule_foc.png", text:"편성표"},
-//   {index:6, src_nor: "/img/lnb_icon_best_nor.png", src_foc: "/img/lnb_icon_best_foc.png", text:"베스트"},
-// ]
-
-// function MenuLnb(props) {
-//   let menu;
-//   if(props.index === 2){
-//     menu = 
-//     <>
-//       <div className="menu">
-//         <div className="icon">
-//           <img className="nor" src={props.src_nor} alt="" />
-//           <img className="foc" src={props.src_foc} alt="" />
-//         </div>
-//         <span>{props.text}</span>
-//       </div>
-//       <hr />
-//     </>
-//   } else {
-//       menu = 
-//       <>
-//         <div className="menu">
-//           <div className="icon">
-//             <img className="nor" src={props.src_nor} alt="" />
-//             <img className="foc" src={props.src_foc} alt="" />
-//           </div>
-//           <span>{props.text}</span>
-//         </div>
-//       </>
-//     }
-//   return menu; 
-// }
-
-// function Lnb(){
-//   return (
-//     <div className="lnb">
-//       <div className="lnb_float">
-//         {menu_items.map(menu_item => <MenuLnb key={menu_item.index} index={menu_item.index} src_nor={menu_item.src_nor} src_foc={menu_item.src_foc} text={menu_item.text} />)}
-//       </div>
-//     </div>
-//   )
-// }
-
 function SetNowPlay_3() {
   async function keyAction(event){
     const current_index = document.querySelector('.controllable.active').getAttribute('data-index');
@@ -174,11 +96,11 @@ function SetNowPlay_3() {
   
   function actionByEnter(index_num){
     ({
-      "1000" : ()=>{
-        window.location.href = '/buymobile';
+      "2000" : ()=>{
+        window.location.href = '/buymobile/2';
       },
-      "1001" : ()=>{
-        window.location.href = '/detail';
+      "2001" : ()=>{
+        window.location.href = '/detail/3';
       },
     })[index_num]();
   }
@@ -197,12 +119,12 @@ function SetNowPlay_3() {
   }
   
   const menu_items = [
-    {index:1, src_nor: "/img/lnb_icon_my_nor.png", src_foc: "/img/lnb_icon_my_foc.png", text:"마이메뉴"},
-    {index:2, src_nor: "/img/lnb_icon_search_nor.png", src_foc: "/img/lnb_icon_search_foc.png", text:"검색"},
-    {index:3, src_nor: "/img/lnb_icon_home_nor.png", src_foc: "/img/lnb_icon_home_foc.png", text:"홈"},
-    {index:4, src_nor: "/img/lnb_icon_live_nor.png", src_foc: "/img/lnb_icon_live_foc.png", text:"지금하는 방송"},
-    {index:5, src_nor: "/img/lnb_icon_schedule_nor.png", src_foc: "/img/lnb_icon_schedule_foc.png", text:"편성표"},
-    {index:6, src_nor: "/img/lnb_icon_best_nor.png", src_foc: "/img/lnb_icon_best_foc.png", text:"베스트"},
+    {index:0, src_nor: "/img/lnb_icon_my_nor.png", src_foc: "/img/lnb_icon_my_foc.png", text:"마이메뉴"},
+    {index:1, src_nor: "/img/lnb_icon_search_nor.png", src_foc: "/img/lnb_icon_search_foc.png", text:"검색"},
+    {index:2, src_nor: "/img/lnb_icon_home_nor.png", src_foc: "/img/lnb_icon_home_foc.png", text:"홈"},
+    {index:3, src_nor: "/img/lnb_icon_live_nor.png", src_foc: "/img/lnb_icon_live_foc.png", text:"지금하는 방송"},
+    {index:4, src_nor: "/img/lnb_icon_schedule_nor.png", src_foc: "/img/lnb_icon_schedule_foc.png", text:"편성표"},
+    {index:5, src_nor: "/img/lnb_icon_best_nor.png", src_foc: "/img/lnb_icon_best_foc.png", text:"베스트"},
   ]
   
   function MenuLnb(props) {
