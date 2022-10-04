@@ -155,16 +155,28 @@ const SetNowPlay_2 = React.forwardRef((props, ref) =>{
       
         if(next_num.toString().match(/^3/)){
           stopAllVideo();
+          checkScroll();
           carouselRef.current[next_num%1000].play();
           window.scrollWithDatumH(document.querySelector('.module_item .carousel'), 4, direction);
         }
       }
 
+      function checkScroll(){
+        const top_line = scrollRef.current.getBoundingClientRect().top;
+        const bottom_line = window.innerHeight;
+        const bottom_el_active = document.querySelector('.carousel__item.active').getBoundingClientRect().bottom;
+        console.log(top_line);
+        console.log(bottom_el_active);
+        console.log(scrollRef.current.scrollTop );
+        console.log( bottom_line + scrollRef.current.scrollTop  );
+        if(bottom_el_active > bottom_line + scrollRef.current.scrollTop) {
+          scrollRef.current.scrollTop =  bottom_el_active - bottom_line + 100;
+          // scrollRef.current.scrollTo({top: bottom_el_active - screen_height + 100, behavior: 'smooth' });
+        } 
+        // else if(bottom_el_active < )
+      };
+
       function stopAllVideo(){
-        // videoRef.current.forEach((item)=>{
-        //   console.log(item);
-        //   item.pause();
-        // })
         carouselRef.current.forEach((item)=>{
           item.load();
         })
@@ -174,6 +186,7 @@ const SetNowPlay_2 = React.forwardRef((props, ref) =>{
       const params = useParams();
       const location = useLocation();
       const keydownRef = useRef(null);
+      const scrollRef = useRef(null);
       const videoRef = useRef([]);
       const carouselRef = useRef([]);
 
@@ -194,7 +207,7 @@ const SetNowPlay_2 = React.forwardRef((props, ref) =>{
     return (
         <>
             <Gnb></Gnb>
-            <div className="main_content_2" >
+            <div className="main_content_2" ref={scrollRef}>
                 <div className="module_a2 module_play_top3">
                     <div className="wrapper_title">
                         <span>많이 보는 방송</span><span>TOP 3</span>

@@ -1058,6 +1058,7 @@ article.popup>section {
   overflow-y: scroll;
   background-color: rgba(17, 20, 36, 1);
   padding-bottom: 150px;
+  scroll-behavior: smooth;
 }
 
 .module_a2 {
