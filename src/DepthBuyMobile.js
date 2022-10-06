@@ -56,6 +56,7 @@ function DepthBuyMobile() {
               });
         }
     })
+    require('./reset.css');
 
     return (
         <article className="popup">

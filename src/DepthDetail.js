@@ -1,5 +1,4 @@
 import React from "react";
-
 import { useRef, useEffect } from 'react';
 import useScript from "./hooks/useScript"
 import { useLocation, useParams } from "react-router-dom";
@@ -132,6 +131,7 @@ function DepthDetail() {
           document.removeEventListener('keydown', keyAction)
         }
       });
+      require('./reset.css');
   return (
     <article className="detail">
         <section>

@@ -522,6 +522,8 @@ article.now_play {
 /* detail */
 article.detail {
   background: #080D19;
+  width: 100vw;
+  height: 100vh;
 }
 
 .detail>section {
@@ -884,6 +886,8 @@ article.detail {
 /* popup */
 article.popup {
   background: #080D19;
+  width: 100vw;
+  height: 100vh;
 }
 
 
