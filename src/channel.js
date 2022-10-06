@@ -194,6 +194,7 @@ class Channel extends React.Component {
     RemoteEffect();
     return (
       <Fragment>
+        <Navigator />
         <section className='channel_wrapper'>
           <div className='date_gnb'>
             {dateArray.map(element => (<DateNavigator day={element.day} date={element.date} line={element.line} focus={element.focus}/>))}

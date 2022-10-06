@@ -148,6 +148,7 @@ class ChannelMenu extends React.Component {
         RemoteEffect();
         return (
             <Fragment>
+                <Navigator />
                 <section className="channel_menu_wrapper">
                     <div className='channel_menu_list'>
                         <object className="bubble" data={bubble}></object>

@@ -58,7 +58,7 @@
     background: #EEEEEE !important;
     color: #111424 !important;
     border-radius: 46px;
-    height: 43px;
+    /* height: 43px; */
     transition: 0.5s all;
 }
 

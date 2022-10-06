@@ -35,7 +35,7 @@ function SetNowPlay_1() {
       ({
         "ArrowUp" : ()=>{
           if(islnb.current === false){
-            next_num = parseInt(parseInt(current_index)/1000)*1000 - 1000
+            next_num = parseInt(parseInt(current_index)/1000)*1000 - 1000;
           } else {
             next_num = parseInt(current_index) - 1;
           }
@@ -43,10 +43,14 @@ function SetNowPlay_1() {
         "ArrowRight" : ()=>{
           if(islnb.current === false){
             next_num = parseInt(current_index) + 1;
-          } else {
+          }
+          else {
             islnb.current = false;
             lnbRef.current.classList.remove('expanded');
             next_num = 3000;
+          }
+          if(parseInt(current_index) === 1002) {
+            window.location.href = '/channel';
           }
         },
         "ArrowDown" : ()=>{
@@ -156,7 +160,7 @@ function SetNowPlay_1() {
   const titleRef = useRef(null);
   const discountRef = useRef(null);
   const priceRef = useRef(null);
-  const ref =useRef({videoRef,logoRef, titleRef, discountRef, priceRef })
+  const ref =useRef({videoRef,logoRef, titleRef, discountRef, priceRef });
 
   useEffect(()=>{
     if(status === "ready") {

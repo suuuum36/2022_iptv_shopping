@@ -261,6 +261,9 @@ function RemoteEffect() {
                         window.location.href = './channel';
                     }
                 }
+                if(num === 1001) {
+                    window.location.href = 'home/1';
+                }
             },
             "Enter" : ()=>{
                 ActionByEnter(current_index);
