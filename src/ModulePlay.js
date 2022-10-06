@@ -2,9 +2,9 @@ import React, { useEffect, useRef } from "react"
 
 
 const Module_play = React.forwardRef((props, ref)=>{
-    console.log(ref);
-    // const videoRef = useRef(null);
-    const videoRef = ref;
+    console.log(props);
+    // const videoRef = ref;
+    const {videoRef,logoRef, titleRef, discountRef, priceRef } = ref.current;
     const progressRef = useRef(null);
     const isListenerAttached = useRef(false);
     function timeUpdate(){
@@ -46,17 +46,17 @@ const Module_play = React.forwardRef((props, ref)=>{
                 </div>
                 <div className="middle">
                     <div className="logo">
-                        <img src="/img/logo_gs_shop_1.png" alt="" />
+                        <img ref={logoRef} src="/img/logo_gs_shop_1.png" alt="" />
                     </div>
                     <div className="text_item">
-                        <p>바이브랩 5분 솔루션 울트라 프로틴 리페어 헤어팩 3종 세트 1+1</p>
+                        <p ref={titleRef}>바이브랩 5분 솔루션 울트라 프로틴 리페어 헤어팩 3종 세트 1+1</p>
                     </div>
                     <div className="module_text_price">
-                        <span>50%</span><span><span>29,900</span>원</span><span></span> 
+                        <span ref={discountRef}>50%</span><span><span ref={priceRef}>29,900</span>원</span><span></span> 
                     </div>
                 </div>
                 <div className="bottom wrapper_controllable">
-                    <div className="button controllable active">
+                    <div className="button controllable">
                         <div className="icon">
                             <img src="/img/ic_mobile_withtext.png" alt="" className="nor" />
                             <img src="/img/ic_mobile_withtext_foc.png" alt="" className="foc" />

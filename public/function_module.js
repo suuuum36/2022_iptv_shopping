@@ -87,7 +87,7 @@ function checkControllable(){
     })
 }
 
-function scrollWithDatumH(target_el, datum_value, direction){
+function scrollWithDatumH(target_el, datum_value, gap, direction){
     const counts = target_el.childNodes.length;
     const num_nth = parseInt(document.querySelector('.active').getAttribute('data-index'))%1000;
     const move_value = target_el.childNodes[0].getBoundingClientRect().width;
@@ -97,11 +97,37 @@ function scrollWithDatumH(target_el, datum_value, direction){
     if(direction === 'ArrowRight') {
         point_start = datum_value - 1;
         point_end = counts - datum_value + 1;
-        total_move_distance = (move_value+56)*(num_nth-datum_value + 1) - 56;
+        // total_move_distance = (move_value+56)*(num_nth-datum_value + 1) - 56;
+        total_move_distance = (move_value+gap)*(num_nth-datum_value + 1) - gap;
     } else if (direction === "ArrowLeft") {
         point_start = datum_value - 2;
         point_end = counts - datum_value;
-        total_move_distance = (move_value+56)*(num_nth-datum_value + 1);
+        total_move_distance = (move_value+gap)*(num_nth-datum_value + 1);
+        // total_move_distance = (move_value+56)*(num_nth-datum_value + 1);
+    }
+    if(point_start < num_nth && num_nth < point_end) {
+        target_el.style.transform = `translate(-${total_move_distance}px)`;
+    }
+}
+
+function scrollWithDatumHType2(target_el, datum_value, gap, direction){
+    const counts = target_el.childNodes.length;
+    const num_nth = parseInt(document.querySelector('.active').getAttribute('data-index'))%1000;
+    const move_value = target_el.childNodes[0].getBoundingClientRect().width;
+    let point_start;
+    let point_end;
+    let total_move_distance;
+    if(direction === 'ArrowRight') {
+        point_start = datum_value - 1;
+        point_end = counts - datum_value + 1;
+        // total_move_distance = (move_value+56)*(num_nth-datum_value + 1) - 56;
+        // total_move_distance = (move_value+gap)*(num_nth-datum_value + 1) - gap + 622;
+        total_move_distance = (move_value+gap)*(num_nth-datum_value + 1) - gap + 622;
+    } else if (direction === "ArrowLeft") {
+        point_start = datum_value - 2;
+        point_end = counts - datum_value;
+        total_move_distance = (move_value+gap)*(num_nth-datum_value)+392;
+        // total_move_distance = (move_value+56)*(num_nth-datum_value + 1);
     }
     if(point_start < num_nth && num_nth < point_end) {
         target_el.style.transform = `translate(-${total_move_distance}px)`;

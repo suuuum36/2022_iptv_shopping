@@ -76,6 +76,10 @@ article.now_play {
   border-radius: 43px;
 }
 
+.gnb .menu_text.pinned {
+  background-color: #2A2C3E;
+}
+
 .gnb .menu_text.active {
   background: #FFFFFF;
 }
@@ -264,6 +268,7 @@ article.now_play {
   line-height: 49px;
   letter-spacing: -0.2px;
   color: #A9A9A9;    
+  height: 98px;
 }
 
 .set_info>.middle>.module_text_price {
@@ -439,6 +444,7 @@ article.now_play {
 
 .module_item .carousel__item>.img_item>img {
   width: 164px;
+  border-radius: 8px;
 }
 
 .module_item .carousel__item.active>.img_item::after {
@@ -1075,6 +1081,11 @@ article.popup>section {
   align-items: center;
 }
 
+.module_a2>.wrapper_title>img {
+  width: 42px;
+  margin-right: 12px;
+}
+
 .module_a2>.wrapper_title>span:nth-of-type(1) {
   font-family: 'Yoon Gothic 700';
   font-style: normal;
@@ -1251,6 +1262,12 @@ article.popup>section {
   color: #A9A9A9;
   padding-top: 12px;
   transition: 0.5s ease-in-out;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  word-break: break-word;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
 }
 
 .module_play_top3 .wrapper_set_play.active>.title {
@@ -1263,6 +1280,7 @@ article.popup>section {
   width: max-content;
   flex-wrap: nowrap;
   transition: 0.5s ease-in-out;
+  will-change: auto;
 }
 
 .module_item_expand .carousel>.carousel__item {
@@ -1280,6 +1298,9 @@ article.popup>section {
   height: 440px;
   border-radius: 8px;
   transition: 0.3s ease-in-out;
+  will-change: auto;
+  background-color: white;
+  backface-visibility: hidden;
 }
 
 .module_item_expand .carousel>.carousel__item.active .img {
@@ -1301,6 +1322,13 @@ article.popup>section {
   display: flex;
   flex-direction: column;
   justify-content: end;
+}
+
+.module_item_expand .carousel>.carousel__item>.layer_info>.tag_live {
+  position: absolute;
+  top: 21px;
+  right: 19px;
+  width: 98px;
 }
 
 .module_item_expand .carousel__item>.layer_info>.logo>img {
@@ -1477,7 +1505,7 @@ section.home_3>.explore {
   position: relative;
 }
 
-.lnb>.lnb_float>.menu_4::before {
+.lnb>.lnb_float>.menu_3::before {
   content: '';
   position: absolute;
   top: 0;
@@ -1514,12 +1542,12 @@ section.home_3>.explore {
 .lnb>.lnb_float>.menu>.icon>img.foc { opacity: 0; }
 .lnb>.lnb_float>.menu.active>.icon>img.foc { opacity: 1;}
 
-.lnb>.lnb_float>.menu.menu_4>.icon>img.nor { opacity: 0;}
-.lnb>.lnb_float>.menu.menu_4>.icon>img.foc { opacity: 1;}
-.lnb>.lnb_float.expanded>.menu.menu_4>.icon>img.nor { opacity: 1;}
-.lnb>.lnb_float.expanded>.menu.menu_4.active>.icon>img.nor { opacity: 0;}
-.lnb>.lnb_float.expanded>.menu.menu_4>.icon>img.foc { opacity: 0;}
-.lnb>.lnb_float.expanded>.menu.menu_4.active>.icon>img.foc { opacity: 1;}
+.lnb>.lnb_float>.menu.menu_3>.icon>img.nor { opacity: 0;}
+.lnb>.lnb_float>.menu.menu_3>.icon>img.foc { opacity: 1;}
+.lnb>.lnb_float.expanded>.menu.menu_3>.icon>img.nor { opacity: 1;}
+.lnb>.lnb_float.expanded>.menu.menu_3.active>.icon>img.nor { opacity: 0;}
+.lnb>.lnb_float.expanded>.menu.menu_3>.icon>img.foc { opacity: 0;}
+.lnb>.lnb_float.expanded>.menu.menu_3.active>.icon>img.foc { opacity: 1;}
 
 .lnb>.lnb_float>.menu>span {
   font-family: 'Yoon Gothic 700';
@@ -1567,4 +1595,9 @@ section.home_3>.explore {
   margin: 20px 0;
   background: rgba(238, 238, 238, 0.3);
   border-radius: 999px;
+}
+/* 1005 추가 */
+.main_content_2 .module_play_top3 .set_play>video {
+  height: 320px;
+  object-fit: fill;
 }

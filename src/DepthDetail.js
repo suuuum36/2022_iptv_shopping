@@ -111,7 +111,7 @@ function DepthDetail() {
         }
       
         if(next_num.toString().match(/^3/)){
-          window.scrollWithDatumH(document.querySelector('.module_item .carousel'), 4, direction);
+          window.scrollWithDatumH(document.querySelector('.module_item .carousel'), 4, 56, direction);
         }
       }
       const islnb = useRef(false);
@@ -224,7 +224,7 @@ function DepthDetail() {
                                         <span>1분 전</span> TV화면에서 알려드립니다.
                                     </p>
                                 </div>
-                                <div className="button controllable active">
+                                <div className="button controllable">
                                     <div className="icon">
                                         <img src="/img/ic_popup_mobile_nor.png" alt="" className="nor" />
                                         <img src="/img/ic_popup_mobile_foc.png" alt="" className="foc" />

@@ -8,6 +8,22 @@ import useScript from "./hooks/useScript"
 import { useLocation, useParams } from "react-router-dom";
 import { useState } from "react";
 
+const carousel_items = [
+  {index: 0, src: '/img/sample/0_video.mp4', logo: '/img/sample/0_logo.png', price_final: '390,000', price_discount: '10%', price_original:'450,000', title:'[TV쇼핑]코치 첼레스트 백', poster: '/img/sample/0_poster.png' },
+  {index: 1, src: '/img/sample/1_video.mp4', logo: '/img/sample/1_logo.png', price_final: '89,100', price_discount: '19%', price_original:'99,000', title:'[TV쇼핑][뱅뱅최신상] 16FW 웜 이지 보아퍼 데님팬츠 3종(여) Ver.3', poster: '/img/sample/1_poster.png' },
+  {index: 2, src: '/img/sample/2_video.mp4', logo: '/img/sample/2_logo.png', price_final: '278,000', price_discount: '0%', price_original:'278,000', title:'에바큐브 더 컬렉션', poster: '/img/sample/2_poster.png' },
+  {index: 3, src: '/img/sample/3_video.mp4', logo: '/img/sample/3_logo.png', price_final: '79,000', price_discount: '0%', price_original:'79,000', title:'빼자까페 런칭방송', poster: '/img/sample/3_poster.png' },
+  {index: 4, src: '/img/sample/4_video.mp4', logo: '/img/sample/4_logo.png', price_final: '624,000', price_discount: '0%', price_original:'624,000', title:'[휴렉] TV방영 히어로 음식물처리기(혼합형) HD-9000DH (에어컨 탈취제 증정)', poster: '/img/sample/4_poster.png' },
+  {index: 5, src: '/img/sample/5_video.mp4', logo: '/img/sample/5_logo.png', price_final: '79,900', price_discount: '0%', price_original:'79,900', title:'헉슬리 쿠션 오운 애티튜드', poster: '/img/sample/5_poster.png' },
+  {index: 6, src: '/img/sample/6_video.mp4', logo: '/img/sample/6_logo.png', price_final: '38,800', price_discount: '10%', price_original:'42,680', title:'셀럽by재클린 시즌2 살롱 새치커버 염색약 8박스', poster: '/img/sample/6_poster.png' },
+  {index: 7, src: '/img/sample/7_video.mp4', logo: '/img/sample/7_logo.png', price_final: '69,800', price_discount: '0%', price_original:'69,800', title:'더맑은 KF94 마스크 새부리형 컬러 마스크', poster: '/img/sample/7_poster.png' },
+  {index: 8, src: '/img/sample/8_video.mp4', logo: '/img/sample/8_logo.png', price_final: '1,090,000', price_discount: '0%', price_original:'1,090,000', title:'현대의료기 천연석 온열 돌침대', poster: '/img/sample/8_poster.png' },
+  {index: 9, src: '/img/sample/9_video.mp4', logo: '/img/sample/9_logo.png', price_final: '119,000', price_discount: '0%', price_original:'119,000', title:'라니앤라이프 라니 올리고 가스 와이드 그릴 고급형', poster: '/img/sample/9_poster.png' },
+  {index: 10, src: '/img/sample/10_video.mp4', logo: '/img/sample/10_logo.png', price_final: '57,510', price_discount: '10%', price_original:'63,000', title:'블랙시카 마이크로바이옴 모공 클렌저/ 숯카마클렌저', poster: '/img/sample/10_poster.png' },
+  {index: 11, src: '/img/sample/11_video.mp4', logo: '/img/sample/11_logo.png', price_final: '59,000', price_discount: '0%', price_original:'59,000', title:'푸쉬앤건 플레어핏 썸머 데님 히트상품', poster: '/img/sample/11_poster.png' },
+  {index: 12, src: '/img/sample/12_video.mp4', logo: '/img/sample/12_logo.png', price_final: '60,820', price_discount: '12%', price_original:'69,900', title:'[A+G] 엣지 WINTER19 판초 니트 풀오버 4종', poster: '/img/sample/12_poster.png' },
+];
+
 function SetNowPlay_3() {
   async function keyAction(event){
     const current_index = document.querySelector('.controllable.active').getAttribute('data-index');
@@ -97,7 +113,7 @@ function SetNowPlay_3() {
   function actionByEnter(index_num){
     ({
       "2000" : ()=>{
-        window.location.href = '/buymobile/2';
+        window.location.href = '/buymobile/3';
       },
       "2001" : ()=>{
         window.location.href = '/detail/3';
@@ -114,7 +130,8 @@ function SetNowPlay_3() {
     }
   
     if(next_num.toString().match(/^3/)){
-      window.scrollWithDatumH(document.querySelector('.module_item .carousel'), 4, direction);
+      changeVideoInfo(next_num%100);
+      window.scrollWithDatumH(document.querySelector('.module_item .carousel'), 4, 56, direction);
     }
   }
   
@@ -165,6 +182,14 @@ function SetNowPlay_3() {
       </div>
     )
   }
+
+  function changeVideoInfo(index){
+    videoRef.current.src = carousel_items[index].src;
+    logoRef.current.src = carousel_items[index].logo;
+    titleRef.current.innerText = carousel_items[index].title;
+    discountRef.current.innerText = carousel_items[index].price_discount;
+    priceRef.current.innerText = carousel_items[index].price_final;
+  }
   
 
   const islnb = useRef(false);
@@ -173,11 +198,17 @@ function SetNowPlay_3() {
   const location = useLocation();
   const keydownRef = useRef(null);
   const lnbRef = useRef(null);
+  const videoRef = useRef(null);
+  const logoRef = useRef(null);
+  const titleRef = useRef(null);
+  const discountRef = useRef(null);
+  const priceRef = useRef(null);
+  const ref =useRef({videoRef,logoRef, titleRef, discountRef, priceRef })
 
   useEffect(()=>{
     if(status === "ready") {
       console.log('useeffect');
-      console.log(keydownRef.current);
+      changeVideoInfo(0);
       defaultSetting();
       document.addEventListener('keydown', keyAction);
     }
@@ -190,7 +221,7 @@ function SetNowPlay_3() {
       <section className="home_3" ref={keydownRef}>
         <Lnb />
         <div className="explore">
-            <ModulePlay type={'type_b'}></ModulePlay>
+            <ModulePlay ref={ref} type={'type_b'}></ModulePlay>
             <ModuleItem type={'type_b'}></ModuleItem>
         </div>
       </section>
