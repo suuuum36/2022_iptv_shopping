@@ -1,0 +1,269 @@
+.channel_menu_wrapper {
+    position: relative;
+    width: 100%;
+    height: calc(1080px - 152px);
+    box-sizing: border-box;
+    background: #111424;
+    flex-direction: column;
+    gap: 15px;
+    padding-top: 32px;
+    overflow: hidden;
+}
+
+.channel_menu_wrapper .channel_menu_list {
+    position: relative;
+    background: #111424;
+    padding-bottom: 1px;
+}
+
+.channel_menu_wrapper .product_wrapper {
+    min-width: 682px;
+    height: 285px;
+    background: #2A2C3E;
+    border-radius: 20px;
+    gap: 32px;
+    padding-right: 32px;
+    transform-origin: 0 50%;
+}
+
+.channel_menu_wrapper .product_wrapper.active {
+    z-index: 5;
+    box-shadow: none;
+}
+
+.channel_menu_wrapper .product_wrapper.active:before {
+    content: '';
+    position: absolute;
+    min-width: 682px;
+    height: 285px;
+    border-radius: 20px;
+    padding-right: 32px;
+    left: 0;
+    top: 0;
+    box-shadow:
+    inset 0px 0px 0px 6px #eeeeee,
+    0px 0px 20px rgba(42, 44, 62, 0.32);
+    z-index: 5;
+    transition: 0.5s all;
+}
+
+.channel_menu_wrapper .product_img {
+    width: 285px;
+    height: 285px;
+}
+
+.channel_menu_wrapper .product_img > img {
+    border-radius: 20px 0px 0px 20px;
+}
+
+.channel_menu_wrapper .logo {
+    height: 35px;
+    width: max-content;
+    margin-top: 9px;
+}
+
+.channel_menu_wrapper .live_title {
+    width: 100%;
+    align-items: center;
+}
+
+.channel_menu_wrapper .live_text {
+    font-size: 24px;
+    align-items: initial;
+}
+
+.channel_menu_wrapper .live_text.number {
+    font-size: 30px;
+}
+
+.channel_menu_wrapper .live_label {
+    box-sizing: border-box;
+    width: max-content;
+    padding: 4px 12px;
+}
+
+/*방송 상태별 색상*/
+
+.channel_menu_wrapper .live_label.live {
+    background: #FA2828;
+}
+
+.channel_menu_wrapper .live_label.finished {
+    background: #777777;
+}
+
+.channel_menu_wrapper .live_label.tomorrow {
+    background: #965ACE;
+}
+
+.channel_menu_wrapper .live_label.today {
+    background: #EF3484;
+}
+
+.channel_menu_wrapper .live_label.reserved {
+    background: #2498D9;
+}
+
+
+.channel_menu_wrapper .reserve_btn {
+    position: absolute;
+    right: 0;
+    right: 32px;
+    margin-top: 0px;
+    width: 36px;
+    height: 36px;
+    border-radius: 100%;
+}
+
+.channel_menu_wrapper .product_info {
+    gap: 0px;
+    padding-top: 20px;
+}
+
+.channel_menu_wrapper .price_wrapper {
+    display: flex;
+    color: white;
+    align-items: baseline;
+    gap: 12px;
+    font-size: 20px;
+    line-height: 36px;
+    color: #D6D6D6;
+    margin-top: 10px;
+}
+
+.channel_menu_wrapper .sale_text {
+    font-family: 'Roboto Bold';
+    font-size: 42px;
+    font-weight: 700;
+    color: #EF3484;
+}
+
+.channel_menu_wrapper .price {
+    display: flex;
+    gap: 3px;
+    align-items: baseline;
+}
+
+.channel_menu_wrapper .price .number {
+    font-family: 'Roboto Bold';
+    font-size: 42px;
+    font-weight: 500;
+    color: #EEEEEE;
+}
+
+.channel_menu_wrapper .product_name {
+    max-width: 333px;
+    font-size: 24px;
+    margin-top: 4px;
+    line-height: 34px;
+    color: #A9A9A9;
+}
+
+.channel_menu_wrapper .product_tag {
+    width: max-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #EF3484;
+    border-radius: 4px;
+    color: #EF3484;
+    font-size: 20px;
+    margin-top: 4px;
+    padding: 4px 8px;
+}
+
+/*상품 섹션*/
+.channel_menu_wrapper .section_wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    overflow: hidden;
+    margin-bottom: 15px;
+}
+.channel_menu_wrapper .product_list {
+    height: 305px;
+    display: flex;
+    /* overflow-x: scroll; */
+    margin-left: 72px;
+    transition:  0.5s all;
+}
+
+.channel_menu_wrapper .section_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0px 72px;
+}
+
+.channel_menu_wrapper .section_title {
+    font-size: 26px;
+    color: #EEEEEE;
+}
+
+.channel_menu_wrapper .product_index {
+    width: max-content;
+    height: 40px;
+    background: #292B3A;
+    border-radius: 20px;
+    padding: 0px 16px;
+    display: flex;
+    align-items: center;
+    opacity: 0;
+}
+
+.channel_menu_wrapper .product_index span {
+    font-family: 'Roboto Regular';
+    font-size: 26px;
+    color: #EEEEEE;
+    opacity: 0.7;
+}
+
+.channel_menu_wrapper .product_index span.current_index {
+    font-family: 'Roboto Medium';
+    color: white;
+}
+
+.channel_menu_wrapper .btn_top {
+    width: 245px;
+    height: 86px;
+    background: #2A2C3E;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    justify-content: center;
+    font-family: 'Yoon Gothic 770';
+    font-size: 30px;
+    color: #A9A9A9;
+    margin: 70px auto 135px auto;
+    transition: 0.5s all;
+}
+
+.channel_menu_wrapper .btn_top.controllable.active {
+    transform: scale(1.14);
+    background: white;
+    color: #080D19;
+    transition: 0.5s all;
+}
+
+.channel_menu_wrapper .btn_top.controllable.active > svg {
+    fill: #080D19;
+}
+
+.channel_menu_wrapper .bubble {
+    opacity: 0;
+    position: absolute;
+    left: 411px;
+    top: -28px;
+    transition: 0.3s all;
+}
+
+.channel_menu_wrapper .bubble.active {
+    opacity: 1;
+    transition: 0.3s all;
+}
+
+.channel_menu_wrapper .product_index[data-index="13"] {
+    opacity: 1;
+}

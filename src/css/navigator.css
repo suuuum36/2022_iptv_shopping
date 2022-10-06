@@ -1,0 +1,70 @@
+.menu_navigator {
+    width: 100%;
+    height: 152px;
+    background: #080D19;
+    display: flex;
+    align-items: center;
+}
+
+.left_gnb {
+    display: flex;
+    gap: 40px;
+    width: 390px;
+    padding: 0px 40px;
+    justify-content: center;
+}
+
+.navigator_left_btn {
+    width: 104px;
+    height: 104px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.navigator_btn > img {
+    width: 100%;
+    height: 100%;
+}
+
+.section_line {
+    width: 2px;
+    background: #777777;
+    border-radius: 3px;
+}
+
+.right_gnb {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 0px 40px;
+}
+
+.navigator_right_btn {
+    font-family: 'Yoon Gothic 770';
+    font-size: 32px;
+    color: #777777;
+    padding: 24px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    border-radius: 46px;
+    transition: 0.5s all;
+}
+
+.navigator_right_btn.active {
+    background: #EEEEEE !important;
+    color: #111424 !important;
+    border-radius: 46px;
+    height: 43px;
+    transition: 0.5s all;
+}
+
+.navigator_right_btn.focus {
+    color: white;
+    border-radius: 46px;
+    background: #2A2C3E;
+    transition: 0.5s all;
+}

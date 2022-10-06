@@ -1,0 +1,503 @@
+:root {
+    --date-height : 928px;
+    --date-width : 178px; 
+}
+
+.red {
+    color : #FA2828;
+}
+
+.number {
+    font-size: 32px;
+    font-family: 'Roboto Medium' !important;
+}
+
+.yoon_bold {
+    font-family: 'Yoon Gothic 770';
+}
+
+.channel_wrapper {
+    display: flex;
+    background: #080D19;
+}
+
+.date_gnb {
+    width: var(--date-width);
+    min-height: var(--date-height);
+    display: flex;
+    flex-direction: column;
+    background: #080D19;
+    justify-content: space-around;
+}
+
+.date_wrapper {
+    position: relative;
+    font-weight: 400;
+    font-size: 22px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    color: #777777;
+    height: calc(var(--date-height) / 4);
+}
+
+.date_focus_wrapper {
+    width: 130px;
+    height: 188px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-right: auto;
+    margin-left: auto;
+    transition: 0.3s all;
+}
+
+.date_focus_wrapper.active {
+    color: #EEEEEE;
+    border: 6px solid #EEEEEE;
+    border-radius: 8px;
+    transition: 0.3s all;
+}
+
+.date_focus_wrapper.focus {
+    color: #EEEEEE;
+    transition: 0.3s all;
+}
+
+.focus_line {
+    visibility: hidden;
+    position: absolute;
+    height: 52px;
+    width: 6px;
+    border-radius: 3px;
+    background: #EF3484;
+    border-radius: 3px;    
+    left: 16px;
+}
+
+.date_focus_wrapper.focus .focus_line{
+    visibility: visible;
+}
+
+.date_text {
+    font-size: 34px;
+}
+
+.date_text span {
+    font-family: 'Roboto Regular';
+    font-size: 38px;
+}
+
+.date_text.focus,.date_text.active {
+    font-family: 'Yoon Gothic 770';
+}
+
+.date_text.focus span,.date_text.active span{
+    font-family: 'Roboto Medium';
+}
+
+.date_line {
+    height: 2px;
+    width: 62px;
+    background: #2A2C3E;
+    margin-right: auto;
+    margin-left: auto;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+}
+
+/*list_wrapper product_day overflow scroll*/
+.list_wrapper {
+    position: relative;
+    width: calc(100% - 178px);
+    height: var(--date-height);
+    box-sizing: border-box;
+    background: #111424;
+    overflow: hidden;
+}
+
+.product_list_wrapper {
+    position: relative;
+    box-sizing: border-box;
+}
+
+.product_day {
+    width: 2020px;
+    padding-right: 30px;
+    /* height: calc(var(--date-height) - 103px); */
+    box-sizing: border-box;
+    /* overflow: hidden; */
+    transition: 0.5s all;
+    transform: translate(0px, 0px);
+}
+
+.product_block {
+    max-height: 1250px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    gap: 46px;
+    padding-bottom: 60px;
+    margin-left: 60px;
+    margin-top: 30px;
+}
+
+.logo_wrapper {
+    position: sticky;
+    height: 75px;
+    width: calc(100% + 500px);
+    background: #111424;
+    display: flex;
+    gap: 471px;
+    align-items: flex-end;
+    z-index: 2;
+    padding-bottom: 5px;
+    padding-left: 60px;
+    transition: 0.5s all;
+}
+
+.logo_wrapper > img {
+    width: 190px;
+    height: auto;
+}
+
+/*상품 정보 카드*/
+.product_wrapper {
+    position: relative;
+    width: 598px;
+    height: 220px;
+    display: flex;
+    gap: 30px;
+    transition: 0.5s all;
+    margin-right: 15px;
+    z-index: 2;
+}
+
+.product_wrapper.live {
+    background: #2A2C3E;
+    border-radius: 8px;   
+}
+
+.product_img {
+    position: relative;
+    height: 220px;
+    width: 220px;
+    align-items: center;
+    justify-content: center;
+}
+
+.product_img > img {
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+}
+
+.product_info {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-top: 22px;
+}
+
+.product_time {
+    font-family: 'Yoon Gothic 770';
+    font-size: 26px;
+    color: #EEEEEE;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.product_time span {
+    display: flex;
+    align-items: self-start;
+}
+
+.product_name {
+    max-width: 318px;
+    word-break: keep-all;
+    font-weight: 400;
+    font-size: 26px;
+    color: #777777;
+    line-height: 38px;
+}
+
+.block_line {
+    position: absolute;
+    top: 0px;
+    left: 688px;
+    width: 2px;
+    height: 100%;
+    background: #2A2C3E;
+}
+
+.block_line:nth-of-type(2) {
+    left: 1348px;
+}
+
+/*라이브 방송 타이틀*/
+.live_title {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.live_label {
+    height: 36px;
+    width: 83px;
+    border-radius: 18px;
+    background: #FA2828;
+    border-radius: 18px;
+    font-family: 'Yoon Gothic 770';
+    font-size: 20px;
+    color: #EEEEEE;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.live_text {
+    font-size: 26px;
+    color: #D6D6D6;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.live_text span {
+    display: flex;
+    align-items: self-start;
+}
+
+/*관심상품 버튼*/
+.favorite_btn {
+    position: absolute;
+    height: 46px;
+    width: 158px;
+    border-radius: 23px;
+    background: rgba(42, 44, 62, 0.6);
+    right: 0;
+    left: 0;
+    margin-right: auto;
+    margin-left: auto;
+    bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Yoon Gothic 770';
+    font-size: 22px;
+    color: #EEEEEE;
+    gap: 10px;
+}
+
+/*시청예약 버튼*/
+.reserve_btn {
+    height: 36px;
+    width: 131px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+    font-family: 'Yoon Gothic 770';
+    font-size: 20px;
+    color: #EEEEEE;
+    background: #494D6D;
+    margin-top: 18px;
+    transition: 0.5s all;
+}
+
+/*하단 인디케이터*/
+.gradient_bg {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 572px;
+    height: 232px;
+    z-index: 10;
+}
+
+.gradient_bg > img {
+    width: 100%;
+    height: 100%;
+}
+
+.text_wrapper {
+    position: absolute;
+    right: 50px;
+    bottom: 30px;
+    font-size: 24px;
+    color: #9697A3;
+    display: flex;
+    gap: 3px;
+    align-items: baseline;
+}
+
+.text_wrapper .number {
+    font-size: 30px;
+}
+
+.text_wrapper.product {
+    align-items: center;
+    gap: 12px;
+}
+
+.text_wrapper .product_click {
+    width: 98px;
+    height: 34px;
+    background: #20212D;
+    border: 2px solid #9797A3;
+    border-radius: 34px;
+    font-family: 'Yoon Gothic 770';
+    font-size: 18px;
+    color: #9797A3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/*상품 카드 포커스 효과*/
+.product_wrapper.active {
+    visibility: visible;
+    transform: scale(1.14);
+    transition: 0.5s all;
+    box-shadow: 0px 0px 0px 6px #EEEEEE inset;
+    border-radius: 9px;
+}
+
+.product_wrapper.active .product_name {
+    color: white;
+    transition: 0.5s all;
+}
+.product_wrapper.active .reserve_btn {
+    margin-top: 5px;
+    transition: 0.5s all;
+}
+
+/*날짜 텍스트*/
+.date_section {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    font-size: 32px;
+    color: #EEEEEE;
+    margin-left: 60px;
+    margin-right: 60px;
+}
+
+.date_section .number {
+    font-size: 40px;
+}
+
+.date_section_text {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+
+.date_section_text span {
+    display: flex;
+    align-items: flex-start;
+}
+
+span.day_label {
+    width: 64px;
+    height: 36px;
+    background: #965ACE;
+    border-radius: 18px;
+    font-family: 'Yoon Gothic 770';
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 3px;
+}
+
+span.day_label.today {
+    background: #EF3484;
+}
+
+.date_section_line {
+    width: 100%;
+    height: 2px;
+    background: #EEEEEE;
+    opacity: 0.3;
+}
+
+/*Pip 플레이어 설정*/
+.product_wrapper.live.active {
+    height: 374px;
+    transform: scale(1.08);
+    border: 8px solid #EEEEEE;
+    margin-right: 0px;
+}
+
+.pip_player {
+    display: none;
+}
+
+.product_wrapper.live.active .pip_player {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 9px;
+}
+
+.product_wrapper.live.active .product_img{
+    display: none;
+}
+
+.product_wrapper.live.active .product_info{
+    display: none;
+}
+
+.product_wrapper.live.moved {
+    margin-top: 187px;
+    transition: 0.5s all;
+}
+
+/*무한루프용 fake active*/
+.product_wrapper.fake {
+    visibility: visible;
+    transform: scale(1.14);
+    transition: 0.5s all;
+    box-shadow: 0px 0px 0px 6px #EEEEEE inset;
+    border-radius: 9px;
+}
+
+.product_wrapper.fake .product_name {
+    color: white;
+    transition: 0.5s all;
+}
+.product_wrapper.fake .reserve_btn {
+    margin-top: 5px;
+    transition: 0.5s all;
+}
+
+.product_wrapper.live.fake {
+    height: 374px;
+    transform: scale(1.08);
+    border: 8px solid #EEEEEE;
+    margin-right: 0px;
+}
+
+.product_wrapper.live.fake .pip_player {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 9px;
+}
+
+.product_wrapper.live.fake .product_img{
+    display: none;
+}
+
+.product_wrapper.live.fake .product_info{
+    display: none;
+}
