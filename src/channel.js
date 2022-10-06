@@ -5,7 +5,7 @@ import channel_logo_2 from './img/channel/logo_2.png';
 import channel_logo_3 from './img/channel/logo_3.png';
 import favorite_btn from './img/channel/favorite.svg';
 import bell_btn from './img/channel/bell.svg';
-import sample_video from './video/SampleVideo.mp4';
+import sample_video from './video/video_01.mp4';
 import bottom_bg from './img/channel/bottom_bg.png'
 import {Navigator} from './Navigator';
 import {CheckControllable, RemoteEffect} from './function_remote';
@@ -138,7 +138,7 @@ const logoArray = [
 ]
 
 const prodcutArray1 = [
-  {url: require('./img/channel/product_1.png'), video: sample_video, favorite: true, live: true, live_time : '20', name : '네이더스 베이직 스트라이프 S/S 티셔츠 네이비 시…'},
+  {url: require('./img/channel/product_1.png'), video: sample_video, favorite: true, live: true, live_time : '20', name : '[TV쇼핑][뱅뱅최신상] 16FW 웜 이지 보아퍼 데님...'},
   {url: require('./img/channel/product_2.png'), meridiem:'오전', time_1: '10', time_2: '30', name : '블랭코브 나일론 백팩 DAYPACK 26 올리브 그…'},
   {url: require('./img/channel/product_3.png'), reserve: true, meridiem:'오전', time_1: '11', time_2: '45', name : '소니 All New Design 노이즈캔슬링 헤드폰(WH…'},
   {url: require('./img/channel/product_1.png'), meridiem:'오후', time_1: '1', time_2: '30', name : 'GS SHOP 네번째 상품 GS SHOP 네번째 상품'}
